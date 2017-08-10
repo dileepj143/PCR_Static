@@ -1,0 +1,230 @@
+﻿@model PCR.Onboarding.UI.Models.Policy
+@{
+    ViewData["Title"] = "Super Admin";
+}
+ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li>
+            <a href="/Administration/ManagePolicies">Manage Policies</a>
+        </li>
+        <li class="active">Edit Policy</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Edit Policy
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <div class="division-form">
+            <form class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form" style="margin-top:15px;">
+                <div class="form-group form-group col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                    <label for="inputEmail3" class="col-sm-5 col-sm-offset-1 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2 control-label no-padding-right">Title  :<sup style="color:red;">*</sup></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="Our code of conduct guides our business practices" id="inputEmail3">
+                    </div>
+                </div>
+                <div class="form-group form-group col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                    <label for="inputEmail3" class="col-sm-5 col-sm-offset-1 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2 control-label no-padding-right">Enter Policy Acknowledgement  :</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" placeholder="We are committed to the highest ethical standards as defined in our code of conduct. We train and certify every employee to promote compliance with these standards" cols="10" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="form-group form-group col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                    <label for="inputEmail3" class="col-sm-5 col-sm-offset-1 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2 control-label no-padding-right">Policy Order :</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="1" id="inputEmail3">
+                    </div>
+                </div>
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick="location.href = '/Administration/ManagePolicies'" class="btn btn-primary btn-md btnSearch">Save</button>
+                <button onclick="location.href = '/Administration/ManagePolicies'" class="btn btn-warning btn-md btnSearch">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+    <link href="~/assets/css/upload_policy.css" rel="stylesheet">
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>*@
+    @*<script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>*@
+    @*<script src="~/assets/js/uploadfile.min.js"></script>*@
+    <script src="~/assets/js/uploadfile.min.js"></script>
+    @*<script>
+	(function () {
+  $('#btnRight').click(function (e) {
+      var selectedOpts = $('#lstBox1 option:selected');
+      if (selectedOpts.length == 0) {
+          alert("Nothing to move.");
+          e.preventDefault();
+      }
+      $('#lstBox2').append($(selectedOpts).clone());
+      $(selectedOpts).remove();
+      e.preventDefault();
+  });
+  $('#btnLeft').click(function (e) {
+      var selectedOpts = $('#lstBox2 option:selected');
+      if (selectedOpts.length == 0) {
+          alert("Nothing to move.");
+          e.preventDefault();
+      }
+      $('#lstBox1').append($(selectedOpts).clone());
+      $(selectedOpts).remove();
+      e.preventDefault();
+  });
+}(jQuery));
+    </script>*@
+
+    @*<script>
+	(function () {
+  $('#btnRight2').click(function (e) {
+      var selectedOpts = $('#lstBox3 option:selected');
+      if (selectedOpts.length == 0) {
+          alert("Nothing to move.");
+          e.preventDefault();
+      }
+      $('#lstBox4').append($(selectedOpts).clone());
+      $(selectedOpts).remove();
+      e.preventDefault();
+  });
+  $('#btnLeft2').click(function (e) {
+      var selectedOpts = $('#lstBox4 option:selected');
+      if (selectedOpts.length == 0) {
+          alert("Nothing to move.");
+          e.preventDefault();
+      }
+      $('#lstBox3').append($(selectedOpts).clone());
+      $(selectedOpts).remove();
+      e.preventDefault();
+  });
+}(jQuery));
+    </script>*@
+
+    <script>
+
+$(document).ready(function()
+{
+    // To accept numerals only
+    $("#PolicyOrder").keypress(function (e) {
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        }
+        if ($("#PolicyOrder").val().length > 9) {
+            return false;
+        }
+    });
+    // Restrict special characters
+    // It will allow Underscore(_) symbol and characters only
+    $('#PolicyTitle').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z_ ]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+    });
+    // End Restrict special characters
+
+
+var settings = {
+    url: "YOUR_MULTIPE_FILE_UPLOAD_URL",
+    method: "POST",
+    allowedTypes:"pdf",
+    fileName: "myfile",
+    multiple: false,
+    onSuccess:function(files,data,xhr)
+    {
+        $("#status2").html("<font color='green'>Upload is success</font>");
+
+    },
+    onError: function(files,status,errMsg)
+    {
+        $("#status2").html("<font color='red'>Upload is Failed</font>");
+    }
+}
+$("#mulitplefileuploader").uploadFile(settings);
+$("#mulitplefileuploader2").uploadFile(settings);
+
+
+});
+    </script>
+</environment>

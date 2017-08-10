@@ -1,0 +1,182 @@
+﻿@model I9Document
+@{
+    ViewData["Title"] = "Employee Sign";
+}
+    <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Employee Sign</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Employee Sign
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <form class="form-horizontal padding-form col-lg-12 col-md-12 col-sm-12 col-xs-12" role="form" id="hideform3">
+                <!-- Electronic Singnature-->
+                <h4 class="themeprimary"><strong>Electronic Signature (eSignature)</strong></h4>
+                <hr class="signin-hr" style="width:100%;">
+                <h5 class="themeprimary text-justify" style="line-height:25px;"><strong>Congratulations! You have completed employee Onboarding documents successfully. Please read the following  statement and select the check box as acceptance of the statement. The documents to be signed with eSignature by entering your User Name, ZIP Code, your Date of Birth and click on submit button.</strong></h5>
+
+                <p class="text-justify">I understand and agree that your eSignature executed in conjection with the electronic submission of your application will be legally binding and such transaction will be considered authorized by me.</p>
+                <div class="control-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="inverted" checked>
+                            <span class="text check-bottom"><strong>I agree and understand the above statement.</strong></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label no-padding-left employee-inputcol">User Name&nbsp;:</label>
+                    <div class="col-sm-3 nopaddingleft">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="test@test.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label no-padding-left employee-inputcol">ZIP Code&nbsp;:</label>
+                    <div class="col-sm-3 nopaddingleft">
+                        <input type="number" class="form-control" id="inputEmail3" placeholder="50000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label no-padding-left employee-inputcol">Date of Birth (mm/dd/yyy)&nbsp;:</label>
+                    <div class="col-sm-3 nopaddingleft">
+                        <div class="input-group">
+                            <input class="form-control date-picker" id="id-date-picker-1" type="text" placeholder="15/05/2017" data-date-format="mm-dd-yyyy">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar themeprimary"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block" id="OthersDiv">
+                <button onclick='location.href = "/Onboarding/Upload_document"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href = "/Onboarding/I9categories"' id="t1" class="btn btn-primary btn-md btnSearch">Submit</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+
+        </div>
+    </div>
+    <!-- /Page Body -->
+</div>
+<environment>
+    <style>
+.wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+	.vdivider hr {margin-top:0px !important}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+            $(document).ready(function () {
+
+                $(document).ready(function () { @*onclick="SendURL('/SuperAdmin/ManageBranding')"*@
+                    $(document).ready(function () {
+                        $('[data-toggle="popover"]').popover();
+
+                        $(document).on('click', function (e) {
+                            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                                }
+
+                            });
+                        });
+                    });
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload",
+                    preview_box: "#image-preview",
+                    label_field: "#image-label",
+
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload2",
+                    preview_box: "#image-preview2",
+                    label_field: "#image-label2",
+
+                });
+            });
+
+            function NotifyMessage(message, position, timeout, theme, icon, closable) {
+                toastr.options.positionClass = 'toast-' + position;
+                toastr.options.extendedTimeOut = 0; //1000;
+                toastr.options.timeOut = timeout;
+                toastr.options.closeButton = closable;
+                toastr.options.iconClass = icon + ' toast-' + theme;
+                toastr['custom'](message);
+            }
+        
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#t1').click(function(){
+
+                alert('Successfully completed onboarding documents.');
+})
+
+        })
+    </script>
+</environment>

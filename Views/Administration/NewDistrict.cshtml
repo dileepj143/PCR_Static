@@ -1,0 +1,147 @@
+﻿@model PCR.Onboarding.UI.Models.Districts
+@{
+    ViewData["Title"] = "Super Admin";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs"> 
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+            <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+            <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+            <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+            <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li>
+            <a href="@Url.Action("ManageDistricts","Administration")">Manage Districts</a>
+        </li>
+        <li class="active" id="LiActive">Add District</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary" id="PageHeadingDv">
+            Add District
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 division-form margin-top-add">
+            <form asp-controller="Administration" asp-action="NewDistrict" method="post" class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form">
+                <div class="form-group">
+                    <label asp-for="StateID" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-1 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label employee-inputcol">State :<sup class="asterisk">*</sup></label>
+                    <div class="col-sm-4">
+                        <select asp-for="StateID" class="form-select form-control" asp-items="@ViewBag.States"><option value="">Select State</option><option value="">New Mexico's</option><option value="">Alaska</option></select>
+                        <span asp-validation-for="StateID" class="asterisk"></span>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom:21px;">
+                    <label asp-for="DistrictTitle" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-1 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label employee-inputcol">Title :<sup class="asterisk">*</sup></label>
+                    <div class="col-sm-4">
+                        <input asp-for="DistrictTitle" type="text" class="form-control">
+                        <span asp-validation-for="DistrictTitle" class="asterisk"></span>
+                    </div>
+                </div>
+
+                <hr class="location-hr" />
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                    <a href="@Url.Action("ManageDistricts","Administration")" button type="submit" class="btn btn-primary btn-md btnSearch" id="btnSave">Save</a>
+                    </a><a href="@Url.Action("ManageDistricts","Administration")" class="btn btn-warning btn-md btnSearch" id="btnCancel">Cancel</a>
+                </div>
+            </form>            
+
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+        .form-btns {margin-top:20px;}
+    </style>
+</environment>
+<environment>
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+   
+    <script>
+        $(document).ready(function ()
+        {
+            $("#ddlMasterClient").prop("disabled", true).css("cursor", "default").fadeTo(500, "none");
+
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") {                
+                NotifyMessage('@TempData["Message"]', 'top-right', '1200', 'warning', 'fa-warning', true);
+            }
+            // Restrict special characters
+            //It will allow Underscore(_) symbol,spacebar, backspace and characters only
+            $('#DistrictTitle').keypress(function (e) {
+                var regex = new RegExp("^[a-zA-Z_ ]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+                e.preventDefault();
+                return false;
+            });
+            //End Restrict special characters
+            
+        });
+    </script>
+
+
+</environment>

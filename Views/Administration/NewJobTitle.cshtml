@@ -1,0 +1,278 @@
+﻿@model PCR.Onboarding.UI.Models.JobTitle
+@{
+    ViewData["Title"] = "Super Admin";
+    var JobInfoJson = Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Data);
+
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li>
+            <a href="@Url.Action("ManageJobTitles","Administration")">Manage Job Titles</a>
+        </li>
+        <li class="active" id="LiActive">Add Job Title</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary" id="PageHeadingDv">
+            Add Job Title
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form margin-top-add padding-bottom-add">
+            <div class="col-lg-2 col-sm-12 col-xs-12"></div>
+            <form asp-controller="Administration" asp-action="NewJobTitle" method="post" class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form">
+               
+                        <input asp-for="JobTitleID" type="hidden" class="form-control" id="txtJobID">
+                    
+                <div class="form-group">
+                    <label asp-for="JobCode" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label no-padding-right">Job Code :<sup class="asterisk">*</sup></label>
+                    <div class="col-sm-4">
+                        <input asp-for="JobCode" type="text" class="form-control">
+                        <span asp-validation-for="JobCode" class="asterisk"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="JobTitles" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label no-padding-right">Title :<sup class="asterisk">*</sup></label>
+                    <div class="col-sm-4">
+                        <input asp-for="JobTitles" type="text" class="form-control">
+                        <span asp-validation-for="JobTitles" class="asterisk"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="JobDescription" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label no-padding-right">Description :</label>
+                    <div class="col-sm-4">
+                        <input asp-for="JobDescription" type="text" class="form-control">
+                        <span asp-validation-for="JobDescription" class="asterisk"></span>
+                    </div>
+                </div>
+               
+               
+                <hr class="location-hr">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                    <a href="@Url.Action("ManageJobTitles","Administration")" <button type="submit" class="btn btn-primary btn-md btnSearch" id="btnSave">Save</button></a>
+                   </a> <a href="@Url.Action("ManageJobTitles","Administration")" class="btn btn-warning btn-md btnSearch">Cancel</a>
+                </div>
+            </form>
+            
+           
+            <div class="col-lg-6 col-sm-12 col-xs-12"></div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+
+
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+    </style>
+</environment>
+
+<environment>
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script>
+
+
+        $(document).ready(function ()
+        {
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") {
+                Notify('@TempData["Message"]', 'top-right', '5000', 'warning', 'fa-warning', true);
+            }
+            // To accept numerals only
+            $("#JobCode").keypress(function (e) {
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                    return false;
+                }
+                if ($("#JobCode").val().length > 9) {
+                    return false;
+                }
+            });
+            // Restrict special characters
+            // It will allow Underscore(_) symbol and characters only
+            $('#JobTitles').keypress(function (e) {
+                var regex = new RegExp("^[a-zA-Z_ ]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
+            // End Restrict special characters
+
+        });
+
+        function UpdateJob(JobTitleID)
+        {
+            var Title = $("#txtTitle").val();
+            var Desc = $("#txtDesc").val();
+            var JobCode = $("#txtJobCode").val();
+
+            var request = {
+                "JobTitles": Title,
+                "JobDescription": Desc,
+                "JobCode": JobCode
+            };
+
+            $.ajax({
+                type: 'PUT',
+                url: '/Administration/UpdateJobTitleData',
+                data: { JobTitleID: JobTitleID, jobtitle: request },
+                dataType: 'json',
+                success: function (data, statusText, resObject)
+                {
+                    if (data == "JobTitle has been updated successfully.")
+                    {
+                        SuccessMessage(data);
+                        SendURL('/SuperAdmin/ManageJobTitles');
+                    }
+                    else
+                    {
+                        Notify(data, 'top-right', '5000', 'warning', 'fa-warning', true);
+                    }
+                },
+                error: function (jqXHR, exception)
+                {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                }
+            });
+        }
+
+        function AddJob()
+        {
+            var Title = $("#txtTitle").val();
+            var Desc = $("#txtDesc").val();
+            var JobCode = $("#txtJobCode").val();
+
+            var request = {
+                "JobTitles": Title,
+                "JobDescription": Desc,
+                "JobCode": JobCode
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/Administration/AddJobTitleData',
+                data: { jobtitle: request },
+                dataType: 'json',
+                success: function (data, statusText, resObject) {
+                    
+                    var msg = data;
+                    if (msg == "JobTitle has been added successfully.") {
+                        SuccessMessage(msg);
+                        SendURL('/SuperAdmin/ManageJobTitles');
+                    }
+                    else {
+                        Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                    }
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                }
+            });
+        }
+
+    </script>
+
+
+</environment>

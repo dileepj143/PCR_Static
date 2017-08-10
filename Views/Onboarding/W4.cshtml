@@ -1,0 +1,203 @@
+﻿@{
+    ViewData["Title"] = "Super Admin";
+}
+ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Form W-4</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Form W-4
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <h4 class="col-md-12 col-lg-12 themeprimary"><strong>Form W-4</strong></h4>
+                <hr class="location-hr">
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <form class="form-padding" role="form" id="hideform">
+                    <div class="table-responsive form-w-4">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Purpose.</strong>Complete Form W-4 so that your employer can withhold the correct federal income tax from your pay. Consider completing a new Form W-4 each year and when your personal or financial situation changes.</br><strong>Exemption from withholding.</strong>If you are exempt, complete only lines 1, 2, 3, 4, and 7 and sign the form to validate it. Your exemption for 2017 expires February 15, 2018. See Pub. 505, Tax Withholding and Estimated Tax.</br><strong>Note:</strong> If another person can claim you as a dependent on his or her tax return, you can’t claim exemption from withholding if your total income exceeds $1,050 and includes more than $350 of unearned income (for example, interest and dividends).</br><strong>Exceptions.</strong> An employee may be able to claim exemption from withholding even if the employee is a dependent, if the employee:</br>
+                                        <ul>
+                                            <li>Is age 65 or older,</li>
+                                            <li>Is blind, or</li>
+                                            <li>Will claim adjustments to income; tax credits; or itemized deductions, on his or her tax return.</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        The exceptions don’t apply to supplemental wages greater than $1,000,000.</br><strong>Basic instructions.</strong> If you aren’t exempt, complete the <strong>Personal Allowances Worksheet</strong> below. The worksheets on page 2 further adjust your withholding allowances based on itemized deductions, certain credits, adjustments to income, or two-earners/multiple jobs situations.</br>Complete all worksheets that apply. However, you may claim fewer (or zero) allowances. For regular wages, withholding must be based on allowances you claimed and may not be a flat amount or percentage of wages.</br><strong>Head of household.</strong> Generally, you can claim head of household filing status on your tax return only if you are unmarried and pay more than 50% of the costs of keeping up a home for yourself and your dependent(s) or other qualifying individuals. See Pub. 501, Exemptions, Standard Deduction, and Filing Information, for information.</br><strong>Tax credits.</strong> You can take projected tax credits into account in figuring your allowable number of withholding allowances. Credits for child or dependent care expenses and the child tax credit may be claimed using the <strong>Personal Allowances Worksheet</strong> below. See Pub. 505 for information on converting your other credits into withholding allowances.
+                                    </td>
+                                    <td>
+                                        <strong>Nonwage income.</strong> If you have a large amount of nonwage income, such as interest or dividends, consider making estimated tax payments using Form 1040-ES, Estimated Tax for Individuals. Otherwise, you may owe additional tax. If you have pension or annuity income, see Pub. 505 to find out if you should adjust your withholding on Form W-4 or W-4P.<br /><strong>Two earners or multiple jobs.</strong> If you have a working spouse or more than one job, figure the total number of allowances you are entitled to claim on all jobs using worksheets from only one Form W-4. Your withholding usually will be most accurate when all allowances are claimed on the Form W-4 for the highest paying job and zero allowances are claimed on the others. See Pub. 505 for details.<br /><strong>Nonresident alien.</strong> If you are a nonresident alien, see Notice 1392, Supplemental Form W-4 Instructions for Nonresident Aliens, before completing this form.<br /><strong>Check your withholding.</strong> After your Form W-4 takes effect, use Pub. 505 to see how the amount you are having withheld compares to your projected total tax for 2017. See Pub. 505, especially if your earnings exceed $130,000 (Single) or $180,000 (Married).<br />Future developments. Information about any future developments affecting Form W-4 (such as legislation enacted after we release it) will be posted at www.irs.gov/w4.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href="/Onboarding/VsiReview"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href = "/Onboarding/W4_PersonalAllowence"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .instruction-pop input {
+            width: 85%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .popover {
+            max-width: 237px;
+            left: 742px;
+        }
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/fuelux/wizard/wizard-custom.js"></script>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    @*<script src="~/assets/js/beyond.min.js"></script>*@
+    <script>
+		 //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+    </script>
+    <script>
+        $(window).bind("load", function () {
+            /*Sets Themed Colors Based on Themes*/
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            InitiateEasyPieChart.init();
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#WiredWizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'fa-check', true);
+            });
+        });
+    </script>
+
+    <script>
+	$("#hideform").show();
+	$("#hideform2").hide();
+		$("#hideform-btn").click(function(){
+    $("#hideform").hide();
+	$("#hideform2").show();
+});
+
+$("#hideform-btn2").click(function(){
+    $("#hideform").show();
+	$("#hideform2").hide();
+});
+
+
+
+
+/*Handles Popovers*/
+var popovers = $('[data-toggle=popover]');
+$.each(popovers, function () {
+    $(this)
+        .popover({
+            html: true,
+            template: '<div class="popover ' + $(this)
+                .data("class") +
+                '"><div class="arrow"></div><h3 class="popover-title ' +
+                $(this)
+                .data("titleclass") + '">Popover right</h3><div class="popover-content"></div></div>'
+        });
+});
+
+var hoverpopovers = $('[data-toggle=popover-hover]');
+$.each(hoverpopovers, function () {
+    $(this)
+        .popover({
+            html: true,
+            template: '<div class="popover ' + $(this)
+                .data("class") +
+                '"><div class="arrow"></div><h3 class="popover-title ' +
+                $(this)
+                .data("titleclass") + '">Popover right</h3><div class="popover-content"></div></div>',
+            trigger: "hover"
+        });
+});
+    </script>
+</environment>

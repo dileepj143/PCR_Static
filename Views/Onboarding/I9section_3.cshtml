@@ -1,0 +1,211 @@
+﻿@model I9Document
+@{
+    ViewData["Title"] = "I9 Section-3";
+}
+ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+
+        <li class="active">I9 Section-3</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            I9 Section-3: Reverification and Rehires
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+        @if (ViewBag.RoleID != 4)
+        {
+            <a class="btn btn-primary pull-right" style="width:auto; padding:6px; color:white" href="/Onboarding/ManagePreOnboarding"><i class="fa fa-reply-all"></i> Back to AdminMenu</a>
+        }
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form margin-top-add">
+            <form class="form-horizontal" role="form">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right"><strong>A.</strong> New Name (if applicable) Last Name (Family Name) :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="John">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Middle Initial:</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="sfs">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">First Name (Given Name) :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="lewis">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right"><strong>B.</strong> Date of Rehire (if applicable) (mm/dd/yyyy) :</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" placeholder="12/02/2017">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label class="col-sm-11 form-padding" style="text-align:justify"><strong>C.</strong> If employee's previous grant of employment authorization has expired, provide the information for the document from List A or List C the employee presented that establishes current employment authorization in the space provided below.</label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Document Title:</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="DFGHS">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Document Number:</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="DN123245">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Expiration Date (if any) (mm/dd/yyyy) :</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" placeholder="12/02/2018">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label class="col-sm-12 form-padding"><strong>I attest, under penalty of perjury, that to the best of my knowledge, this employee is authorized to work in the United States, and if the employee pre-sented document(s), the document(s) I have examined appear to be genuine and to relate to the individual.</strong></label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Signature of Employer or Authorized Representative:</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12" style="margin-bottom:15px;">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Date (mm/dd/yyyy) :</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" placeholder="11/02/2017">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Print Name of Employer or Authorized Representative:</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="John Lewis">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href = "/Onboarding/I9section_2_EmployerSign"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href = "/Onboarding/Managerlogin"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Body -->
+</div>
+<environment>
+    <style>
+      .wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+.page-sidebar .sidebar-menu li a {height:38px;}
+	.page-sidebar .sidebar-menu li a p {line-height:5px;}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+            $(document).ready(function () {
+
+                $(document).ready(function () { @*onclick="SendURL('/SuperAdmin/ManageBranding')"*@
+                    $(document).ready(function () {
+                        $('[data-toggle="popover"]').popover();
+
+                        $(document).on('click', function (e) {
+                            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                                }
+
+                            });
+                        });
+                    });
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload",
+                    preview_box: "#image-preview",
+                    label_field: "#image-label",
+
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload2",
+                    preview_box: "#image-preview2",
+                    label_field: "#image-label2",
+
+                });
+            });
+
+            function NotifyMessage(message, position, timeout, theme, icon, closable) {
+                toastr.options.positionClass = 'toast-' + position;
+                toastr.options.extendedTimeOut = 0; //1000;
+                toastr.options.timeOut = timeout;
+                toastr.options.closeButton = closable;
+                toastr.options.iconClass = icon + ' toast-' + theme;
+                toastr['custom'](message);
+            }
+
+    </script>
+</environment>

@@ -1,0 +1,392 @@
+﻿@{
+    ViewData["Title"] = "Super Admin";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Manage Job Titles</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Manage Job Titles
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12 manage-division" style="padding:0px;">
+        <div class="well">
+            
+            <a href="/Administration/NewJobTitle" id="btnAddJobTitle" class="btn btn-md btn-primary pull-right">
+                Add Job Title
+            </a>
+            <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12  no-padding-left no-padding-right">
+              
+                <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="simpledatatable_info" id="tblJobTitle">
+                    <thead><tr role='row'><th style='text-align:left'>ID</th><th style='text-align:left; width:170px;'>Job Code</th><th style='text-align:left'>Job Title</th><th style='text-align:left'>Job Description</th><th style='width:120px;'>Actions</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>4213</td>
+                            <td>General Manager</td>
+                            <td></td>
+                            <td>
+                                <a href="/Administration/EditJobTitle" class="" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o editpopover"></i></a>
+                                <a href="#" class="bootbox-confirm" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o deletepopover"></i> </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>525</td>
+                            <td>Employee</td>
+                            <td></td>
+                            <td>
+                                <a href="/Administration/EditJobTitle" class="" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o editpopover"></i></a>
+                                <a href="#" class="bootbox-confirm" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o deletepopover"></i> </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>8585</td>
+                            <td>Client</td>
+                            <td></td>
+                            <td>
+                                <a href="/Administration/EditJobTitle" class="" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o editpopover"></i></a>
+                                <a href="#" class="bootbox-confirm" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o deletepopover"></i> </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+
+<environment>
+    <!--Page Related styles-->
+    @*<link href="~/assets/css/dataTables.bootstrap.css" rel="stylesheet" />*@
+    <style>
+        /*.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            vertical-align: middle;
+        }
+
+            .table > tbody > tr > td a {
+                margin: 3px;
+            }
+
+        .table > thead > tr > th {
+            background-color: #c1c1c1;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .checkbox {
+            text-align: center;
+        }
+         .DTTT.btn-group{
+            position:absolute !important;
+            display: none !important;
+        }*/
+          .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            vertical-align: middle;
+            text-align: left;
+        }
+
+            .table > tbody > tr > td a {
+                margin: 3px;
+            }
+
+        .table > thead > tr > th {
+            background-color: #c1c1c1;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .checkbox {
+            text-align: center;
+        }
+         .DTTT.btn-group{
+            position:absolute !important;
+            display: none !important;
+        }
+    </style>
+</environment>
+<environment>
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script src="~/assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="~/assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/js/datatable/datatables-init.js"></script>
+
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+    </script>
+    @*<script>
+        var ClientID = '@ViewBag.MasterClientID';
+        var oTable1 = $('#tblJobTitle').dataTable({
+            "sDom": "Tflt<'row DTTTFooter'<'col-sm-6'i><'col-sm-6'p>>",
+            "aLengthMenu": [
+               [5, 10, 20, 50, 100, -1],
+               [5, 10, 20, 50, 100, "All"]
+            ],
+            "iDisplayLength": 10,
+            "oTableTools": {
+                "aButtons": [
+                    "copy", "csv", "xls", "pdf", "print"
+                ],
+                // "sSwfPath": "http://localhost:54505/assets/swf/copy_csv_xls_pdf.swf"//"assets/swf/copy_csv_xls_pdf.swf"
+            },
+            "language": {
+                "search": "",
+                "sLengthMenu": "_MENU_",
+                "oPaginate": {
+                    "sPrevious": "Prev",
+                    "sNext": "Next"
+                }
+            },
+            "aoColumns": [null, null, null,null, { "bSortable": false }],
+            "aaSorting": []
+        });
+
+        $(document).ready(function ()
+        {
+            $("#ddlMasterClient").prop("disabled", false);
+            LoadGrid();
+            $('.deletepopover').click(function () {
+                $('.page-sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") { SuccessMessage('@TempData["Message"]'); }
+            if ('@TempData["errorMessage"]' != null && '@TempData["errorMessage"]' != "") {
+                NotifyMessage('@TempData["errorMessage"]', 'top-right', '1800', 'warning', 'fa-warning', true);
+            }
+            if ('@TempData["PageNo"]' != null && '@TempData["PageNo"]' != "") {
+                $('#tblJobTitle_wrapper .dataTables_paginate li').removeClass('active');
+                $('#tblJobTitle_wrapper .dataTables_paginate li a').each(function () {
+                    if ($(this).text() == '@TempData["PageNo"]') {
+                        $(this).parent().addClass('active').click();
+                    }
+                });
+            }
+            $('#ddlMasterClient').on('change', function () {
+                ClientID = $("#ddlMasterClient :selected").val();
+                var ClientName = $("#ddlMasterClient :selected").text();
+                $.ajax({
+                    type: 'POST',
+                    url: '/Login/ChangeClientDetails',
+                    data: { DatabaseId: ClientID, ClientName: ClientName },
+                    success: function (data) {
+                        LoadGrid();
+                    }
+                });
+            });
+        });
+
+        $('#btnAddJobTitle').on('click', function () {
+            var clientID = $('#ddlMasterClient :selected').val();
+            if (clientID != "" && clientID != null && clientID != "undefined") {
+                window.location.href = "/Administration/NewJobTitle";
+            }
+            else {
+                var btn = $('#btnAddJobTitle');
+                btn.button('loading');
+                btn.css("cursor", "default").fadeTo(500, "none");
+                NotifyMessage("Please select the client", 'top-right', '1200', 'warning', 'fa-warning', true);
+                setTimeout(function () { btn.button('reset'); btn.css("cursor", "pointer") }, 1200);
+            }
+        });
+
+
+
+        @*function LoadGrid() {
+            $.ajax({
+                type: 'GET',
+                url: '/Administration/GetAllJobTitles',
+                async: false,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                callback: true,
+                crossDomain: true,
+                success: function (data)
+                {
+                    oTable1.fnClearTable();
+                    var count;
+                    if (data != null && data != "Content not found") {
+                        $.each(data, function (i, item)
+                        {
+                            var Edit = "<a href='#' onclick='EditJob(" + item.JobTitleID + ")'  class='' data-toggle='modal' data-placement='top' data-original-title='Edit'><i class='fa fa-pencil-square-o editpopover'></i></a>";
+                            var Delete = "<a href='#' onclick='DeleteJob(" + item.JobTitleID + ",\""+item.JobTitles+"\")' class='bootbox-confirm' data-toggle='modal' data-placement='top' data-original-title='Delete' ><i class='fa fa-trash-o deletepopover'></i> </a>";
+                            count = oTable1.fnAddData([item.JobTitleID, (item.JobCode == null ? "" : item.JobCode), (item.JobTitles == null ? "" : item.JobTitles),(item.JobDescription == null ? "" : item.JobDescription), Edit + "" + Delete]);
+                        });
+                    }
+                    else {
+                        if (ClientID == null || ClientID == "" || ClientID == "undefined") {
+                            Notify("Please select the client.", 'top-right', '1500', 'warning', 'fa-warning', true);
+                        }
+                        if ('@TempData["errorMessage"]' != null && '@TempData["errorMessage"]' != "") {
+                            NotifyMessage('@TempData["errorMessage"]', 'top-right', '1800', 'warning', 'fa-warning', true);
+                        }
+                    }
+                },
+                complete: function () {
+                    $('[data-toggle="modal"]').tooltip();
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                }
+            });
+        }*@
+
+
+        @*function DeleteJob(JobTitleID,Title) {
+            $('.page-sidebar').css('z-index', '0');
+            $('.navbar').css('z-index', '200');
+            bootbox.confirm({
+                title: "Delete",
+                message: "Are you sure to delete the job title '" + Title + "'?",
+                buttons: {
+                    cancel: {
+                        label: '<i class="fa fa-times"></i> Cancel'
+                    },
+                    confirm: {
+                        label: '<i class="fa fa-check"></i> Confirm'
+                    }
+                }, callback: function (result)
+                {
+                        if (result) {
+                            $.ajax({
+                                type: 'DELETE',
+                                url: '/Administration/DeleteJobTitleByID',
+                                data: { JobTitleID: JobTitleID },
+                                dataType: 'json',
+                                success: function (data, statusText, resObject)
+                                {
+                                    if (String(data) == "JobTitle is deleted successfully.")
+                                    {
+                                        //Notify("JobTitle '" + Title + "' has been deleted successfully", 'top-right', '3000', 'success', 'fa-check', true);
+                                        SuccessMessage("JobTitle '" + Title + "' has been deleted successfully.");
+                                        LoadGrid();
+                                        $('#tblJobTitle_wrapper .dataTables_paginate li').removeClass('active');
+                                        var lastPage = $('#tblJobTitle_wrapper .dataTables_paginate li').length;
+                                        lastPage = parseInt(lastPage) - parseInt(2);
+                                        $('#tblJobTitle_wrapper .dataTables_paginate li').eq(lastPage).addClass('active').click();
+                                    }
+                                    else {
+                                        Notify(String(data), 'top-right', '3000', 'warning', 'fa-warning', true);
+                                    }
+                                },
+                                complete: function () {
+
+                                },
+                                error: function (jqXHR, exception) {
+                                    var msg = '';
+                                    if (jqXHR.status === 0) {
+                                        msg = 'Not connect.\n Verify Network.';
+                                    } else if (jqXHR.status == 404) {
+                                        msg = 'Requested page not found. [404]';
+                                    } else if (jqXHR.status == 500) {
+                                        msg = 'Internal Server Error [500].';
+                                    } else if (exception === 'parsererror') {
+                                        msg = 'Requested JSON parse failed.';
+                                    } else if (exception === 'timeout') {
+                                        msg = 'Time out error.';
+                                    } else if (exception === 'abort') {
+                                        msg = 'Ajax request aborted.';
+                                    } else {
+                                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                                    }
+                                    Notify(msg, 'top-right', '3000', 'warning', 'fa-warning', true);
+                                }
+                            });
+                        }
+                        else {
+                        }
+                    }
+
+                });
+        }
+
+        function EditJob(JobTitleID)
+        {
+            var PageNo = $('#tblJobTitle_wrapper .dataTables_paginate li.active').text();
+            window.location.href = "/Administration/EditJobTitle?id=" + JobTitleID + "&PageNo=" + PageNo;
+        }
+
+        function NotifyMessage(message, position, timeout, theme, icon, closable) {
+            toastr.options.positionClass = 'toast-' + position;
+            toastr.options.extendedTimeOut = 0; //1000;
+            toastr.options.timeOut = timeout;
+            toastr.options.closeButton = closable;
+            toastr.options.iconClass = icon + ' toast-' + theme;
+            toastr['custom'](message);
+        }*@
+
+    @*</script>*@
+</environment>
+

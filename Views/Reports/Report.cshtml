@@ -1,0 +1,229 @@
+﻿
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home themeprimary"></i>
+                            @if (ViewBag.RoleID == 1)
+            {
+                                <a href="/SuperAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 2)
+                            {
+                                <a href="/ClientAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 3)
+                            {
+                                <a href="/Manager/Index">Dashboard</a>
+                            }
+                            else
+                            {
+                                <a href="/Employee/I9categories">Dashboard</a>
+                            }
+                        </li>
+
+                        <li class="active">Reports</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1 class="themeprimary">
+                            Reports
+                        </h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- Page Body -->
+                <div class="page-body">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="division-form">
+                <form class="form-horizontal vdivider col-lg-6 col-md-12 col-sm-12 col-xs-12" role="form">
+                    <h4 class="themeprimary"><strong>Select Report :</strong></h4>
+                    <hr class="location-hr">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color" id="slide1">
+                                        <span class="text">New Employees - Onboarding completed</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color" id="slide2">
+                                        <span class="text">New Employees -In- Progress</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color" id="slide3">
+                                        <span class="text">Pre-Onboarding employees</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color" id="slide4">
+                                        <span class="text">Employees due to start/complete onboarding process</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color" id="slide5">
+                                        <span class="text">Companies</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color" id="slide6">
+                                        <span class="text">Locations</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color" id="slide7">
+                                        <span class="text">E-Verify with status</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color">
+                                        <span class="text">Log Report</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <form class="form-horizontal col-lg-6 col-md-12 col-sm-12 col-xs-12 rep-form" role="form">
+                    <h4 style="margin-bottom:15px;" class="themeprimary"><strong>Filter Options :</strong></h4>
+                    <hr class="location-hr">
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 col-xs-12 rep-nopaddingleft">
+                        <label for="inputEmail3" class="col-sm-6 col-lg-5 col-md-5 col-xs-12 control-label employee-inputcol">From Date (mm/dd/yyyy)&nbsp;:</label>
+                        <div class="input-group col-lg-7 col-md-7 col-sm-6 col-xs-12 cust-frm-date1">
+                            <input class="form-control date-picker mrg-left-4" id="id-date-picker-1" type="text" data-date-format="mm-dd-yyyy">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar themeprimary"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <label for="inputEmail3" class="col-sm-6 col-lg-5 col-md-5 col-xs-12 control-label rep-lbl-nopaddingleft employee-inputcol">To Date (mm/dd/yyyy)&nbsp;:</label>
+                        <div class="input-group col-lg-7 col-md-7 col-sm-6 col-xs-12 cust-frm-date2 cust-date-2">
+                            <input class="form-control date-picker mrg-left-4" id="id-date-picker-1" type="text" data-date-format="mm-dd-yyyy">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar themeprimary"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 rep-nopaddingleft">
+                        <label for="inputEmail3" class="col-sm-6 col-lg-2 col-md-5 col-xs-12 control-label">District :</label>
+                        <div class="col-sm-6 col-md-7">
+                            <select class="form-select form-control">
+                                <option value="1">Southern District</option>
+                                <option value="2">Northern District</option>
+                                <option value="3">Eastern District</option>
+                                <option value="4" selected="">Select District...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 rep-nopaddingleft">
+                        <label for="inputEmail3" class="col-sm-6 col-lg-2 col-md-5 col-xs-12 control-label">Location :</label>
+                        <div class="col-sm-6 col-md-7">
+                            <select class="form-select form-control" id="selectdropdown">
+                                <option value="1">325 5th Ave</option>
+                                <option value="2">207 W 38th St</option>
+                                <option value="3">7215 Columbia Pike</option>
+                                <option value="4">45-37 Bell Blvd</option>
+                                <option value="5" selected="">Select Location...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 rep-nopaddingleft">
+                        <label for="inputEmail3" class="col-sm-6 col-lg-2 col-md-5 col-xs-12 control-label">Division :</label>
+                        <div class="col-sm-6 col-md-7">
+                            <select class="form-select form-control">
+                                <option value="1">Division 1</option>
+                                <option value="2">Division 2</option>
+                                <option value="3">Division 3</option>
+                                <option value="4">Division 4</option>
+                                <option value="5" selected="">Select Division...</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <hr class="location-hr">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                    <a href="/SuperAdmin/Index"><button id="myLink" class="btn btn-primary btn-md btnSearch">View Report</button></a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- /Page Body -->
+
+   				
+           <!--Basic Scripts-->
+    <script src="~/assets/js/jquery.min.js"></script>
+    @*<script src="~/assets/js/bootstrap.min.js"></script>*@
+    <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    @*<script src="assets/js/beyond.min.js"></script>*@
+
+    <!--Bootstrap Date Picker-->
+    <script src="~/assets/js/datetime/bootstrap-datepicker.js"></script>
+	<script>
+	 //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+
+	</script>
+

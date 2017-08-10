@@ -1,0 +1,240 @@
+﻿@model I9Document
+    @{
+        ViewData["Title"] = "I9Categories";
+    }
+    <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 4)
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">I9 Categories</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+  <!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            I9 Categories
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 division-form">
+            <form class="form-horizontal col-lg-10 col-lg-offset-1 col-sm-12 col-xs-12" role="form">
+                <h5 class="themeprimary"><strong>Please tick the category you belong to and read the instructions.</strong></h5>
+                <hr class="location-hr" />
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form 1-9 by the employee</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="Employee complete Section 1 on his own without the help of preparer and/or translator then signing and dating the form." data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completeing Section 1 of Form I-9 with the help of  preparer/translator</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="A preparer(s) and/or translator(s) assist the employee in completing the Section 1. Employee and preparer(s) and/or translator(s) must sign on the form with their details." data-original-title="" title="">
+                                    ?
+                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for Employees with Disabilities (Special Placement)</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="popoThe representative of the nonprofit organization, association, rehabilitation program, parent or legal guardian of an individual with a disability completes Section 1 and enters, “Special Placement” in the Signature of Employee field and dates the form. The representative, parent or legal guardian completes the Preparer and/or Translator Certification block." data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for Minors without List B Documents</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="The minor’s parent or legal guardian completes Section 1 and enters “Individual under age 18” in the signature block. The parent or legal guardian completes the Preparer and/or Translator Certification block." data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for F-1 Nonimmigrant Students with OPT</strong>&nbsp;&nbsp;&nbsp;
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="F-1 nonimmigrant student completes Section 1. Student signs and dates the form" data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for Students in Curricular Practical Training</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="Student completes Section 1 and enters his or her 11-digit Form I-94/Form I-94A number. Student signs and dates the form for students" data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                @*<button onclick="location.href='i9categories.html'" class="btn btn-primary btn-md btnSearch">Cancel</button>*@
+                <button onclick="location.href = '/Onboarding/I9section_1'" class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+    <environment>
+        <style>
+         	::-webkit-input-placeholder {
+   color: #888 !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #888 !important;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #888 !important;  
+}
+
+:-ms-input-placeholder {  
+   color: #888;  
+}
+
+.form-horizontal .form-group {margin-bottom:8px;}
+.form-horizontal .control-label {text-align:left;}
+.form-btns {margin-top:20px;}
+
+.instruction-pop label input[type=radio]~.text {float:left;}
+.instruction-pop a {
+    float: right;
+    padding: 0px 7px;
+    border-radius: 20px; margin-top:0px; margin-left:10px;
+    color: #fff; }
+	.popover {top: 102px;
+    left: 626.648px; overflow-y:auto; overflow-x:auto;}
+	.popover-content {width:280px; height:110px;}
+
+        </style>
+    </environment>
+    <environment>
+        @*<script src="~/assets/js/beyond.js"></script>*@
+
+
+        <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+        <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+        <script src="~/assets/js/bootbox/bootbox.js"></script>
+        <script src="~/assets/js/toastr/toastr.js"></script>
+        <script type="text/javascript">            
+            $(document).ready(function () {
+
+                $('[data-toggle="popover-hover"]').popover();
+                $(document).on('click', function (e) {
+                    $('[data-toggle="popover-hover"],[data-original-title]').each(function () {
+
+                        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                            (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                        }
+                    });
+                });
+               
+                $.uploadPreview({
+                    input_field: "#image-upload",
+                    preview_box: "#image-preview",
+                    label_field: "#image-label",
+
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload2",
+                    preview_box: "#image-preview2",
+                    label_field: "#image-label2",
+
+                });
+            });
+
+            $('#btnNext').on('click', function ()
+            {
+                var chkCatgory = $('input[type="radio"]:checked').length;               
+                if (chkCatgory > 0) {
+                    $('.dvError').hide();
+                    var category = $('input[type="radio"]:checked').val();
+                    window.location.href = "/Onboarding/I9section_1?categoryId="+category;
+                }
+                else {
+                    $('.dvError').show();
+                }
+            });
+         
+
+        </script>
+        
+    </environment>

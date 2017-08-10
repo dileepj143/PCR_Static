@@ -1,0 +1,494 @@
+﻿@model I9Section2
+@{
+    ViewData["Title"] = "I9 Section-2";
+    ViewModel_UploadDocuments I9DocumentB=null;
+    ViewModel_UploadDocuments I9DocumentC = null;
+    ViewModel_UploadDocuments I9DocumentA = null;
+    var employeeInfo = ViewData["EmployeeInfo"] as PCR.Onboarding.UI.ViewModels.I9_Section1_EmployeeInfo;
+
+    var I9A = Newtonsoft.Json.JsonConvert.SerializeObject(ViewData["I9DocumentA"]);
+    var I9B = Newtonsoft.Json.JsonConvert.SerializeObject(ViewData["I9DocumentB"]);
+    var I9C = Newtonsoft.Json.JsonConvert.SerializeObject(ViewData["I9DocumentC"]);
+
+    if (ViewData["I9DocumentA"] != null)
+    {
+        I9DocumentA = ViewData["I9DocumentA"] as ViewModel_UploadDocuments;
+    }
+    if (ViewData["I9DocumentB"] != null)
+    {
+        I9DocumentB = ViewData["I9DocumentB"] as ViewModel_UploadDocuments;
+    }
+    if (ViewData["I9DocumentC"] != null)
+    {
+        I9DocumentC = ViewData["I9DocumentC"] as ViewModel_UploadDocuments;
+    }
+}
+  <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Fill I9 Section-2</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            I9 Section-2: Employer or Authorized Representative Review and Verification
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form padding-bottom-add">
+            <form class="form-horizontal form-padding margin-bottom-overflow" role="form">
+                <div class="form-group" style="margin-bottom:10px;">
+                    <label for="inputEmail3" class="col-sm-5 control-label no-padding-left">Employee Last Name, First Name and Middle Initial from Section 1:</label>
+                    <div class="col-sm-7 no-padding-right">
+                        <input type="text" class="form-control" id="inputEmail3">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 col-xs-12 bordered">
+                    <h5 class="text-center themeprimary"><strong>List A</strong></h5>
+                    <h5 class="text-center"><strong>Identity and Employment Authorization</strong></h5>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Document Title:</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Issuing Authority:</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Document Number:</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12" style="margin-bottom:15px;">
+                        <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Expiration Date (if any) (mm/dd/yyyy):</label>
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-1 col-lg-1 col-xs-2">
+                    <h5 class="text-center"><strong>OR</strong></h5>
+                </div>
+                <div class="bordered col-sm-12 col-md-8 col-lg-8 col-xs-12">
+                    <div class="col-sm-6 col-md-5 col-lg-5 col-xs-12">
+                        <h5 class="text-center themeprimary"><strong>List B</strong></h5>
+                        <h5 class="text-center"><strong>Identity</strong></h5>
+                        <div class="form-group col-sm-12" style="margin-top:15px;">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Document Title:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Issuing Authority:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Document Number:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12" style="margin-bottom:15px;">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Expiration Date (if any) (mm/dd/yyyy):</label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar themeprimary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1 col-xs-2">
+                        <h5 class="text-center"><strong>AND</strong></h5>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-5 col-xs-12 frm-tp-38">
+                        <h5 class="text-center themeprimary"><strong>List C</strong></h5>
+                        <h5 class="text-center"><strong>Employment Authorization</strong></h5>
+                        <div class="form-group col-sm-12" style="margin-top:15px;">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Document Title:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Issuing Authority:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Document Number:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12" style="margin-bottom:15px;">
+                            <label for="inputEmail3" class="col-sm-12 control-label no-padding-right">Expiration Date (if any) (mm/dd/yyyy):</label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar themeprimary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href="signin.html"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href="i9section-3.html"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="signature-pad" class="m-signature-pad">
+    <input type="hidden" id="hdnID" />
+    <img id="imgPreparer" />
+    @*<img src="data:image/png;base64,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" />*@
+    <div class="m-signature-pad--body">
+
+        <canvas></canvas>
+    </div>
+    <div class="m-signature-pad--footer">
+        <div class="description">Sign above</div>
+        <div class="left">
+            <button type="button" class="btn-warning clear" style="border:none;" data-action="clear">Clear</button>
+            <button type="button" class="btn-danger clear" style="border:none;" data-action="close">Close</button>
+        </div>
+        <div class="right">
+            <button type="button" class="btn-primary save" style="border:none;" data-action="save-png">submit</button>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .instruction-pop input {
+            width: 85%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .popover {
+            max-width: 237px;
+            left: 742px;
+        }
+
+        .page-sidebar .sidebar-menu li a {
+            height: 38px;
+        }
+
+            .page-sidebar .sidebar-menu li a p {
+                line-height: 5px;
+            }
+
+        .form-horizontal .control-label {
+            margin-bottom: 5px;
+        }
+
+        .social-security {
+            float: left;
+            width: 30%;
+        }
+
+        .social-security2 {
+            float: left;
+            width: 20%;
+        }
+
+        .social-security3 {
+            float: left;
+            width: 35%;
+        }
+
+        .social-security-label {
+            float: left;
+            width: 100%;
+        }
+
+        .border-formgroup {
+            border: 1px solid #999;
+            padding-bottom: 5px;
+            margin-bottom: -1px;
+        }
+
+        .form-horizontal input {
+            border: none;
+            height: 25px;
+            padding: 0px 12px;
+        }
+
+        textarea:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="date"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, input[type="number"]:hover, input[type="email"]:hover, input[type="url"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="color"]:hover {
+            border-color: transparent !Important;
+        }
+
+        .border-formgroup-right {
+            border: 1px solid #999;
+            padding-bottom: 5px;
+            margin-bottom: -1px;
+            border-right: none;
+        }
+
+        .review-h4 h4 {
+            padding: 10px;
+            border: 1px solid #999;
+            border-bottom: none;
+            margin-bottom: -1px;
+            background-color: #f5f5f5;
+        }
+
+        .starthere {
+            margin-bottom: 10px;
+        }
+
+        .starthere-h4 {
+            font-size: 17px;
+            line-height: 24px;
+        }
+
+        .starthere-p {
+            font-size: 15px;
+        }
+
+        .starthere-i {
+            font-size: 31px;
+            float: left;
+            margin-right: 5px;
+            margin-top: -7px;
+        }
+
+        .border-bottom-input {
+            border-bottom: 1px solid #999 !important;
+        }
+
+        .qrcode-scan {
+            margin: 50px 0px 0px 0px;
+            padding: 5px;
+            width: 22%;
+            height: 271px;
+        }
+
+        .list-heading p {
+            margin-bottom: 2px;
+        }
+    </style>
+
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .instruction-pop input {
+            width: 85%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .popover {
+            max-width: 237px;
+            left: 742px;
+        }
+
+        .page-sidebar .sidebar-menu li a {
+            height: 38px;
+        }
+
+            .page-sidebar .sidebar-menu li a p {
+                line-height: 5px;
+            }
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script src="~/assets/js/signature_padEmployer.js"></script>
+    <script type="text/javascript">
+        $('.date-picker').datepicker();
+        $(document).ready(function () {
+            $(document).ready(function () { @*onclick="SendURL('/SuperAdmin/ManageBranding')"*@
+                $(document).ready(function () {
+
+                    $('[data-toggle="popover"]').popover();
+
+                    $(document).on('click', function (e) {
+                        $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                            }
+
+                        });
+                    });
+                });
+            });
+            $.uploadPreview({
+                input_field: "#image-upload",
+                preview_box: "#image-preview",
+                label_field: "#image-label",
+
+            });
+            $.uploadPreview({
+                input_field: "#image-upload2",
+                preview_box: "#image-preview2",
+                label_field: "#image-label2",
+
+            });
+        });
+
+        function NotifyMessage(message, position, timeout, theme, icon, closable) {
+            toastr.options.positionClass = 'toast-' + position;
+            toastr.options.extendedTimeOut = 0; //1000;
+            toastr.options.timeOut = timeout;
+            toastr.options.closeButton = closable;
+            toastr.options.iconClass = icon + ' toast-' + theme;
+            toastr['custom'](message);
+        }
+
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $('#signature-pad').hide();
+            $('#SignEmployer').on('click', function () {
+                $('#signature-pad').show();
+            })
+        })
+        
+        if ('@I9DocumentA' != null) {
+            if ('@I9DocumentA.I9DocumentList' == 'A') {
+                $('#DocumentTitleA').val('@I9DocumentA.DocumentTitle');
+                $('#ExpirationDateA').val('@I9DocumentA.ValidUpTo');
+            }
+        }
+        
+        @*else {
+            if ('@I9DocumentB' != null) {
+                if ('@I9DocumentB.I9DocumentList' == 'B') {
+                    $('#DocumentTitleB').val('@I9DocumentB.DocumentTitle');
+                    $('#ExpirationDateB').val('@I9DocumentB.ValidUpTo');
+                }
+                if ('@I9DocumentC' != null) {
+                    if ('@I9DocumentC.I9DocumentList' == 'C') {
+                        $('#DocumentTitleC').val('@I9DocumentC.DocumentTitle');
+                        $('#ExpirationDateC').val('@I9DocumentC.ValidUpTo');
+                    }
+                }
+            }
+        }*@
+
+    </script>
+</environment>

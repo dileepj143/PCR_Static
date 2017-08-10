@@ -1,0 +1,361 @@
+﻿
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home themeprimary"></i>
+                            @if (ViewBag.RoleID == 1)
+            {
+                                <a href="/SuperAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 2)
+                            {
+                                <a href="/ClientAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 3)
+                            {
+                                <a href="/Manager/Index">Dashboard</a>
+                            }
+                            else
+                            {
+                                <a href="/Employee/I9categories">Dashboard</a>
+                            }
+                        </li>
+                        
+                        <li class="active">Form W-4</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1 class="themeprimary">
+                            Form W-4
+						</h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- Page Body -->
+                <div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <h4 class="col-md-12 col-lg-12 themeprimary"><strong>Form W-4 Two-Earners/Multiple Jobs Worksheet</strong></h4>
+				<hr class="location-hr">
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <form class="form-padding" role="form" id="hideform">
+					<p><strong>Note :Use this worksheet only if the instructions under line H on page 1 direct you here.</strong></p>
+					<div class="table-responsive form-w-4-personal">
+						<table class="table instruction-pop">
+							<tbody>
+								<tr>
+									<td style="width:50px;"><strong>1</strong></td>
+									<td style="width:800px;">Enter the number from line H, page 1 (or from line 10 above if you used the Deductions and Adjustments Worksheet)</td>
+									<td style="width:50px;"><strong>1</strong></td>
+									<td style="width:300px;"><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>2</strong></td>
+									<td>Find the number in <strong>Table</strong> 1 below that applies to the <strong>LOWEST</strong> paying job and enter it here. However, if you are married filing jointly and wages from the highest paying job are $65,000 or less, do not enter more than “3” ..............................
+									</td>
+									<td><strong>2</strong></td>
+									<td><input type="text" class="form-control"><a href="#" data-toggle="modal" class="deactivateimg1" data-target="#table-1" id="Table-help"><span class="fa fa-question question-icon"></span></a></td>
+								</tr>
+								<tr>
+									<td><strong>3</strong></td>
+									<td>If line 1 is more than or equal to line 2, subtract line 2 from line 1. Enter the result here (if zero, enter “-0-”) and on Form W-4, line 5, page 1. Do not use the rest of this worksheet .........</td>
+									<td><strong>3</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td colspan="3"><strong>Note :</strong>If line 1 is less than line 2, enter “-0-” on Form W-4, line 5, page 1. Complete lines 4 through 9 below to figure the additional withholding amount necessary to avoid a year-end tax bill.</td>
+								</tr>
+								<tr>
+									<td><strong>4</strong></td>
+									<td>Enter the number from line 2 of this worksheet ..........</td>
+									<td><strong>4</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>5</strong></td>
+									<td>Enter the number from line 1 of this worksheet ..........</td>
+									<td><strong>5</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>6</strong></td>
+									<td><strong>Subtract</strong> line 5 from line 4 .........................</td>
+									<td><strong>6</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>7</strong></td>
+									<td>Find the amount in <strong>Table 2</strong> below that applies to the <strong>HIGHEST</strong> paying job and enter it here ....</td>
+									<td><strong>7</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"><a href="#" data-toggle="modal" data-target="#table-2" id="Table-help"><span class="fa fa-question question-icon"></span></a></td>
+								</tr>
+								<tr>
+									<td><strong>8</strong></td>
+									<td><strong>Multiply</strong> line 7 by line 6 and enter the result here. This is the additional annual withholding needed ..</td>
+									<td><strong>8</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>9</strong></td>
+									<td>Divide line 8 by the number of pay periods remaining in 2017. For example, divide by 25 if you are paid every two weeks and you complete this form on a date in January when there are 25 pay periods remaining in 2017. Enter the result here and on Form W-4, line 6, page 1. This is the additional amount to be withheld from each paycheck</td>
+									<td><strong>9</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+                </form>
+            </div>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href = "/Onboarding/W4_Deductions"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href = "/Onboarding/W4_Review"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="modal fade" id="table-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="right:-18px;">
+        <div class="modal-dialog modal-md" style="margin: 25px auto;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title text-center" id="myLargeModalLabel"><strong>Add Account Details</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+						<table class="table table-bordered" style="border:3px solid #333;">
+							<tbody>
+								<tr>
+									<td colspan="4" style="text-align:center; border-bottom:3px solid #333; font-size:17px;"><strong>Table 1</strong></td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align:center; border-right:3px solid #333;"><strong>Married Filing Jointly</strong></td>
+									<td colspan="2" style="text-align:center;"><strong>All Others</strong></td>
+								</tr>
+								<tr>
+									<td>If wages from <strong>LOWEST</strong> paying job are—</td>
+									<td style="border-right:3px solid #333;">Enter on line 2 above</td>
+									<td>If wages from <strong>LOWEST</strong> paying job are—</td>
+									<td>Enter on line 2 above</td>
+								</tr>
+								<tr>
+									<td>
+										<p>$0 - $7,000</p>
+										<p>7,001 - 14,000</p>
+										<p>14,001 - 22,000</p>
+										<p>22,001 - 27,000</p>
+										<p>27,001 - 35,000</p>
+										<p>35,001 - 44,000</p>
+										<p>44,001 - 55,000</p>
+										<p>55,001 - 65,000</p>
+										<p>65,001 - 75,000</p>
+										<p>75,001 - 80,000</p>
+										<p>80,001 - 95,000</p>
+										<p>95,001 - 115,000</p>
+										<p>115,001 - 130,000</p>
+										<p>130,001 - 140,000</p>
+										<p>140,001 - 150,000</p>
+										<p>150,001 and over</p>
+									</td>
+									<td style="border-right:3px solid #333;">
+										<p>0</p>
+										<p>1</p>
+										<p>2</p>
+										<p>3</p>
+										<p>4</p>
+										<p>5</p>
+										<p>6</p>
+										<p>7</p>
+										<p>8</p>
+										<p>9</p>
+										<p>10</p>
+										<p>11</p>
+										<p>12</p>
+										<p>13</p>
+										<p>14</p>
+										<p>15</p>
+									</td>
+									<td>
+										<p>$0 - $8,000</p>
+										<p>8,001 - 16,000</p>
+										<p>16,001 - 26,000</p>
+										<p>26,001 - 34,000</p>
+										<p>34,001 - 44,000</p>
+										<p>44,001 - 70,000</p>
+										<p>70,001 - 85,000</p>
+										<p>85,001 - 110,000</p>
+										<p>110,001 - 125,000</p>
+										<p>125,001 - 140,000</p>
+										<p>140,001 and over</p>
+									</td>
+									<td>
+										<p>0</p>
+										<p>1</p>
+										<p>2</p>
+										<p>3</p>
+										<p>4</p>
+										<p>5</p>
+										<p>6</p>
+										<p>7</p>
+										<p>8</p>
+										<p>9</p>
+										<p>10</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+	
+	<div class="modal fade" id="table-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title text-center" id="myLargeModalLabel"><strong>Add Account Details</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+						<table class="table table-bordered" style="border:3px solid #333;">
+							<tbody>
+								<tr>
+									<td colspan="4" style="text-align:center; border-bottom:3px solid #333; font-size:17px;"><strong>Table 2</strong></td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align:center; border-right:3px solid #333;"><strong>Married Filing Jointly</strong></td>
+									<td colspan="2" style="text-align:center;"><strong>All Others</strong></td>
+								</tr>
+								<tr>
+									<td>If wages from <strong>HIGHEST</strong> paying job are—</td>
+									<td style="border-right:3px solid #333;">Enter on line 7 above</td>
+									<td>If wages from <strong>HIGHEST</strong> paying job are—</td>
+									<td>Enter on line 7 above</td>
+								</tr>
+								<tr>
+									<td>
+										<p>$0 - $75,000</p>
+										<p>75,001 - 135,000</p>
+										<p>135,001 - 205,000</p>
+										<p>205,001 - 360,000</p>
+										<p>360,001 - 405,000</p>
+										<p>405,001 and over</p>
+									</td>
+									<td style="border-right:3px solid #333;">
+										<p>$610</p>
+										<p>1,010</p>
+										<p>1,130</p>
+										<p>1,340</p>
+										<p>1,420</p>
+										<p>1,600</p>
+									</td>
+									<td>
+										<p>$0 - $38,000</p>
+										<p>38,001 - 85,000</p>
+										<p>85,001 - 185,000</p>
+										<p>185,001 - 400,000</p>
+										<p>400,001 and over</p>
+									</td>
+									<td>
+										<p>$610</p>
+										<p>1,010</p>
+										<p>1,130</p>
+										<p>1,340</p>
+										<p>1,600</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+
+          
+    <!--Basic Scripts-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assets/js/beyond.min.js"></script>
+
+    <!--Page Related Scripts-->
+    <script src="assets/js/fuelux/wizard/wizard-custom.js"></script>
+    <script src="assets/js/toastr/toastr.js"></script>
+	<!--Page Related Scripts-->
+    <script src="assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="assets/js/charts/easypiechart/easypiechart-init.js"></script>
+	<!--Page Related Scripts-->
+    <script src="assets/js/inputmask/jasny-bootstrap.min.js"></script>
+	<!--Bootstrap Date Picker-->
+    <script src="assets/js/datetime/bootstrap-datepicker.js"></script>
+	<script>
+        $(document).ready(function () {
+
+            $("body").addClass("PaddingRght");
+        });
+</script>
+	<script>
+	//--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+	</script>
+    <script>
+        $(window).bind("load", function () {
+            /*Sets Themed Colors Based on Themes*/
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            InitiateEasyPieChart.init();
+        });
+    </script>
+	
+	<script>
+	$("#hideform").show();
+	$("#hideform2").hide();
+		$("#hideform-btn").click(function(){
+    $("#hideform").hide();
+	$("#hideform2").show();
+});
+
+$("#hideform-btn2").click(function(){
+    $("#hideform").show();
+	$("#hideform2").hide();
+});
+
+//--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+</script>
+
+<script>
+		$('#Table-help').click(function () {
+                
+                $('#sidebar').css('z-index', '2');
+                $('.navbar').css('z-index', '200');
+            });
+	</script>
+
+

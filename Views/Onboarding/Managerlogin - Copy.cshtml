@@ -1,0 +1,317 @@
+﻿@model I9Document
+@{
+    ViewData["Title"] = "ManagerApproval";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            <a href="@Url.Action("Index","Dashboard")">Dashboard</a>
+        </li>
+        <li class="active">Manager Approval</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+           Manager Approval
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+
+            <div class="col-md-12">
+                <form class="form-horizontal hidden-xs hidden-sm hidden-md" role="form" id="hideform3">
+                    <!--Manager Login-->
+                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                        <h4 class="themeprimary" style="line-height:25px; float:left;"><strong>Certification</strong> <span style="color:#000; font-size:15px;">(I attest, under penalty of perjury, that (1) I have examined the document(s) presented by the above-named employee, (2) the above-listed document(s) appear to be genuine and to relate to the employee named, and (3) to the best of my knowledge the employee is authorized to work in the United States.)</span></h4>
+
+                        <hr class="location-hr">
+                        <div class="form-group col-sm-12 no-padding-left nopaddingright-manage">
+                            <label for="inputEmail3" class="col-sm-5 control-label no-padding-left">The employee's first day of employment (mm/dd/yyyy):</label>
+                            <div class="col-sm-3 nopaddingleft-manage nopaddingright-manage">
+                                <div class="input-group">
+                                    <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm-dd/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar themeprimary"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-left">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Signature of Employer or Authorized Representative:</label>
+                            <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="form-field-checkbox" type="checkbox" id="ck1" class="main-color inverted">
+                                        <span class="text main-color">I agree to sign these electronic documents using 'click' signature technology.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">Date (mm/dd/yyyy):</label>
+                            <div class="col-sm-6 no-padding-right nopaddingleft-manage">
+                                <div class="input-group">
+                                    <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm-dd-yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar themeprimary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">Title of Employer or Authorized Representative:</label>
+                            <div class="col-sm-6 no-padding-right nopaddingleft-manage">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-left nopaddingright-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Last Name (Family Name):</label>
+                            <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">First Name (Given Name):</label>
+                            <div class="col-sm-6 no-padding-right nopaddingleft-manage">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-left nopaddingright-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Employer's Business or Organization:</label>
+                            <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">Employer's Business or Organization Address (Street Number and Name):</label>
+                            <div class="col-sm-6 no-padding-right nopaddingleft-manage">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-left nopaddingright-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">City or Town:</label>
+                            <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">State :</label>
+                            <div class="col-sm-6 no-padding-right nopaddingleft-manage">
+                                <select class="form-select form-control">
+                                    <option value="1">Alabama</option>
+                                    <option value="2">Alaska</option>
+                                    <option value="3">Arizona</option>
+                                    <option value="4">California</option>
+                                    <option value="5">Florida</option>
+                                    <option value="6">Indiana</option>
+                                    <option value="7">New Jersey</option>
+                                    <option value="8">New York</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6 no-padding-left nopaddingright-manage" style="margin-bottom:20px;">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Zip Code :</label>
+                            <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage">
+                                <input type="text" data-mask="99999" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+                <form class="form-horizontal hidden-lg" role="form" id="hideform3">
+                    <!--Manager Login-->
+                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                        <h4 class="themeprimary" style="line-height:25px; float:left;"><strong>Certification</strong> <span style="color:#000; font-size:15px;">(I attest, under penalty of perjury, that (1) I have examined the document(s) presented by the above-named employee, (2) the above-listed document(s) appear to be genuine and to relate to the employee named, and (3) to the best of my knowledge the employee is authorized to work in the United States.)</span></h4>
+
+                        <hr class="location-hr">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">The employee's first day of employment (mm/dd/yyyy):</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm-dd/yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar themeprimary"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">Signature of Employer or Authorized Representative:</label>
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="form-field-checkbox" type="checkbox" class="main-color inverted">
+                                        <span class="text main-color">I agree to sign these electronic documents using 'click' signature technology.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">Date (mm/dd/yyyy):</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm-dd-yyyy">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar themeprimary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">Title of Employer or Authorized Representative:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">Last Name (Family Name):</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">First Name (Given Name):</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">Employer's Business or Organization:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">Employer's Business or Organization Address (Street Number and Name):</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">City or Town:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">State :</label>
+                            <div class="col-sm-6">
+                                <select class="form-select form-control">
+                                    <option value="1">Alabama</option>
+                                    <option value="2">Alaska</option>
+                                    <option value="3">Arizona</option>
+                                    <option value="4">California</option>
+                                    <option value="5">Florida</option>
+                                    <option value="6">Indiana</option>
+                                    <option value="7">New Jersey</option>
+                                    <option value="8">New York</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-6 control-label">Zip Code :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-mask="99999" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <a href="@Url.Action("I9section_3","Onboarding")" class="btn btn-primary btn-md btnSearch">Previous</a>
+                <a href="@Url.Action("I9categories","Onboarding")" class="btn btn-primary btn-md btnSearch">Next</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+            $(document).ready(function () {
+
+                $(document).ready(function () { @*onclick="SendURL('/SuperAdmin/ManageBranding')"*@
+                    $(document).ready(function () {
+                        $('[data-toggle="popover"]').popover();
+
+                        $(document).on('click', function (e) {
+                            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                                }
+
+                            });
+                        });
+                    });
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload",
+                    preview_box: "#image-preview",
+                    label_field: "#image-label",
+
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload2",
+                    preview_box: "#image-preview2",
+                    label_field: "#image-label2",
+
+                });
+            });
+
+            function NotifyMessage(message, position, timeout, theme, icon, closable) {
+                toastr.options.positionClass = 'toast-' + position;
+                toastr.options.extendedTimeOut = 0; //1000;
+                toastr.options.timeOut = timeout;
+                toastr.options.closeButton = closable;
+                toastr.options.iconClass = icon + ' toast-' + theme;
+                toastr['custom'](message);
+            }
+
+    </script>
+</environment>

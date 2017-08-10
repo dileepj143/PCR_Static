@@ -1,0 +1,384 @@
+﻿@model I9Document
+@{
+    ViewData["Title"] = "Employee Sign";
+}
+    <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Fill I9 Section-2</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            I9 Section-2:Employer or Authorized Representative Review and Verification
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+        @if (ViewBag.RoleID != 4)
+        {
+            <a class="btn btn-primary pull-right" style="width:auto; padding:6px; color:white" href="/Onboarding/ManagePreOnboarding"><i class="fa fa-reply-all"></i> Back to AdminMenu</a>
+        }
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="padding:0 20px;">
+                        <h5 class="themeprimary" style="line-height:25px; float:left;"><strong>Certification: I attest, under penalty of perjury, that (1) I have examined the document(s) presented by the above-named employee, (2) the above-listed document(s) appear to be genuine and to relate to the employee named, and (3) to the best of my knowledge the employee is authorized to work in the United States.</strong> </h5>
+
+                        <hr class="location-hr">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <form method="post" class="form-horizontal" role="form" id="hideform3" action="/Onboarding/I9section_2_EmployerSign" novalidate="novalidate">
+                    <!--Manager Login-->
+                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+
+
+                        <div class="row">
+                            <div class="form-group col-sm-12 no-padding-left nopaddingright-manage">
+                                <label for="inputEmail3" class="col-sm-4 control-label no-padding-left">The employee's first day of employment (mm/dd/yyyy)<sup class="asterisk"><b>*</b></sup>:</label>
+                                <div class="col-sm-3 nopaddingleft-manage nopaddingright-manage nopaddingright-manage2">
+                                    <div class="input-group">
+                                        <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/6/2018">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar themeprimary"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="form-group col-sm-12 no-padding-left">
+                                <label for="inputEmail3" class="col-sm-4 control-label no-padding-left">Signature of Employer or Authorized Representative:</label>
+                                <div class="col-sm-8 nopaddingleft-manage nopaddingright-manage">
+                                    <div class="checkbox">
+
+                                        <img src="data:image/png;base64,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" style="height: 39px;width: 242px; float:left;" id="SignEmployer">
+                                        <span class="asterisk field-validation-valid" data-valmsg-for="EmployerSign" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="form-group col-sm-6 no-padding-left nopaddingleft-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Date (mm/dd/yyyy):</label>
+                                <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage">
+                                    <div class="input-group">
+                                        <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/7/2018">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar themeprimary"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">Title of Employer or Authorized Representative<sup class="asterisk"><b>*</b></sup>:</label>
+                                <div class="col-sm-6 no-padding-right nopaddingleft-manage nopaddingright-manage2">
+                                    <input type="text" class="form-control" data-val="true" data-val-length="The field EmployerTitle must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="The EmployerTitle field is required." id="EmployerTitle" name="EmployerTitle" value="tarun">
+                                    <span class="asterisk field-validation-valid" data-valmsg-for="EmployerTitle" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6 no-padding-left nopaddingright-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Last Name (Family Name)<sup class="asterisk"><b>*</b></sup>:</label>
+                                <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage nopaddingright-manage2">
+                                    <input type="text" class="form-control" data-val="true" data-val-length="The field EmployerLastName must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="The EmployerLastName field is required." id="EmployerLastName" name="EmployerLastName" value="qw">
+                                    <span class="asterisk field-validation-valid" data-valmsg-for="EmployerLastName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">First Name (Given Name)<sup class="asterisk"><b>*</b></sup>:</label>
+                                <div class="col-sm-6 no-padding-right nopaddingleft-manage nopaddingright-manage2">
+                                    <input type="text" class="form-control" data-val="true" data-val-length="The field EmployerFirstName must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="The EmployerFirstName field is required." id="EmployerFirstName" name="EmployerFirstName" value="test">
+                                    <span class="asterisk field-validation-valid" data-valmsg-for="EmployerFirstName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6 no-padding-left nopaddingright-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Employer's Business or Organization<sup class="asterisk"><b>*</b></sup>:</label>
+                                <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage nopaddingright-manage2">
+                                    <input type="text" class="form-control" data-val="true" data-val-length="The field EmployerOrganisationName must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="The EmployerOrganisationName field is required." id="EmployerOrganisationName" name="EmployerOrganisationName" value="test">
+                                    <span class="asterisk field-validation-valid" data-valmsg-for="EmployerOrganisationName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">Employer's Business or Organization Address (Street Number and Name):</label>
+                                <div class="col-sm-6 no-padding-right nopaddingleft-manage nopaddingright-manage2">
+                                    <input type="text" class="form-control" data-val="true" data-val-length="The field EmployerAddress must be a string with a maximum length of 100." data-val-length-max="100" id="EmployerAddress" name="EmployerAddress" value="">
+                                    <span class="asterisk field-validation-valid" data-valmsg-for="EmployerAddress" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6 no-padding-left nopaddingright-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">City or Town:</label>
+                                <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage nopaddingright-manage2">
+                                    <input type="text" class="form-control" id="City" name="City" value="test">
+                                    <span class="asterisk field-validation-valid" data-valmsg-for="City" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding-right nopaddingleft-manage">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-right nopaddingleft-manage">State :</label>
+                                <div class="col-sm-6 no-padding-right nopaddingleft-manage nopaddingright-manage2">
+                                    <select class="form-select form-control" id="State" name="State">
+                                        <option value="-1">--Select State--</option>
+                                        <option value="3056">new new</option>
+                                        <option value="2059" selected="selected">StateName</option>
+                                        <option value="2058">State1</option>
+                                        <option value="9">State_Two</option>
+                                        <option value="8">State_One</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6 no-padding-left nopaddingright-manage" style="margin-bottom:20px;">
+                                <label for="inputEmail3" class="col-sm-6 control-label no-padding-left">Zip Code :</label>
+                                <div class="col-sm-6 nopaddingleft-manage nopaddingright-manage nopaddingright-manage2">
+                                    <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5" minlength="5" type="number" class="form-control" data-val="true" data-val-minlength="Please Enter Correct Zipcode" data-val-minlength-min="5" id="Zipcode" name="Zipcode" value="23456">
+                                    <span class="asterisk field-validation-valid" data-valmsg-for="Zipcode" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                            <a href="/Onboarding/Upload_Document_Views" class="btn btn-primary btn-md btnSearch">Previous</a>
+                            <a href="/Onboarding/I9section_3" class="btn btn-primary btn-md btnSearch">Next</a>
+                        </div>
+                    </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8IeHAUcd6WBGljNy5ub4zt17qid_X0P-qV_d8TzLKXkor57nLcq2bBBD62UixX4ipi8_3GscBj_Aga_4vgyQNVYhBt5O0M8XEIzCgDu0WUWVnT1e-evHU4J9kvoO6qIAhvsVSMSk32V-rPyK7Oc4hgw">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div id="signature-pad" class="m-signature-pad" style="display: none;">
+        <input type="hidden" id="hdnID">
+        <div class="m-signature-pad--body">
+
+            <canvas width="912" height="388" style="touch-action: none;"></canvas>
+        </div>
+        <div class="m-signature-pad--footer">
+            <div class="description">Sign above</div>
+            <div class="left">
+                <button type="button" class="btn-warning clear" style="border:none;" data-action="clear">Clear</button>
+                <button type="button" class="btn-danger clear" style="border:none;" data-action="close">Close</button>
+            </div>
+            <div class="right">
+                <button type="button" class="btn-primary save" style="border:none;" data-action="save-png">submit</button>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Body -->
+
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    </style>
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.mask.js"></script>
+    <script src="/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="/assets/js/bootbox/bootbox.js"></script>
+    <script src="/assets/js/toastr/toastr.js"></script>
+    <script src="/assets/js/signature_padEmployer.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true,
+            });
+        $(document).ready(function () {
+
+            $(document).ready(function () {
+                $(document).ready(function () {
+                    $('[data-toggle="popover"]').popover();
+
+                    $(document).on('click', function (e) {
+                        $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                            }
+
+                        });
+                    });
+                });
+            });
+            $.uploadPreview({
+                input_field: "#image-upload",
+                preview_box: "#image-preview",
+                label_field: "#image-label",
+
+            });
+            $.uploadPreview({
+                input_field: "#image-upload2",
+                preview_box: "#image-preview2",
+                label_field: "#image-label2",
+
+            });
+        });
+
+        function NotifyMessage(message, position, timeout, theme, icon, closable) {
+            toastr.options.positionClass = 'toast-' + position;
+            toastr.options.extendedTimeOut = 0; //1000;
+            toastr.options.timeOut = timeout;
+            toastr.options.closeButton = closable;
+            toastr.options.iconClass = icon + ' toast-' + theme;
+            toastr['custom'](message);
+        }
+
+    </script>
+    @*<script>
+        $(document).ready(function () {
+
+
+            $('#signature-pad').hide();
+            $('#SignEmployer').on('click', function () {
+                $('#signature-pad').show();
+            })
+
+        })
+
+
+    </script>*@
+
+
+
+
+
+</div>
+
+<environment>
+    <style>
+.wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+	.vdivider hr {margin-top:0px !important}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+            $(document).ready(function () {
+
+                $(document).ready(function () { @*onclick="SendURL('/SuperAdmin/ManageBranding')"*@
+                    $(document).ready(function () {
+                        $('[data-toggle="popover"]').popover();
+
+                        $(document).on('click', function (e) {
+                            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                                }
+
+                            });
+                        });
+                    });
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload",
+                    preview_box: "#image-preview",
+                    label_field: "#image-label",
+
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload2",
+                    preview_box: "#image-preview2",
+                    label_field: "#image-label2",
+
+                });
+            });
+
+            function NotifyMessage(message, position, timeout, theme, icon, closable) {
+                toastr.options.positionClass = 'toast-' + position;
+                toastr.options.extendedTimeOut = 0; //1000;
+                toastr.options.timeOut = timeout;
+                toastr.options.closeButton = closable;
+                toastr.options.iconClass = icon + ' toast-' + theme;
+                toastr['custom'](message);
+            }
+
+    </script>
+</environment>

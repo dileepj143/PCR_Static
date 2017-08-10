@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Super Admin";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li class="active">Manage Branding</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Manage Branding
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <div class="division-form padding-bottom-add">
+            <form class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form">
+                <div class="form-group col-sm-6">
+                    <label for="inputEmail3" class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 col-xs-12 control-label no-padding-right">Client Caption </label>
+                    <div class="col-sm-12 col-lg-11 col-md-11 col-xs-12 col-md-offset-1 col-lg-offset-1" style="margin-top:10px;">
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="inputEmail3" class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 control-label no-padding-right">Client Welcome Message </label>
+                    <div class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 col-xs-12" style="margin-top:10px;">
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="inputEmail3" class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 control-label no-padding-right">Client Logo </label>
+                    <div class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 col-xs-12">
+                        <label for="image-upload" id="image-label" class="btn btn-md btn-primary pull-left manage-align">Select Logo</label>
+                        <div id="image-preview">
+
+                            <input type="file" name="image" id="image-upload" class="pull-right" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label for="inputEmail3" class="col-sm-6 col-lg-5 col-md-offset-1 col-lg-offset-1 col-md-6 col-xs-12 control-label no-padding-right">Client Welcome Image </label>
+                    <div class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 col-xs-12">
+                        <label for="image-upload2" id="image-label2" class="btn btn-md btn-primary pull-left manage-align">Select Image</label>
+                        <div id="image-preview2">
+
+                            <input type="file" name="image" id="image-upload2" class="pull-right" />
+                        </div>
+                    </div>
+                </div>
+
+                @*<hr class="addbranding-hr">*@
+                <hr class="location-hr">
+            </form>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <a href="/Administration/NewClient"> <button class="btn btn-primary btn-md btnSearch">Previous</button></a>
+                <a href="/Administration/ManageClients">
+                    <button class="btn btn-primary btn-md btnSearch">Save</button></a>
+                    <a href="/Administration/ManageClients"><button class="btn btn-warning btn-md btnSearch">Cancel</button></a>
+</div>
+            @*<div class="col-md-6 col-md-offset-5 col-lg-offset-5 col-lg-6 col-sm-12 col-xs-12 form-btns">                
+                <a href="#" class="cancel-btn"><button type="button" class="btn btn-md btn-primary btnSearch">Save</button></a>
+                <a onclick="SendURL('/SuperAdmin/ManageBranding')" href="#" class="cancel-btn"><button type="button" class="btn btn-md btn-primary btnSearch">Cancel</button></a>
+            </div>*@
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+</environment>
+<environment>
+   
+
+    <script type="text/javascript">
+$(document).ready(function() {
+  $.uploadPreview({
+    input_field: "#image-upload",
+    preview_box: "#image-preview",
+    label_field: "#image-label",
+
+  });
+  $.uploadPreview({
+   input_field: "#image-upload2",
+    preview_box: "#image-preview2",
+    label_field: "#image-label2",
+
+  });
+});
+    </script>
+</environment>

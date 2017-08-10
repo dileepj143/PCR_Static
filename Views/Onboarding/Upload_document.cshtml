@@ -1,0 +1,386 @@
+﻿@model I9UploadDocuments
+@{
+    ViewData["Title"] = "Upload Document";
+}
+ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Upload Document</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Upload Document
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form margin-top-edit">
+            <form class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form" id="form1">
+
+
+                <div class="row">
+
+                    <div class="col-md-2 col-md-offset-1 col-lg-offset-1">
+
+                        <h4 class="personal-details1 themeprimary"><strong>Title</strong></h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="personal-details1 themeprimary"><strong>Selected File</strong></h4>
+                    </div>
+
+
+                    <div class="col-md-2">
+
+                        <h4 class="personal-details1 themeprimary"><strong>Valid From</strong></h4>
+                    </div>
+                    <div class="col-md-2">
+
+                        <h4 class="personal-details1 themeprimary"><strong>Valid Upto</strong></h4>
+                    </div>
+
+                </div>
+                <hr class="upload-hr">
+                <div class="upload-body-scroll">
+                    <div class="row" style="margin-top:15px">
+
+                        <div class="col-md-2 col-md-offset-1 col-lg-offset-1">
+                            U.S. Passport or U.S. Passport Card
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group cust-fromgroup">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <span class="btn btn-primary btn-file" style="width: 75px; float:left; margin-right:30px;">
+                                        <span class="fileupload-new">Browse</span>
+                                        <span class="fileupload-exists">Change</span>         <input type="file">
+                                    </span>
+                                    @*<span class="btn btn-md btn-primary" style="width:57px; float:left;" id="b1"@*onclick="$('#image1').show()">View</span>*@
+                                    @*<span class="fileupload-preview SelectDocuments-upload-preview"></span>*@
+                                    <span class="btn btn-md btn-primary" style="width:57px; float:left;">
+                                        <a href="#" class="view" data-toggle="modal" data-target="#Passport" style="color:white">View</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="input-group cust-fromgroup">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/6/2017">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group cust-fromgroup">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/6/2018">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <a href="#" class="" @*class="cancel-btn" *@><button type="button" class="btn btn-md btn-primary" style="width: 58px;padding: 5px;" id="">Upload</button></a>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="margin-top:15px">
+
+                        <div class="col-md-2 col-md-offset-1 col-lg-offset-1">
+                            Voter's registration card
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group cust-fromgroup">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <span class="btn btn-primary btn-file" style="width: 75px; float:left; margin-right:30px;">
+                                        <span class="fileupload-new">Browse</span>
+                                        <span class="fileupload-exists">Change</span>         <input type="file">
+                                    </span>
+                                    @*<span class="btn btn-md btn-primary" style="width:57px; float:left;" id="">View</span>
+                                        <span class="fileupload-preview SelectDocuments-upload-preview"></span>*@
+                                    <span class="btn btn-md btn-primary" style="width:57px; float:left;">
+                                        <a href="#" data-toggle="modal" data-target="#voterimage" class="view" style="color:white">View</a>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="input-group cust-fromgroup">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/6/2017">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group cust-fromgroup">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/6/2018">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <a href="#" class="cancel-btn"><button type="button" class="btn btn-md btn-primary" style="width: 58px;padding: 5px;" id="one">Upload</button></a>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="margin-top:15px">
+
+                        <div class="col-md-2 col-md-offset-1 col-lg-offset-1">
+                            U.S. Citizen ID Card (Form 1-197)
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group cust-fromgroup">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <span class="btn btn-primary btn-file" style="width: 75px; float:left; margin-right:30px;">
+                                        <span class="fileupload-new">Browse</span>
+                                        <span class="fileupload-exists">Change</span>         <input type="file">
+                                    </span>
+                                    @*<span class="btn btn-md btn-primary" style="width:57px; float:left;" id="">View</span>
+                                        <span class="fileupload-preview SelectDocuments-upload-preview"></span>*@
+                                    <span class="btn btn-md btn-primary" style="width:57px; float:left;">
+                                        <a href="#" data-toggle="modal" data-target="#Citizen" class="view" style="color:white">View</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="input-group cust-fromgroup">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/6/2017">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group cust-fromgroup">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy" value="12/6/2018">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <a href="#" class="cancel-btn"><button type="button" class="btn btn-md btn-primary" style="width: 58px;padding: 5px;" id="">Upload</button></a>
+                        </div>
+
+                    </div>
+                </div>
+                <hr class="location-hr">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                    <a onclick='location.href = "/Onboarding/SelectDocuments"' href="#" class="btn btn-primary btn-md btnSearch">Previous</a>
+                    <a onclick='location.href = "/Onboarding/Signin"' href="#" class="btn btn-primary btn-md btnSearch">Next</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="voterimage" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="~/images/Voter Card.jpg" class="img-responsive" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="Passport" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="~/images/Passport_card.jpg" class="img-responsive" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="Citizen" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="~/images/VA-ID.jpg" class="img-responsive" />
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+	
+	.instruction-pop input{width:85%; float:left; margin-right:10px;}
+	.popover {max-width:237px; left:742px;}
+	.page-sidebar .sidebar-menu li a {height:38px;}
+	.page-sidebar .sidebar-menu li a p {line-height:5px;}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+
+            $(window).bind("load", function () {
+                /*Sets Themed Colors Based on Themes*/
+                themethirdcolor = getThemeColorFromCss('themethirdcolor');
+                InitiateEasyPieChart.init();
+            });
+
+
+    </script>
+    <script type="text/javascript">
+     
+        $(document).ready(function () {
+    
+            $('input[type=submit]').click(function () {
+
+                $('#ValidFrom').each(function (e, v) {
+
+                    var validFrom = $(this).val();
+                    var validUpto = $('#ValidUpTo').val();
+                    var currentDate = new Date();
+                    
+                    if (validFrom == null || validFrom == undefined || validFrom == "") {
+                        alert('Select Valid From Date');
+                        event.preventDefault();
+                    }
+
+                    if (validUpto == null || validUpto == undefined || validUpto == "") {
+                        alert('Select Valid Upto Date');
+                        event.preventDefault();
+                    }
+
+                    if (new Date(validUpto) < currentDate) {
+                        alert('Valid Upto must be greater than current date');
+                        event.preventDefault();
+                    }
+
+                    if (new Date(validFrom) > currentDate) {
+                        alert('Valid From must be less than current date');
+                        event.preventDefault();
+                    }
+
+                    if (validUpto <= validFrom) {
+                        alert('Valid Upto should be greater than Valid From');
+                        event.preventDefault();
+                    }
+                })
+            })
+           
+            $("#viewDocument").load("Onboarding/Upload_document",
+           function () {
+               $("#divHtml").dialog({
+                   modal: true,
+                   buttons: {
+                       Ok: function () {
+                           $(this).dialog("close");
+                       }
+                   }
+               });
+           }
+);
+        })
+
+        jQuery(function ($) {
+            $('#WiredWizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'fa-check', true);
+            });
+        });
+
+        $("#hideform").hide();
+        $("#hideform2").hide();
+        $("#hideform-btn").click(function () {
+            $("#hideform").show();
+            $("#hideform3").hide();
+        });
+
+        $("#hideform-btn2").click(function () {
+            $("#hideform2").show();
+            $("#hideform").hide();
+            $("#hideform3").hide();
+        });
+
+        $("#bootbox-options").on('click', function () {
+            bootbox.dialog({
+                message: $("#myModal").html(),
+                title: "Add Account Details",
+                className: "modal-darkorange",
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-primary",
+                        callback: function () { }
+                    },
+                    "Cancel": {
+                        className: "btn-primary",
+                        callback: function () { }
+                    }
+                }
+            });
+        });
+    </script>
+    
+</environment>

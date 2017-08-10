@@ -1,0 +1,51 @@
+﻿
+          .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+              vertical-align: middle;
+          }
+              .table > tbody > tr > td a {
+                  margin: 3px;
+              }
+          .table > thead > tr > th {
+              background-color: #c1c1c1;
+          }
+          .form-horizontal.form-group {
+              margin-bottom: 8px;
+          }
+          .checkbox {
+              text-align: center;
+          }
+          .DTTT.btn-group {
+              position: absolute !important;
+              display: none !important;
+          }
+      
+
+            ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+            margin-left: 0px;
+        }
+
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+        
+.setting-container input[type=checkbox] ~ .text:before, input[type=radio] ~ .text:before {
+    margin-right: 0px !important;
+}

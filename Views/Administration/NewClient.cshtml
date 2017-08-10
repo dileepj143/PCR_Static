@@ -1,0 +1,347 @@
+﻿@model Client
+@{
+    ViewData["Title"] = "Super Admin";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li>
+            <a href="@Url.Action("ManageClients","Dashboard")">Manage Clients</a>
+        </li>
+        <li class="active" id="LiActive">Add Client</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary" id="PageHeadingDv">
+            Add Client
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i> 
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="adddivision-form">
+                <form asp-controller="Administration" asp-action="NewClient" method="post" class="form-horizontal" role="form">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                        
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-6 control-label no-padding-right">Name :<sup class="asterisk">*</sup></label>
+                            <div class="col-sm-6">
+                                <input asp-for="ClientName" type="text" class="form-control" id="txtName">
+                                <span asp-validation-for="ClientName" class="asterisk"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-6 control-label no-padding-right">Url Name :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="UrlName" type="text" class="form-control" id="txtUrlName">
+                                <span asp-validation-for="UrlName" class="asterisk"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-6 control-label no-padding-right">Contact Person :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="ContactPerson" type="text" class="form-control" id="txtContactPerson">
+                                <span asp-validation-for="ContactPerson" class="asterisk"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-6 control-label no-padding-right">Contact Email :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="ContactEmail" type="email" class="form-control" id="txtEmail">
+                                <span asp-validation-for="ContactEmail" class="asterisk"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-6 control-label no-padding-right">Contact Phone :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="ContactPhone" type="text" maxlength="14"  class="form-control" id="txtContactPhone">
+                                <span asp-validation-for="ContactPhone"  class="asterisk"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12 margin-bottom">
+                            <label class="col-sm-6 control-label no-padding-right">Corporate Address :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="CorporateAddress" type="text" class="form-control">
+                                <span asp-validation-for="CorporateAddress" class="asterisk"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-6 control-label no-padding-right">Mailing Address :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="MailingAddress" type="text" class="form-control no-padding-right" id="txtMailingAddress">
+                                <span asp-validation-for="MailingAddress" class="asterisk"></span>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="chkMailingAddress" class="inverted">
+                                        <span class="text">Same as Corporate</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Billing Address :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="BillingAddress" type="text" class="form-control no-padding-right" id="txtBillingAddress">
+                                <span asp-validation-for="BillingAddress" class="asterisk"></span>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="chkBillingAddress" class="inverted">
+                                        <span class="text">Same as Corporate</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-6 control-label no-padding-right">Billing Email :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="BillingMail" type="email" class="form-control no-padding-right" id="txtBillingMail">
+                                <span asp-validation-for="BillingMail" class="asterisk"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Comments :</label>
+                            <div class="col-sm-6">
+                                <input asp-for="Comments" type="text" class="form-control no-padding-right" id="txtComments">
+                                <span asp-validation-for="Comments" class="asterisk"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">DatabaseId :<sup class="asterisk"></sup></label>
+                            <div class="col-sm-6">
+                                <input asp-for="DatabaseId" type="text" class="form-control no-padding-right" id="txtDataBaseId">
+                               
+                            </div>
+                        </div>
+
+                    </div> 
+                    <hr class="location-hr">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                        <a href="@Url.Action("ManageBranding","Administration")" button type="submit" class="btn btn-primary btn-md btnSearch" id="btnNext">Next</a>
+                        <a href="@Url.Action("ManageClients","Administration")" class="btn btn-warning btn-md btnSearch" id="btnCancel">Cancel</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /Page Body -->
+
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+    </style>
+</environment>
+<environment>
+    <!--Page Related Scripts-->
+    @*<script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>*@
+
+    <script src="https://raw.githubusercontent.com/igorescobar/jQuery-Mask-Plugin/master/src/jquery.mask.js"></script>
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    @*<script src="~/assets/js/beyond.min.js"></script>*@
+
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+
+
+    @*<script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>*@
+    @*//btnNext*@
+    @*<script>
+        $(document).ready(function ($) {
+            $('#txtContactPhone')
+              .keydown(function (e) {
+                  debugger;
+
+                  var key =e.which || e.charCode || e.keyCode || 0;
+                  $phone = $(this);
+                   
+                  // Don't let them remove the starting '('
+                  if ($phone.val().length === 1 && (key === 8 || key === 46)) {
+                      $phone.val('(');
+                      return false;
+                  }
+                      // Reset if they highlight and type over first char.
+                  else if ($phone.val().charAt(0) !== '(') {
+                      $phone.val('(' + String.fromCharCode(e.keyCode) + '');
+                  }
+
+                  // Auto-format- do not expose the mask as the user begins to type
+                  if (key !== 8 && key !== 9) {
+                      if ($phone.val().length === 4) {
+                          $phone.val($phone.val() + ')');
+                      }
+                      if ($phone.val().length === 5) {
+                          $phone.val($phone.val() + ' ');
+                      }
+                      if ($phone.val().length === 9) {
+                          $phone.val($phone.val() + '-');
+                      }
+
+                  }
+                  // Allow numeric (and tab, backspace, delete) keys only
+                  return (key == 8 ||
+                          key == 9 ||
+                          key == 46 ||
+                      (key >= 48 && key <= 57) ||
+                          (key >= 96 && key <= 105));
+              })
+              .bind('focus click', function () {
+                  $phone = $(this);
+
+                  if ($phone.val().length === 0) {
+                      $phone.val('(');
+                  }
+                  else {
+                      var val = $phone.val();
+                      $phone.val('').val(val); // Ensure cursor remains at the end
+                  }
+              })
+              .blur(function () {
+                  $phone = $(this);
+
+                  if ($phone.val() === '(') {
+                      $phone.val('');
+                  }
+              });
+
+
+            $("#ddlMasterClient").prop("disabled", true).css("cursor", "default").fadeTo(500, "none");
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") {
+                NotifyMessage('@TempData["Message"]', 'top-right', '1200', 'warning', 'fa-warning', true);
+            }
+
+            if ($('#txtMailingAddress').val() != null && $('#txtMailingAddress').val() != "")
+                $('#chkMailingAddress').attr('checked', true);
+            if ($('#txtBillingAddress').val() != null && $('#txtMailingAddress').val() != "")
+                $('#chkBillingAddress').attr('checked', true);
+
+        });
+        $('#CorporateAddress').keyup(function () {
+            if ($('#chkMailingAddress').is(':checked') == true)
+                $('#txtMailingAddress').val($(this).val());
+            if ($('#chkBillingAddress').is(':checked') == true)
+                $('#txtBillingAddress').val($(this).val());
+            if ($(this).val() == "") {
+                $('#chkMailingAddress').attr('checked', false);
+                $('#chkBillingAddress').attr('checked', false);
+            }
+
+        })
+
+        $('#chkMailingAddress').change(function () {
+
+            if ($(this).is(':checked') == true) {
+                var corporateAddress = $('#CorporateAddress').val();
+                if (corporateAddress != null && corporateAddress != "") {
+                    $('#txtMailingAddress').val(corporateAddress);
+                    $('#txtMailingAddress').attr('readonly', true);
+                }
+                else {
+                    NotifyMessage("Corporate address is empty please mention corporate address first", 'top-right', '1200', 'warning', 'fa-warning', true);
+                    $(this).attr('checked', false);
+                }
+            }
+            else {
+                $('#txtMailingAddress').val('');
+                $('#txtMailingAddress').attr('readonly', false);
+            }
+        });
+
+        $('#chkBillingAddress').change(function () {
+            if ($(this).is(':checked') == true) {
+                var corporateAddress = $('#CorporateAddress').val();
+                if (corporateAddress != null && corporateAddress != "") {
+                    $('#txtBillingAddress').val(corporateAddress);
+                    $('#txtBillingAddress').attr('readonly', true);
+                }
+                else {
+                    NotifyMessage("Corporate address is empty please mention corporate address first", 'top-right', '1200', 'warning', 'fa-warning', true);
+                    $(this).attr('checked', false);
+                }
+            }
+            else {
+                $('#txtBillingAddress').val('');
+                $('#txtBillingAddress').attr('readonly', false);
+            }
+        });
+
+    </script>*@
+</environment>

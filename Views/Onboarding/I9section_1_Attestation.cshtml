@@ -1,0 +1,350 @@
+﻿@model PCR.Onboarding.UI.ViewModels.I9_Section1_Attestation
+@{
+    ViewData["Title"] = "I9Categories";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Attestation</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            I9 Section-1 : Attestation
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form">
+        <form class="form-horizontal form-padding" role="form">
+            <p class="themeprimary"><strong>I am aware that federal law provides for imprisonment and/or fines for false statements or use of false documents in connection with the completion of this form.</strong></p>
+            <p class="themeprimary"><strong>I attest, under penalty of perjury, that i am (check one of the following boxes):</strong></p>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="radio">
+                    <label>
+                        <input name="form-field-radio" type="radio" class="main-color">
+                        <span class="text main-color">A citizen of the United State</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="instruction-pop" style="margin-bottom:10px; overflow:hidden;">
+                    <div class="radio instr-align">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">A noncitizen national of United States</span>
+                        </label>
+                    </div>
+                    <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Non citizen nationals of the United States are persons born in American Samoa, certan former citizens of the former Trust Territory of Pacific Islands, and certain children of non citizen nationals born abroad." data-original-title="" title="">
+                        ?
+                    </a>
+                    @*<a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="middle" data-title="Instructions" data-content="Non citizen nationals of the United States are persons born in American Samoa, certan former citizens of the former Trust Territory of Pacific Islands, and certain children of non citizen nationals born abroad." data-original-title="" title="">
+                        ?
+                    </a>*@
+                </div>
+            </div>
+            <div class="form-group col-sm-12 cust-overflow">
+                <div class="radio col-sm-7" style="padding-left:0px">
+                    <label>
+                        <input name="form-field-radio" type="radio" class="main-color">
+                        <span class="text main-color">A lawful permanent resident &nbsp;&nbsp;&nbsp;(Alien registration number or USCIS number)</span>
+                    </label>
+                </div>
+                <div class="col-sm-4 form-group" style="padding-left:0px; margin-top:8px;">
+                    <div class="col-sm-6 no-padding-left no-padding-right">
+                        <select class="form-select form-control">
+                            <option value="0">A</option>
+                            <option value="1">USCIS</option>
+
+                        </select>
+                    </div>
+                    <div class="col-sm-6 attes-top no-padding-right">
+                        <input type="email" class="form-control" id="inputEmail3">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+
+                <div class="radio col-sm-7" style="padding-left:0px">
+                    <label>
+                        <input name="form-field-radio" type="radio" class="main-color">
+                        <span class="text main-color">An alien authorized to work until &nbsp;&nbsp;&nbsp;(Expiration date if applicable)<p style="padding-left:20px;">Some aliens may write "N/A" in the expiration field.</p></span>
+                    </label>
+                </div>
+                <div class="col-sm-4 form-group" style="padding-left:0px; margin-top:10px;">
+                    <input type="email" class="form-control" id="inputEmail3">
+                </div>
+            </div>
+            <hr class="location-hr">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p class="themeprimary"><strong>Aliens authorized to work must provide only one of the document numbers to complete form 1-9:</strong></p>
+                <p class="themeprimary"><strong> An Alien Registration Number/USCIS Number OR Form 1-94 Admission Number OR Foriegn Passport Number.</strong></p>
+
+                <div class="form-group col-sm-10 hide-show text-center" style="padding-left:5px">
+                    <label for="inputEmail3" class="col-sm-4 control-label  no-padding-lef no-padding-right">1. Alien Registration Number <p style="margin-left:12px">(A-Number/USCIS Number)</p></label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="inputEmail3">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group col-sm-8">
+                <h4 class="text-center"><strong>or</strong></h4>
+            </div>
+
+
+            <div class="form-group col-sm-10 hide-show text-center">
+                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right">2. Form I-94 adminssion Number</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputEmail3">
+                </div>
+            </div>
+
+
+
+            <div class="form-group col-sm-8">
+                <h4 class="text-center"><strong>or</strong></h4>
+            </div>
+
+
+
+            <div class="form-group col-sm-10 hide-show text-center">
+                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right ">3. Foreign Passport Number</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputEmail3">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-10 hide-show text-center">
+                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right">Country of Issuance</label>
+                <div class="col-sm-4">
+                    <select class="form-select form-control">
+                        <option value="1">Afghanistan</option>
+                        <option value="1">Albania</option>
+                        <option value="1">Algeria</option>
+                        <option value="1">Belize</option>
+                        <option value="1">Cambodia</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <hr class="location-hr">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+        <a href="/Onboarding/I9section_1" class="btn btn-primary btn-md btnSearch">Previous</a>
+        <a href="/Onboarding/I9section_1_review" class="btn btn-primary btn-md btnSearch">Next</a>
+    </div>
+
+</div>
+
+
+
+
+<!-- /Page Body -->
+<environment>
+
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .instruction-pop input {
+            width: 85%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .instruction-pop a {
+            float: left;
+            padding: 1px 7px;
+            background-color: #2dc3e8;
+            border-radius: 20px;
+            margin-top: 0px;
+            color: #fff;
+        }
+
+        .popover {
+            max-width: 237px;
+            left: 742px;
+        }
+
+        .popover-content {
+            font-size: 13px;
+        }
+
+        .instr-align {
+            float: left;
+        }
+
+        .align-left {
+            padding-left: 0px;
+        }
+
+        .align-btn {
+            padding-left: 0px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-padding {
+            margin: 7px;
+        }
+
+        .instruction-pop a {
+            float: left !important;
+            margin-top: 9px !important;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .form-btns {
+            margin-top: 20px;
+        }
+
+        .instruction-pop label input[type=radio] ~ .text {
+            float: left;
+        }
+
+        .instruction-pop a {
+            float: right;
+            padding: 0px 7px;
+            border-radius: 20px;
+            margin-top: 0px;
+            margin-left: 0px;
+            color: #fff;
+        }
+
+        .popover {
+            max-width: 220px;
+            height: 150px;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+        .popover-content {
+            width: 280px;
+            height: 100px;
+        }
+      
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="popover-hover"]').popover();
+            $(document).on('click', function (e) {
+                $('[data-toggle="popover-hover"],[data-original-title]').each(function () {
+
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                        (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                    }
+                });
+            });
+            $.uploadPreview({
+                input_field: "#image-upload",
+                preview_box: "#image-preview",
+                label_field: "#image-label",
+
+            });
+            $.uploadPreview({
+                input_field: "#image-upload2",
+                preview_box: "#image-preview2",
+                label_field: "#image-label2",
+
+            });
+        });
+           
+        
+        </script>
+</environment>

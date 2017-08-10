@@ -1,0 +1,203 @@
+﻿
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home themeprimary"></i>
+                            @if (ViewBag.RoleID == 1)
+            {
+                                <a href="/SuperAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 2)
+                            {
+                                <a href="/ClientAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 3)
+                            {
+                                <a href="/Manager/Index">Dashboard</a>
+                            }
+                            else
+                            {
+                                <a href="/Employee/I9categories">Dashboard</a>
+                            }
+                        </li>
+                        
+                        <li class="active">Form W-4</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1 class="themeprimary">
+                            Form W-4
+						</h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- Page Body -->
+                <div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <h4 class="col-md-12 col-lg-12 themeprimary"><strong>Form W-4 Deductions and Adjustments Worksheet</strong></h4>
+				<hr class="location-hr">
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <form class="form-padding" role="form" id="hideform">
+					<p><strong>Note :Use this worksheet only if you plan to itemize deductions or claim certain credits or adjustments to income.</strong></p>
+					<div class="table-responsive form-w-4-personal">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td style="width:50px;"><strong>1</strong></td>
+									<td style="width:800px;">Enter an estimate of your 2017 itemized deductions. These include qualifying home mortgage interest, charitable contributions, state and local taxes, medical expenses in excess of 10% of your income, and miscellaneous deductions. For 2017, you may have to reduce your itemized deductions if your income is over $313,800 and you’re married filing jointly or you’re a qualifying widow(er); $287,650 if you’re head of household; $261,500 if you’re single, not head of household and not a qualifying widow(er); or $156,900 if you’re married filing separately. See Pub. 505 for details .....................</td>
+									<td style="width:50px;"><strong>1</strong></td>
+									<td style="width:300px;"><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>2</strong></td>
+									<td>Enter:
+										<ul>
+											<li>$12,700 if married filing jointly or qualifying widow(er)</li>
+											<li>$9,350 if head of household</li>
+											<li>$6,350 if single or married filing separately</li>
+										</ul>
+									</td>
+									<td><strong>2</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>3</strong></td>
+									<td><strong>Subtract</strong> line 2 from line 1. If zero or less, enter “-0-” ................</td>
+									<td><strong>3</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>4</strong></td>
+									<td>Enter an estimate of your 2017 adjustments to income and any additional standard deduction (see Pub. 505)</td>
+									<td><strong>4</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>5</strong></td>
+									<td><strong>Add</strong> lines 3 and 4 and enter the total. (Include any amount for credits from the Converting Credits to Withholding Allowances for 2017 Form W-4 worksheet in Pub. 505.) ............</td>
+									<td><strong>5</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>6</strong></td>
+									<td>Enter an estimate of your 2017 nonwage income (such as dividends or interest)........</td>
+									<td><strong>6</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>7</strong></td>
+									<td><strong>Subtract</strong> line 6 from line 5. If zero or less, enter “-0-” ................</td>
+									<td><strong>7</strong></td>
+									<td><input type="text" placeholder="$" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>8</strong></td>
+									<td><strong>Divide</strong> the amount on line 7 by $4,050 and enter the result here. Drop any fraction .......</td>
+									<td><strong>8</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>9</strong></td>
+									<td>Enter the number from the <strong>Personal Allowances Worksheet</strong>, line H, page 1 .........</td>
+									<td><strong>9</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>10</strong></td>
+									<td><strong>Add</strong> lines 8 and 9 and enter the total here. If you plan to use the <strong>Two-Earners/Multiple Jobs Worksheet,</strong> also enter this total on line 1 below. Otherwise, stop here and enter this total on Form W-4, line 5, page 1</td>
+									<td><strong>10</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+                </form>
+            </div>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href = "/Onboarding/W4_WithholdingAllowance"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href = "/Onboarding/W4_TwoEarners"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>    
+</div>
+            <!-- /Page Content -->
+       
+    <!--Basic Scripts-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assets/js/beyond.min.js"></script>
+
+    <!--Page Related Scripts-->
+    <script src="assets/js/fuelux/wizard/wizard-custom.js"></script>
+    <script src="assets/js/toastr/toastr.js"></script>
+	<!--Page Related Scripts-->
+    <script src="assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="assets/js/charts/easypiechart/easypiechart-init.js"></script>
+	<!--Page Related Scripts-->
+    <script src="assets/js/inputmask/jasny-bootstrap.min.js"></script>
+	<!--Bootstrap Date Picker-->
+    <script src="assets/js/datetime/bootstrap-datepicker.js"></script>
+	
+	<script>
+	//--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+	</script>
+    <script>
+        $(window).bind("load", function () {
+            /*Sets Themed Colors Based on Themes*/
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            InitiateEasyPieChart.init();
+        });
+    </script>
+	<script type="text/javascript">
+        jQuery(function ($) {
+            $('#WiredWizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'fa-check', true);
+            });
+        });
+    </script>
+	
+	<script>
+	$("#hideform").show();
+	$("#hideform2").hide();
+		$("#hideform-btn").click(function(){
+    $("#hideform").hide();
+	$("#hideform2").show();
+});
+
+$("#hideform-btn2").click(function(){
+    $("#hideform").show();
+	$("#hideform2").hide();
+});
+
+//--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+</script>
+    
+</body>
+<!--  /Body -->
+</html>

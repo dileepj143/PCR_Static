@@ -1,0 +1,180 @@
+﻿@model Notification
+    <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li>
+            <a href="ManageNotifications">Notifications</a>
+        </li>
+        <li class="active">Edit Notification</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Edit New Notification
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form margin-top-add padding-bottom-add">
+            <form class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 col-sm-offset-2 col-md-3 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-2 control-label no-padding-right">ID :</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="25" disabled="disabled">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 col-sm-offset-2 col-md-3 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-2 control-label no-padding-right">Process Step :</label>
+                    <div class="col-sm-5">
+                        <select class="form-select form-control">
+                            <option value="1">Select...</option>
+                            <option value="2">New Hire Paperwork Complete</option>
+                            <option value="3" selected>Employee Terminated</option>
+                            <option value="4">E-Verify Delay</option>
+                            <option value="5">E-Verify Fail</option>
+                            <option value="6">New Hire Paperwork Complete Pending E-Verify</option>
+                            <option value="7">Employee Terminated TNC not Contested</option>
+                            <option value="8">Pending Management Approval</option>
+                            <option value="9">New Hire Setup</option>
+                            <option value="10">New Hire Needs Accomdation</option>
+                            <option value="11">Current Employee Setup Strongly Suggested</option>
+                            <option value="12">Need to update Information Strongly Suggested</option>
+                            <option value="13">Current Employee Setup Strongly Suggested</option>
+                            <option value="14">Employee Wage Changed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 col-sm-offset-2 col-md-3 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-2 control-label no-padding-right" style="padding-top:10px;">Select Notification Recipients :</label>
+                    <div class="col-sm-5">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">
+                                <span class="text">Email Super Admin?</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" checked>
+                                <span class="text">Email Client Admin?</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">
+                                <span class="text">Email Manager?</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">
+                                <span class="text">Email Employee?</span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div class="form-group margin-bottom">
+                    <label for="inputEmail3" class="col-sm-6 col-md-3 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-2 control-label no-padding-right">External Emails :</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="inputEmail3">
+                    </div>
+                </div> -->
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick="location.href = '/Notification/ManageNotifications'" class="btn btn-primary btn-md btnSearch">Save</button>
+                <button onclick="location.href = '/Notification/ManageNotifications'" class="btn btn-danger btn-md btnSearch">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+    </style>
+</environment>
+
+<environment>
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script>
+       $(document).ready(function ()
+        {
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") {
+                NotifyMessage('@TempData["Message"]', 'top-right', '1200', 'warning', 'fa-warning', true);
+            }
+            $("#ddlMasterClient").prop("disabled", true).css("cursor", "default").fadeTo(500, "none");
+        });
+
+    </script>
+
+
+</environment>

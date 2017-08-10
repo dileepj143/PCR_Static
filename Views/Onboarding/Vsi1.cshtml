@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Super Admin";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li class="active">
+            @*<i class="fa fa-home themeprimary"></i>*@
+            @*<a   onclick="SendURL('/SuperAdmin/Index_New')" href="#">Dashboard</a>*@
+            Fill VSI
+        </li>
+
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Form VSI
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <form asp-controller="Onboarding" asp-action="Vsi1" method="post" class="form-horizontal"  role="form" id="hideform3">
+
+                <!--voluntary self-identify-->
+                <div class="col-md-12">
+                    <h4 class="main-color themeprimary text-center"><strong>Voluntary Self-Identification of Disability</strong></h4>
+                    <p class="main-color center-block" style="text-align:center;border:2px solid #000"><strong>Why are you being asked to complete this form?</strong></p>
+                    <p class="main-color parajustify">Because we do business with the goverment, we must reach out to, hire and provide equal opportunity to qualified people with disabilities. To help us measure how well we are doing, we are asking you to tell us if you have a disability or if you ever had a disability. Completing this form is voluntary, but we hope that you will choose to fill it out. If you are applying for a job, any answer you give will be kept private and will not be used against you in any way.</p>
+                    <p class="main-color parajustify">If you already work for us, your answer will not be used against you in any way. Because a person may become disabled at any time, we are required to ask all of our employees to update their information every five years. You may voluntarily self-identify as having a disability on this form without fear of any punishment because you did not identify as having a disability earlier.</p>
+                </div>
+                <hr class="vsi-hr">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                    <a href="@Url.Action("I9section_1_preparer","Onboarding")" class="btn btn-primary btn-md btnSearch">Previous</a>
+                    <a href="@Url.Action("Vsi2","Onboarding")" class="btn btn-primary btn-md btnSearch">Next</a>
+                    @*<input type="submit" value="Next" class="btn btn-primary btn-md btnSearch" />*@
+                </div>
+                @*<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                        <button onclick="SendURL('/SuperAdmin/I9Section_1_Review')" class="btn btn-primary btn-md btnSearch">Previous</button>
+                        <button onclick="SendURL('/SuperAdmin/VSIForm2')" class="btn btn-primary btn-md btnSearch">Next</button>
+                    </div>*@
+            </form>
+        </div>
+
+
+
+
+    </div>
+</div>
+<!-- /Page Body -->
+
+
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    </style>
+</environment>
+<environment>
+
+    <script src="~/assets/js/fuelux/wizard/wizard-custom.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script>
+        $(window).bind("load", function () {
+            /*Sets Themed Colors Based on Themes*/
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            InitiateEasyPieChart.init();
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#WiredWizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'fa-check', true);
+            });
+        });
+    </script>
+
+    <script>
+        $("#hideform").hide();
+        $("#hideform2").hide();
+        $("#hideform-btn").click(function () {
+            $("#hideform").show();
+            $("#hideform3").hide();
+        });
+
+        $("#hideform-btn2").click(function () {
+            $("#hideform2").show();
+            $("#hideform").hide();
+            $("#hideform3").hide();
+        });
+    </script>
+</environment>

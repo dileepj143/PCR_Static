@@ -1,0 +1,338 @@
+﻿@*@model PCR.Onboarding.UI.Controllers.LayOutData*@
+<!-- Navbar -->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="navbar-container">
+            <!-- Navbar Barnd -->
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand" style="margin-top:8px;">
+                    <!--small>
+                        <img src="~/assets/img/logo.png" alt="" />
+                    </small-->
+                    PCR Onboard
+                </a>
+            </div>
+            <!-- /Navbar Barnd -->
+            <!-- Sidebar Collapse -->
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="collapse-icon fa fa-bars"></i>
+            </div>
+            <!-- /Sidebar Collapse -->
+            <!-- Account Area and Settings --->
+            <div class="navbar-header pull-right">
+                <div class="navbar-account">
+                    <ul class="account-area">
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown" title="Notifications" href="#">
+                                <i class="icon fa fa-warning"></i>
+                            </a>
+                            <!--Notification Dropdown-->
+                            <ul class="pull-right dropdown-menu dropdown-arrow dropdown-notifications">
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <div class="notification-icon">
+                                                <i class="fa fa-file bg-themeprimary white"></i>
+                                            </div>
+                                            <div class="notification-body">
+                                                <span class="title">E-verify delayed</span>
+                                                <span class="description">20 min ago</span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <div class="notification-icon">
+                                                <i class="fa fa-check bg-darkorange white"></i>
+                                            </div>
+                                            <div class="notification-body">
+                                                <span class="title">Onboarding Complete</span>
+                                                <span class="description">5 min ago</span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <div class="notification-icon">
+                                                <i class="fa fa-user-plus bg-warning white"></i>
+                                            </div>
+                                            <div class="notification-body">
+                                                <span class="title">New Hire Added</span>
+                                                <span class="description">1 hour ago</span>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--/Notification Dropdown-->
+                        </li>
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown" title="Mails" href="#">
+                                <i class="icon fa fa-envelope"></i>
+                                <span class="badge">3</span>
+                            </a>
+                            <!--Messages Dropdown-->
+                            <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
+                                <li>
+                                    <a href="#">
+                                        <img src="~/assets/img/default.png" class="message-avatar">
+                                        <div class="message">
+                                            <span class="message-sender">
+                                                New User
+                                            </span>
+                                            <span class="message-time">
+                                                2 minutes ago
+                                            </span>
+                                            <span class="message-body">
+                                                Need further information from employee
+                                            </span>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/assets/img/default.png" class="message-avatar">
+                                        <div class="message">
+                                            <span class="message-sender">
+                                                User 2
+                                            </span>
+                                            <span class="message-time">
+                                                Yesterday
+                                            </span>
+                                            <span class="message-body">
+                                                New hire accommodation request‏
+                                            </span>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="~/assets/img/default.png" class="message-avatar">
+                                        <div class="message">
+                                            <span class="message-sender">
+                                                Client
+                                            </span>
+                                            <span class="message-time">
+                                                2 days ago
+                                            </span>
+                                            <span class="message-body">
+                                                Pending Management approval
+                                            </span>
+
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--/Messages Dropdown-->
+                        </li>
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown" title="Tasks" href="#">
+                                <i class="icon fa fa-tasks"></i>
+                                <span class="badge">2</span>
+                            </a>
+                            <!--Tasks Dropdown-->
+                            <ul class="pull-right dropdown-menu dropdown-tasks dropdown-arrow ">
+                                <li class="dropdown-header bordered-darkorange">
+                                    <i class="fa fa-tasks"></i>
+                                    2 Tasks In Progress
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">Onboarding</span>
+                                            <span class="pull-right">79%</span>
+                                        </div>
+
+                                        <div class="progress progress-xs">
+                                            <div style="width:79%" class="progress-bar"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="clearfix">
+                                            <span class="pull-left">E-Verify</span>
+                                            <span class="pull-right">63%</span>
+                                        </div>
+
+                                        <div class="progress progress-xs">
+                                            <div style="width:63%" class="progress-bar progress-bar-success"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="dropdown-footer">
+                                    <a href="#">
+                                        See All Tasks
+                                    </a>
+                                    <button class="btn btn-xs btn-default shiny darkorange icon-only pull-right"><i class="fa fa-check"></i></button>
+                                </li>
+                            </ul>
+                            <!--/Tasks Dropdown-->
+                        </li>
+                        <!--li>
+                            <a class="wave in" id="chat-link" title="Chat" href="#">
+                                <i class="icon glyphicon glyphicon-comment"></i>
+                            </a>
+                        </li-->
+                        <li>
+                            <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                <div class="avatar" title="View your public profile">
+                                    <img src="~/assets/img/avatars/adam-jansen.jpg">
+                                </div>
+                                <section>
+                                    <h2>
+                                        <span class="profile">
+                                            <span id="ProfileName"></span>
+                                            @*@Html.DisplayFor(m=>m.UserName)*@
+                                        </span>
+                                    </h2>
+                                </section>
+                            </a>
+                            <!--Login Area Dropdown-->
+                            <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
+                                <li class="username"><a></a></li>
+                                <li class="email"><a id="UserEmail" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"></a></li>
+                                <!--Avatar Area-->
+                                <li>
+                                    <div class="avatar-area">
+                                        <img src="~/assets/img/avatars/adam-jansen.jpg" class="avatar">
+                                        <span class="caption">Change Photo</span>
+                                    </div>
+                                </li>
+                                <!--Avatar Area-->
+                                <li class="edit dropdown-footer">
+                                    @if (@ViewBag.RoleID == 1)
+                                    {
+                                    <a href="@Url.Action("Profile", "UserManagement")" class="pull-left" id="Profile" style="margin-top:2px">Profile</a>
+                                    }
+else if (@ViewBag.RoleID == 2)
+{
+    <a href="@Url.Action("Profile", "UserManagement")" class="pull-left" id="Profile" style="margin-top:2px">Profile</a>
+}
+else if (@ViewBag.RoleID == 3)
+{
+    <a href="@Url.Action("Profile", "UserManagement")" class="pull-left" id="Profile" style="margin-top:2px">Profile</a>
+}
+else if (@ViewBag.RoleID == 4)
+{
+    <a href="@Url.Action("Profile", "UserManagement")" class="pull-left" id="Profile" style="margin-top:2px">Profile</a>
+}
+
+                                  <!-- <a href="#" class="pull-right">Setting</a> -->
+                                </li>
+                                <!--Theme Selector Area-->
+                                @*<li class="theme-area">
+                                    <ul class="colorpicker" id="skin-changer">
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="/assets/css/skins/blue.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="/assets/css/skins/azure.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="/assets/css/skins/teal.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="/assets/css/skins/green.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="/assets/css/skins/orange.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="/assets/css/skins/pink.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="/assets/css/skins/darkred.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="/assets/css/skins/purple.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="/assets/css/skins/darkblue.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#585858;" rel="/assets/css/skins/gray.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#474544;" rel="/assets/css/skins/black.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="/assets/css/skins/deepblue.min.css"></a></li>
+                                    </ul>
+                                </li>*@
+
+                               
+                             
+                                                     
+                                    
+
+
+                      
+
+
+
+
+                                <!--/Theme Selector Area-->
+                                <li class="dropdown-footer">      
+                                    @if (@ViewBag.DatabaseId != null && @ViewBag.DatabaseId != "")
+                                    {
+                                        <a href="/Login/Login?databaseid=@ViewBag.DatabaseId">
+                                            Logout
+                                        </a>
+
+
+                                    }
+                                    else
+                                    {
+                                        <a href="/Login/Login">
+                                            Logout
+                                        </a>
+                                    }                              
+                                    @*@if (@ViewBag.RoleID != 1 )
+                                    {
+                                    <a href="/Login/Login?ClientName=@ViewBag.MasterClientName"  >
+                                        Logout
+                                    </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Login/Login" >
+                                            Logout
+                                        </a>
+                                    }*@                                    
+                                   
+                                </li>
+                            </ul>
+
+                            <!--/Login Area Dropdown-->
+                        </li>
+                        </ul>
+                        <!-- /Account Area -->
+                        <!--Note: notice that setting div must start right after account area list.
+                        no space must be between these elements-->
+                        <!-- Settings -->
+                    
+                   @* <div class="setting">
+                        <a id="btn-setting" title="Setting" href="#">
+                            <i class="icon glyphicon glyphicon-cog"></i>
+                        </a>
+                    </div>
+                    <div class="setting-container">
+                        <label>
+                            <input type="checkbox" id="checkbox_fixednavbar">
+                            <span class="text">Fixed Navbar</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="checkbox_fixedsidebar">
+                            <span class="text">Fixed SideBar</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="checkbox_fixedbreadcrumbs">
+                            <span class="text">Fixed BreadCrumbs</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="checkbox_fixedheader">
+                            <span class="text">Fixed Header</span>
+                        </label>
+                    </div>*@
+                    <!-- Settings -->
+                </div>
+            </div>
+            <!-- /Account Area and Settings -->
+        </div>
+    </div>
+</div>
+<!-- /Navbar -->
+
+<environment names="Staging,Production">
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/beyond.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+
+</environment>

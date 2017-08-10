@@ -1,0 +1,248 @@
+﻿@{
+    ViewData["Title"] = "Super Admin";
+}
+ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li>
+            <a href="/Onboarding/ManagePreOnboarding">Pre Onboarding</a>
+        </li>
+        <li class="active">Add Employee</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Add Employee
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+    <div class="page-body">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="division-form padding-bottom-add">
+                <form class="form-horizontal" role="form" id="registrationForm">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding-left">
+                        <h4 class="personal-details themeprimary"><strong>Personal Details</strong></h4>
+                        <hr class="adduser1-hr">
+
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Email Address: <sup style="color:red"><b>*</b></sup></label>
+
+                            <div class="col-sm-6">
+                                <input type="email" class="form-control" id="txtEmail"
+                                       data-bv-notempty="true"
+                                       data-bv-notempty-message="Please enter valid email address" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right ">Last Name (Family Name) : <sup style="color:red"><b>*</b></sup></label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control name" id="txtLastName">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right ">First Name (Given Name) : <sup style="color:red"><b>*</b></sup></label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control name" id="txtFirstName">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right ">Middle Initial :</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control name" id="txtMiddleName">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Preffered Other Names : </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="txtOtherName">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Select Role : <sup style="color:red"><b>*</b></sup></label>
+                            <div class="col-sm-6">
+                                <select class="form-select form-control no-padding-right" id="RoleID">
+                                    <option value="">- Select Role -</option>
+                                    <option value="4">Employee</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Reporting Authority : </label>
+                            <div class="col-sm-6">
+                                <select class="form-select form-control no-padding-right" id="SelectUserID">
+                                    <option value="">- Select Reporting Authority -</option>
+                                    <option value=""> Daniel Borden-(raju@betabulls.com) </option>
+                                    <option value="">test test-(testtest@gmail.com) </option>
+                                    <option value=""> Test New-(test@123)</option>
+                                    <option value="">Limra Sara-(junaid.md@betabulls.com) </option>
+                                    <option value="">Olivia Abigail-(raju533406@gmail.com) </option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding-left">
+                        <h4 class="personal-details themeprimary"><strong>Work Address</strong></h4>
+                        <hr class="adduser2-hr">
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Address-1 : </label>
+                            <div class="col-sm-6 no-padding-right">
+                                <input type="text" class="form-control no-padding-right" id="txtAdd1">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Address-2 :</label>
+                            <div class="col-sm-6 no-padding-right">
+                                <input type="text" class="form-control no-padding-right" id="txtAdd2">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">State : </label>
+                            <div class="col-sm-6 no-padding-right">
+                                <select class="form-select form-control no-padding-right" id="StateID">
+                                    <option value="0">- Select State -</option>
+                                    <option value="1">Alabama</option>
+                                    <option value="2">Alaska</option>
+                                    <option value="3">California</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">City : </label>
+                            <div class="col-sm-6 no-padding-right">
+                                <input type="text" class="form-control no-padding-right" id="CityID">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Zip : </label>
+                            <div class="col-sm-6 no-padding-right">
+                                <input type="text" data-mask="99999" class="form-control no-padding-right" id="txtZipCode">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Work Phone : </label>
+                            <div class="col-sm-6 no-padding-right">
+                                <input type="text" data-mask="9999999999" class="form-control no-padding-right" id="txtwrkphone">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Mobile Number :</label>
+                            <div class="col-sm-6  no-padding-right">
+                                <input type="text" data-mask="9999999999" class="form-control  no-padding-right" id="txtMobile">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12" hidden>
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Location :</label>
+                            <div class="col-sm-6 no-padding-right">
+                                <select class="form-select form-control no-padding-right" id="LocationID">
+                                    <option value="1">Division 1</option>
+                                    <option value="2">Division 2</option>
+                                    <option value="3">Division 3</option>
+                                    <option value="4">Division 4</option>
+                                    <option value="5">Division 5</option>
+                                    <option value="6">Division 6</option>
+
+                                </select>
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <a href="/UserManagement/ManageUsers" @*data-toggle="modal" data-target="#modal-success" *@ class="btn btn-primary btn-md btnSearch" id="btnSave">Save</a>
+                <a href="/UserManagement/ManageUsers" class="btn btn-warning btn-md btnSearch">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /Page Body -->
+
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+
+        
+    </style>
+</environment>
+<environment>
+    <script>
+		 //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+    </script>
+    <script src="~/assets/js/fuelux/treeview/tree-custom.min.js"></script>
+    <script src="~/assets/js/fuelux/treeview/treeview-init.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            UITree.init();
+        });
+    </script>
+</environment>
+
+

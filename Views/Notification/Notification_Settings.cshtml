@@ -1,0 +1,267 @@
+﻿@model Notification
+  <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li class="active">
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Dashboard
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="well division-form">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="margin-top:15px;">
+            <div class="tabbable">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li>
+                        <a data-toggle="tab" href="#systemnotification">
+                            <i class="fa fa-desktop"></i>&nbsp;&nbsp;System Notification
+                        </a>
+                    </li>
+
+                    <li class="tab-red active">
+                        <a data-toggle="tab" href="#emailnotification">
+                            <i class="fa fa-envelope"></i>&nbsp;&nbsp;Email Notification
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="systemnotification" class="tab-pane">
+
+                    </div>
+
+                    <div id="emailnotification" class="tab-pane in active">
+                        <form class="form-horizontal" role="form" style="margin-top:15px;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group col-sm-12">
+                                    <label for="inputEmail3" class="col-sm-3 control-label no-padding-right">Email Subject:<sup style="color:red;">*</sup></label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" placeholder="Email Subject" id="inputEmail3">
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="inputEmail3" class="col-sm-3 control-label no-padding-right">To Email Addresses:</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="To Email Addresses">
+                                        <p class="help-text themeprimary">Add multiple email addresses with ";" separator.</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="inputEmail3" class="col-sm-3 control-label no-padding-right">CC Email Addresses:</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" placeholder="CC Email Addresses (Optional)" class="form-control" id="inputEmail3">
+                                        <p class="help-text themeprimary">Add multiple email addresses with ";" separator.</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="inputEmail3" class="col-sm-3 control-label no-padding-right">BCC Email Addresses:</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" placeholder="BCC Email Addresses (Optional)" class="form-control" id="inputEmail3">
+                                        <p class="help-text themeprimary">Add multiple email addresses with ";" separator.</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label for="inputEmail3" class="col-sm-3 control-label no-padding-right">Email Body Template:<sup style="color:red;">*</sup></label>
+                                    <div class="col-sm-9">
+                                        <div id="summernote">
+
+                                            <h4 class="pull-right">Onboarding</h4>
+                                            <hr class="location-hr" />
+                                            <div style="height:100px;"></div>
+                                            <hr class="location-hr" />
+                                            <p class="dntreply">Don't Reply to this email, this email is not monitored. </p>
+                                            <p class="regards">Thanks,</p>
+                                            <p class="regards">Support Team - Onboarding.</p>
+                                            <hr class="location-hr" />
+                                            <p class="text-center">© 2016 Betabulls, All rights reserved.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<environment>
+    <style>
+        .DTTT {
+            display: none;
+        }
+
+        #expandabledatatable_length {
+            display: none;
+        }
+
+        .chart-lg {
+            height: 253px;
+        }
+
+        input[type=checkbox] ~ .text:before, input[type=radio] ~ .text:before {
+            margin-right: 30px;
+        }
+
+        .table > tbody > tr > td {
+            padding: 4px;
+            vertical-align: middle;
+        }
+
+        .table thead > tr > th {
+            font-size: 14px;
+        }
+
+        .checkbox, .radio {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .table > thead > tr > th {
+            background-color: transparent !important;
+            padding: 5px;
+        }
+
+        body {
+            margin-bottom: 0px;
+        }
+
+        tspan {
+            color: #666;
+        }
+
+        .division-form .tab-content {
+            overflow: hidden;
+        }
+
+        .help-text {
+            font-size: 10px;
+        }
+
+        .note-editor .note-toolbar {
+            background-color: #f5f5f5;
+        }
+
+        .note-editable h4 {
+            margin-top: 30px;
+        }
+
+        .dntreply {
+            margin-bottom: 20px;
+        }
+
+        .regards {
+            margin-bottom: 0px;
+        }
+
+        .note-resizebar {
+            display: none;
+        }
+    </style>
+    <style>
+
+
+
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .note-editor .note-toolbar {background-color:#f5f5f5;}
+ .note-editable h4{margin-top:30px;}
+ .dntreply {margin-bottom:20px;}
+ .regards {margin-bottom:0px;}
+ .note-resizebar {display:none;}
+
+    </style>
+</environment>
+
+<environment>
+    <!--Page Related Scripts-->
+    @*<script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>*@
+    @*<script src="~/assets/js/beyond.min.js"></script>*@
+    <script src="~/assets/js/editors/summernote/summernote.js"></script>
+
+    @*<script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>*@
+    
+    <script>
+       $(document).ready(function ()
+       {
+           $('#summernote').summernote({ height: 410 });
+
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") {
+                NotifyMessage('@TempData["Message"]', 'top-right', '1200', 'warning', 'fa-warning', true);
+            }
+            $("#ddlMasterClient").prop("disabled", true).css("cursor", "default").fadeTo(500, "none");
+        });
+
+    </script>
+
+
+</environment>

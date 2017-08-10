@@ -1,0 +1,206 @@
+﻿<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">VSI</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            VSI
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="col-md-12">
+                <form class="form-horizontal" role="form">
+                    <p class="main-color vsipara-top"><strong>Protected veteran</strong></p>
+                    <p class="main-color">This employer is subject to the Vietnam era Veterans' Readjustment Assistance Act 1974 (BEVRRA) as amended by the jobs for Beterans Act of 2002, which requires government contractors and sub contractors to take affirmative action to employ and advance in employment disabled veterans, recently seperated veterans, active duty wartime or campaign badge veterans, and Armed Forces service medal Veterans. As a government contractor subject to VEVVRA, the company is required to submit a report to the U.S. Department of Labor each year identifying the number of our employees who are protected veterans. If you believe you belong to any of the categories of protected veterans, please indicate by checking the appropriate box.<a href="#"><strong> Select this link to view the list of protected veterans </strong></a>(see list of protected veterans on next page for this link).</p>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <div class="control-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>Yes, I identify as one or more of classifications of protected veteran listed</strong></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12" style="margin-left:25px;">
+                            <div class="control-group">
+                                <div class="checkbox">
+                                    <label class="checkbox-margin">
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>Disabled veteran</strong></span>
+                                    </label>
+                                    <label class="checkbox-margin">
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>Recently seperated veteran</strong></span>
+                                    </label>
+                                    <label class="checkbox-margin">
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>Active wartime or campaign badge veteran</strong></span>
+                                    </label>
+                                    <label class="checkbox-margin">
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>Armed forces service medal veteran</strong></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="control-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>I am a protected veteran, but i choose not to self-identify theclassification to which i belong</strong></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="control-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>I am not a protected veteran</strong></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="control-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>I am not a veteran</strong></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group hr-btm15">
+                        <div class="col-sm-12">
+                            <div class="control-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>Decline to Answer</strong></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <hr class="location-hr">
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href="/Onboarding/Vsi3"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href = "/Onboarding/VsiReview"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <style>
+    .wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+.page-sidebar .sidebar-menu li a {height:38px;}
+	.page-sidebar .sidebar-menu li a p {line-height:5px;}
+	.footer {
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    width: 100%; z-index:99999;
+}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+        $('.date-picker').datepicker();
+
+    </script>
+    <script type="text/javascript">
+
+        $('input[name=VeteranType]').each(function (i,v) {
+            if (this.checked)
+            {
+                if ($(this).val() == 1) {
+                    $("#DivVeteranSubType").show();
+                }
+                else {
+                    $("#DivVeteranSubType").hide();
+                }
+            }
+
+        })
+
+        $('input[name=VeteranType]').on('change', function () {
+            if ($(this).val() == 1) {
+                $("#DivVeteranSubType").show();
+            }
+            else {
+                $("#DivVeteranSubType").hide();
+            }
+        })
+    </script>
+ 
+</environment>

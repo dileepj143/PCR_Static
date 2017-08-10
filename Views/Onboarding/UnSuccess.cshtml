@@ -1,0 +1,136 @@
+﻿
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home themeprimary"></i>
+                            @if (ViewBag.RoleID == 1)
+            {
+                                <a href="/SuperAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 2)
+                            {
+                                <a href="/ClientAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 3)
+                            {
+                                <a href="/Manager/Index">Dashboard</a>
+                            }
+                            else
+                            {
+                                <a href="/Employee/I9categories">Dashboard</a>
+                            }
+                        </li>
+                       
+                        <li class="active">E-Verify Record History</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1 class="themeprimary">
+                            E-Verify Record History
+                        </h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                        <a class="btn btn-primary pull-right" style="width:auto; padding:6px; color:white" href="/Onboarding/ManagePreOnboarding"><i class="fa fa-reply-all"></i> Back to AdminMenu</a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- Page Body -->
+                <div class="page-body">
+					<div class="col-lg-12 col-sm-12 col-xs-12 manage-division" style="padding:0px;">
+								<div class="well">
+								<div class="col-md-3">
+									<div><img src="~/assets/img/unsuccess.png" class="img-responsive" /></div>
+								</div>
+								<div class="col-md-9">
+									<h5 class="themeprimary col-md-12 col-lg-12"><strong>Employee Paperwork Status</strong></h5>
+									<div>
+									
+									<div>
+										&nbsp;
+									</div>
+									<ul>
+										<li>Employee Completed and Singed Paperwork</li>
+										<li>Manager Verified and Singed Paperwork</li>
+									</ul>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<h5 class="themeprimary col-md-12 col-lg-12"><strong>E-Verify Status</strong></h5>
+									<div>
+										&nbsp;
+									</div>
+									<ul style="color:#ff0000;">
+										<li>E-Verify Failed (Other Names Used format is invalid)</li>
+									</ul>
+								</div>
+								<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                                    <button onclick='location.href = "/Onboarding/Success"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                                    <button onclick='location.href = "/Onboarding/Everify"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+								</div>
+				</div>
+                </div>
+                <!-- /Page Body -->
+		    <!--Basic Scripts-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    @*<script src="assets/js/beyond.min.js"></script>*@
+
+    <!--Page Related Scripts-->
+    <script src="assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/datatable/datatables-init.js"></script>
+   <script src="assets/js/bootbox/bootbox.js"></script>
+     <script>
+	$(document).ready(function ()
+        {
+            $('.deletepopover').click(function () {
+                $('#sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+			
+			$('.deactivatepopover').click(function () {
+                $('#sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+
+
+        });
+	
+        InitiateSimpleDataTable.init();
+        InitiateEditableDataTable.init();
+        InitiateExpandableDataTable.init();
+        InitiateSearchableDataTable.init();
+    </script>
+	<script>
+	$(document).ready(function () {
+		$(".bootbox-confirm").on('click', function () {
+            bootbox.confirm("Are you sure?", function (result) {
+                if (result) {
+                    //
+                }
+            });
+        });
+            
+        });
+	</script>

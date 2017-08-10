@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewData["Title"] = "Log in";
+    Layout = null;
+}
+<head>
+    @*<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <title>@ViewData["Title"] - Onboard</title>
+    @*<meta http-equiv="X-UA-Compatible" content="IE=edge">*@
+    @*<link rel="icon" href="~/images/favicon.ico" />*@
+    <environment names="Development">
+        <link rel="stylesheet" href="~/assets/css/bootstrap.css" />
+        <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+        <link href="~/css/custom.css" rel="stylesheet" />
+        <link href="~/assets/css/animate.css" rel="stylesheet" />
+        <link href="~/assets/css/beyond.css" rel="stylesheet" />
+        <link href="~/css/custom.css" rel="stylesheet" />
+        <style>
+            .input-group-addon {
+                background-color: #fff;
+            }
+
+            .input-group .input-group-addon {
+                background-image: none !important;
+            }
+        </style>
+        <style type="text/css">
+            body {
+                overflow-y: hidden;
+            }
+        </style>
+
+    </environment>
+        <environment names="Development">
+            
+            @*<link rel="shortcut icon" href="~/assets/img/favicon.png" type="image/x-icon">*@
+            <script src="~/assets/js/bootstrap.js"></script>
+            @*<script src="~/assets/js/beyond.js"></script>*@
+            @*<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+                <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />*@
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+
+            <!--Basic Scripts-->
+            @*<script src="~/assets/js/jquery.min.js"></script>*@
+            <script src="~/assets/js/jquery.min.js"></script>
+            @*<script src="~/assets/js/bootstrap.min.js"></script>*@
+            <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+            <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+            <!--Beyond Scripts-->
+            @*<script src="~/assets/js/beyond.js"></script>*@
+
+            <script>
+                $(document).ready(function () {
+                    $('#loginid').click(function () {
+                        window.location.href = '/Home/index'
+                    })
+                })
+            </script>
+        </environment>
+        <environment names="Development,Staging,Production">
+            <link rel="stylesheet" href="~/assets/css/bootstrap.css" />
+            <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+            <link href="~/assets/css/animate.css" rel="stylesheet" />
+            <link rel="shortcut icon" href="~/assets/img/favicon.png" type="image/x-icon">
+            <link href="~/assets/css/beyond.css" rel="stylesheet" />
+            <link href="~/css/custom.css" rel="stylesheet" />
+            <style>
+                .input-group-addon {
+                    background-color: #fff;
+                }
+
+                .input-group .input-group-addon {
+                    background-image: none !important;
+                }
+            </style>
+        </environment>
+        <environment names="Development,Staging,Production">
+
+            <script src="~/assets/js/bootstrap.js"></script>
+            @*<script src="~/assets/js/beyond.js"></script>*@
+            @*<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+                <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />*@
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#loginid').click(function () {
+                        window.location.href = '/Home/index'
+                    })
+                })
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $('#user').focus();
+
+                    $('#Login').click(function () {
+                        
+                        if ($('#user').val() == 'superadmin' && $('#password').val() == 'superadmin') {
+                            var url = "/SuperAdmin/Index";
+                            window.location.href = url;
+                        }
+                        else if ($('#user').val() == 'clientadmin' && $('#password').val() == 'clientadmin') {
+                            var url = "/ClientAdmin/Index";
+                            window.location.href = url;
+                        }
+                        else if ($('#user').val() == 'manager' && $('#password').val() == 'manager') {
+                            var url = "/Manager/Index";
+                            window.location.href = url;                            
+                        }
+                        else if ($('#user').val() == 'employee' && $('#password').val() == 'employee') {
+                            var url = "/Employee/Index";
+                            window.location.href = url;
+                        }
+                        else {
+
+                            $('#error').show();
+                            $('#password').val('');
+                        }
+                    });
+                    $("input[type='text']").keypress(function () {
+                        $('#error').hide();
+                    });
+                    //Enterkey as submit button
+                    $('#password').keydown(function (e) {
+                        if (e.keyCode == 13) {
+                            $('#Login').click();
+                        }
+                    });
+                });
+            </script>
+        </environment>
+
+        @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+
+</head>
+
+<!--Body-->
+<body>
+    <div class="login-container animated fadeInDown">
+        <div class="loginbox bg-white">
+            <img src="~/assets/img/pcr-2.png" class="img-responsive login-icon" />
+            <hr>
+            <p class="">Welcome to PCR Onboard</p>
+            <!--div class="loginbox-social">
+                <div class="social-title ">Connect with Your Social Accounts</div>
+                <div class="social-buttons">
+                    <a href="" class="button-facebook">
+                        <i class="social-icon fa fa-facebook"></i>
+                    </a>
+                    <a href="" class="button-twitter">
+                        <i class="social-icon fa fa-twitter"></i>
+                    </a>
+                    <a href="" class="button-google">
+                        <i class="social-icon fa fa-google-plus"></i>
+                    </a>
+                </div>
+            </div-->
+            <!--div class="loginbox-or">
+                <div class="or-line"></div>
+                <div class="or">OR</div>
+            </div-->
+            <form class="loginbox-container">
+                <div class="form-group">
+                    <div class="input-group">
+
+                        <input type="text" id="user" class="form-control icon-border" placeholder="Username">
+                        <span class="input-group-addon bordered-blue"><i class="fa fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+
+                        <input type="password" id="password" class="form-control icon-border" placeholder="Password">
+                        <span class="input-group-addon bordered-blue"><i class="fa fa-key"></i></span>
+                    </div>
+                    <span class="text-danger" id="error" hidden>Invalid user/password</span>
+                </div>
+
+                <div class="loginbox-submit col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <button type="button" id="Login" class="btn login-btn btn-block">Login&nbsp;&nbsp; <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <div class="loginbox-forgot col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <a href="/Login/ForgotPassword">Forgot Password?</a>
+                </div>
+         
+            <!--div class="loginbox-signup">
+                <a href="register.html">Sign Up With Email</a>
+            </div-->
+        </div>
+        <!--div class="logobox"></div-->
+    </div>
+    </form>
+
+</body>
+<!--Body Ends-->

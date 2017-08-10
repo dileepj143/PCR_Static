@@ -1,0 +1,199 @@
+﻿@model PCR.Onboarding.UI.Models.VSI_Form
+@{
+    ViewData["Title"] = "VsiReview";
+}
+     <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">VSI Review</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            VSI Review
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+        @if (ViewBag.RoleID != 4)
+        {
+            <a class="btn btn-primary pull-right" style="width:auto; padding:6px; color:white" href="/Onboarding/ManagePreOnboarding"><i class="fa fa-reply-all"></i> Back to AdminMenu</a>
+        }
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+
+            <form class="" role="form" id="hideform3" style="margin-top:0px;">
+                <h4 class="themeprimary">
+                    <strong>VSI Data Review</strong>
+                </h4>
+                <hr class="location-hr" style="margin: 10px 0px 15px 0px;">
+                <div class="col-md-6 col-md-offset-3 col-lg-offset-3 col-lg-6 col-sm-12 col-xs-12">
+
+                    <p><strong>Is all data correct?</strong></p>
+                    <div class="row" style="padding-bottom:16px">
+                        <div class="col-md-6">
+                            Disability:
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#">NO, I DON'T HAVE A DISABILITY</a>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom:16px">
+                        <div class="col-md-6">
+                            Do you need any accomodations to perform this job ?:
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#">Yes</a>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom:16px">
+                        <div class="col-md-6">
+                            Special Requests :
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#">None</a>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom:16px">
+                        <div class="col-md-6">
+                            Gender:
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#">Male</a>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom:16px">
+                        <div class="col-md-6">
+                            Are you Hispanic or Latino ?:
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#">No</a>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom:16px">
+                        <div class="col-md-6">
+                            Race/Ethnicity:
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#">Other</a>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom:16px">
+                        <div class="col-md-6">
+                            Protected Veteran:
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#">I am a protected veteran, but i choose not to self-identify theclassification to which i belong</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                @if (ViewBag.RoleID == 4)
+                {
+                    <a onclick='location.href = "/Onboarding/Vsi4"' href="#" class="btn btn-primary btn-md btnSearch">Previous</a>
+                    <a onclick='location.href = "/Onboarding/W4"' href="#" class="btn btn-primary btn-md btnSearch">Next</a>
+                }
+                else
+                {
+                    <a onclick='location.href = "/Onboarding/I9section_1_review"' href="#" class="btn btn-primary btn-md btnSearch">Previous</a>
+                    <a onclick='location.href = "/Onboarding/W4_Review"' href="#" class="btn btn-primary btn-md btnSearch">Next</a>
+                }
+
+                
+            </div>
+
+        </div>
+    </div>
+
+    <!-- /Page Body -->
+</div>
+
+
+
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .footer {
+            position: fixed;
+            height: 40px;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+    </script>
+</environment>

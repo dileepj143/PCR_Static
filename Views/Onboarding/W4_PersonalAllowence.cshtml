@@ -1,0 +1,207 @@
+﻿
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home themeprimary"></i>
+                            @if (ViewBag.RoleID == 1)
+            {
+                                <a href="/SuperAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 2)
+                            {
+                                <a href="/ClientAdmin/Index">Dashboard</a>
+                            }
+                            else if (ViewBag.RoleID == 3)
+                            {
+                                <a href="/Manager/Index">Dashboard</a>
+                            }
+                            else
+                            {
+                                <a href="/Employee/I9categories">Dashboard</a>
+                            }
+                        </li>
+                        
+                        <li class="active">Form W-4</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1 class="themeprimary">
+                            Form W-4
+						</h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- Page Body -->
+                <div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <h4 class="col-md-12 col-lg-12 themeprimary"><strong>Form W-4 Personal Allowence Sheet</strong></h4>
+				<hr class="location-hr">
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <form class="form-padding" role="form" id="hideform">
+					<div class="table-responsive form-w-4-personal">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td style="width:50px;"><strong>A</strong></td>
+									<td style="width:800px;">Enter "1"  <strong>for yourself</strong> if no one else claim you as a dependent. . . . . . .</strong></td>
+									<td style="width:50px;"><strong>A</strong></td>
+									<td style="width:300px;"><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>B</strong></td>
+									<td>Enter “1” if:
+										<ul>
+											<li>You’re single and have only one job; or</li>
+											<li>You’re married, have only one job, and your spouse doesn’t work; or</li>
+											<li>Your wages from a second job or your spouse’s wages (or the total of both) are $1,500 or less.</li>
+										</ul>
+									</td>
+									<td><strong>B</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>C</strong></td>
+									<td>Enter “1” for your spouse. But, you may choose to enter “-0-” if you are married and have either a working spouse or more than one job. (Entering “-0-” may help you avoid having too little tax withheld.). . . . . . . . . 
+									</td>
+									<td><strong>C</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>D</strong></td>
+									<td>Enter number of dependents (other than your spouse or yourself) you will claim on your tax return ........
+									</td>
+									<td><strong>D</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>E</strong></td>
+									<td>Enter “1” if you will file as head of household on your tax return (see conditions under Head of household above)....
+									</td>
+									<td><strong>E</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>F</strong></td>
+									<td>Enter “1” if you have at least $2,000 of child or dependent care expenses for which you plan to claim a credit ...(Note: Do not include child support payments. See Pub. 503, Child and Dependent Care Expenses, for details.)......
+									</td>
+									<td><strong>F</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>G</strong></td>
+									<td>Child Tax Credit (including additional child tax credit). See Pub. 972, Child Tax Credit, for more information.
+									<ul>
+										<li>If your total income will be less than $70,000 ($100,000 if married), enter “2” for each eligible child; then less “1” if you have two to four eligible children or less “2” if you have five or more eligible children.</li>
+										<li>If your total income will be between $70,000 and $84,000 ($100,000 and $119,000 if married), enter “1” for each eligible child.</li>
+									</ul>	
+									</td>
+									<td><strong>G</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><strong>H</strong></td>
+									<td>Add lines A through G and enter total here. (Note: This may be different from the number of exemptions you claim on your tax return.)
+									</td>
+									<td><strong>H</strong></td>
+									<td><input type="text" class="form-control"></td>
+								</tr>
+							</tbody>
+						</table></br>
+						For accuracy, <strong>complete all worksheets that apply.</strong>
+										<ul style="line-height:23px; margin-top:10px;">
+											<li>If you plan to itemize or claim adjustments to income and want to reduce your withholding, see the Deductions and Adjustments Worksheet on page 2.</li>
+											<li>If you are single and have more than one job or are married and you and your spouse both work and the combined earnings from all jobs exceed $50,000 ($20,000 if married), see the Two-Earners/Multiple Jobs Worksheet on page 2 to avoid having too little tax withheld.</li>
+											<li>If neither of the above situations applies, stop here and enter the number from line H on line 5 of Form W-4 below.</li>
+										</ul>
+					</div>
+                </form>
+            </div>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href = "/Onboarding/W4"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href = "/Onboarding/W4_WithholdingAllowance"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>    
+</div>
+         
+	
+    <!--Basic Scripts-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    @*<script src="assets/js/beyond.min.js"></script>*@
+
+    <!--Page Related Scripts-->
+    <script src="assets/js/fuelux/wizard/wizard-custom.js"></script>
+    <script src="assets/js/toastr/toastr.js"></script>
+	<!--Page Related Scripts-->
+    <script src="assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="assets/js/charts/easypiechart/easypiechart-init.js"></script>
+	<!--Page Related Scripts-->
+    <script src="assets/js/inputmask/jasny-bootstrap.min.js"></script>
+	<!--Bootstrap Date Picker-->
+    <script src="assets/js/datetime/bootstrap-datepicker.js"></script>
+	
+	<script>
+	//--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+	</script>
+    <script>
+        $(window).bind("load", function () {
+            /*Sets Themed Colors Based on Themes*/
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            InitiateEasyPieChart.init();
+        });
+    </script>
+	<script type="text/javascript">
+        jQuery(function ($) {
+            $('#WiredWizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'fa-check', true);
+            });
+        });
+    </script>
+	
+	<script>
+	$("#hideform").show();
+	$("#hideform2").hide();
+		$("#hideform-btn").click(function(){
+    $("#hideform").hide();
+	$("#hideform2").show();
+});
+
+$("#hideform-btn2").click(function(){
+    $("#hideform").show();
+	$("#hideform2").hide();
+});
+
+//--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+</script>
+    
+</body>
+<!--  /Body -->
+</html>

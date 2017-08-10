@@ -1,0 +1,247 @@
+﻿@model UserWorkAddress
+
+
+    <form asp-controller="UserManagement" asp-action="Profile" method="post" role="form" id="Edittab">
+        <div class="form-title">
+            <h5><strong>Personal Information</strong></h5>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="text" class="form-control name" asp-for="FirstName" placeholder="First Name" data-toggle="tooltip" data-placement="right" data-original-title="FirstName">
+                        <i class="fa fa-user green"></i>
+                        <span asp-validation-for="FirstName" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="text" asp-for="LastName" class="form-control name" placeholder="Last Name" id="editlastname" data-toggle="tooltip" data-placement="left" data-original-title="LastName">
+                        <i class="fa fa-user orange"></i>
+                        <span asp-validation-for="LastName" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" asp-for="Gender" style="padding:6px 2px;" id="editgender" data-toggle="tooltip" data-placement="right" data-original-title="Gender">
+                        <option value="">Select Gender</option>
+                        <option value="true">Male</option>
+                        <option value="false">Female</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="asterisk"></span>
+                </div>
+            </div>
+            <input type="hidden" asp-for="UserID" />
+            <input type="hidden" asp-for="WorkAddressID" />
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="email" asp-for="UserName" class="form-control" placeholder="Email Address" id="editemaladdress" data-toggle="tooltip" data-placement="left" data-original-title="EmailAddress" readonly>
+                        <i class="fa fa-user blue"></i>
+                        <span asp-validation-for="UserName" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="number" asp-for="PhoneNumber" class="form-control number" placeholder="Phone" id="editphone" data-toggle="tooltip" data-placement="right" data-original-title="Phone">
+                        <i class="glyphicon glyphicon-earphone yellow"></i>
+                        <span asp-validation-for="PhoneNumber" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="number" asp-for="Mobile" class="form-control number" placeholder="Mobile" id="editmobile" data-toggle="tooltip" data-placement="left" data-original-title="Mobile">
+                        <i class="glyphicon glyphicon-phone palegreen"></i>
+                        <span asp-validation-for="Mobile" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+
+            <input type="hidden" asp-for="EmailAddress" class="form-control" id="editUsername">
+            <input type="hidden" asp-for="Password" class="form-control" id="editPassword">
+            <input type="hidden" asp-for="OtherName" class="form-control" id="editOtherName">
+            <input type="hidden" asp-for="WorkPhone" class="form-control" id="editWorkPhone">
+            <input type="hidden" asp-for="RoleID" class="form-control" id="editRoleID">
+
+        </div>
+        <div class="form-title">
+            <h5><strong>Contact Information</strong></h5>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="text" asp-for="Address1" class="form-control" placeholder="Address 1" id="editadd1" data-toggle="tooltip" data-placement="right" data-original-title="Address1">
+                        <span asp-validation-for="Address1" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="text" asp-for="Address2" class="form-control" placeholder="Address 2 (Optional)" id="editadd2" data-toggle="tooltip" data-placement="left" data-original-title="Address2">
+                        <span asp-validation-for="Address2" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" asp-for="CityId" class="form-control" placeholder="City" id="editCity" data-toggle="tooltip" data-placement="right" data-original-title="City">
+                    <span asp-validation-for="CityId" class="asterisk"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" asp-for="StateId" style="padding:6px 2px;" id="editstate" data-toggle="tooltip" data-placement="left" data-original-title="State">
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="California">California</option>
+                    </select>
+                    <span asp-validation-for="StateId" class="asterisk"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input type="number" asp-for="Zip" class="form-control" placeholder="Zipcode" id="editzip" data-toggle="tooltip" data-placement="right" data-original-title="Zipcode">
+                        <span asp-validation-for="Zip" class="asterisk"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-md btn-primary center-block margin-btn" id="btnupdateprofile">Update Profile</button>
+    </form>
+@*<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+        asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.validator">
+</script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"
+        asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+</script>*@
+<script>
+    $(document).ready(function () {
+        $("#editprofile #Edittab #editzip").keypress(function (e) {
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) { return false; }
+            if ($("#editprofile #Edittab #editzip").val().length > 4) { return false; }
+        });
+
+        $("#editprofile #Edittab #editmobile").keypress(function (e) {
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) { return false; }
+            if ($("#editprofile #Edittab #editmobile").val().length > 9) { return false; }
+        });
+        $("#editprofile #Edittab #editphone").keypress(function (e) {
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) { return false; }
+            if ($("#editprofile #Edittab #editphone").val().length > 9) { return false; }
+        });
+    });
+
+    //$('#btnupdateprofile').on('click', function () {
+    //    var data = $("#Edittab").serialize();
+    //    $("#Edittab").validate({
+    //    submitHandler: function (form) {
+    //        $.ajax({
+    //            type: 'POST',
+    //            url: '/UserManagement/Profile',
+    //            data: { user: data },
+    //            dataType: 'json',
+    //            success: function (data, statusText, resObject) {
+    //                if (String(data) == "User has been updated successfully." || String(data) == '"User has been updated successfully."') {
+    //                    Notify("User details have been updated successfully", 'top-right', '3000', 'success', 'fa-check', true);                        
+    //                }
+    //                else {
+    //                    Notify(data, 'top-right', '3000', 'warning', 'fa-warning', true);
+    //                }
+    //            },
+    //            complete: function () {
+
+    //            },
+    //            error: function (jqXHR, exception) {
+    //                var msg = '';
+    //                if (jqXHR.status === 0) {
+    //                    msg = 'Not connect.\n Verify Network.';
+    //                } else if (jqXHR.status == 404) {
+    //                    msg = 'Requested page not found. [404]';
+    //                } else if (jqXHR.status == 500) {
+    //                    msg = 'Internal Server Error [500].';
+    //                } else if (exception === 'parsererror') {
+    //                    msg = 'Requested JSON parse failed.';
+    //                } else if (exception === 'timeout') {
+    //                    msg = 'Time out error.';
+    //                } else if (exception === 'abort') {
+    //                    msg = 'Ajax request aborted.';
+    //                } else {
+    //                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+    //                }
+    //                Notify(msg, 'top-right', '3000', 'warning', 'fa-warning', true);
+    //            }
+    //        });
+    //    }
+    //});
+    //});
+
+
+    //asp-controller="UserManagement" asp-action="Profile"
+    //$('#btnupdateprofile').on('click', function () {
+    //    var validate = $('#Edittab').validate();
+    //    alert(validate);
+    //    var data = $('#Edittab').serialize();        
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: '/UserManagement/Profile',
+    //        data: { user: data },
+    //        dataType: 'json',
+    //        success: function (data, statusText, resObject) {
+    //            if (String(data) == "User has been updated successfully." || String(data) == '"User has been updated successfully."') {
+    //                Notify("User details have been updated successfully", 'top-right', '3000', 'success', 'fa-check', true);
+    //               // $('.profile #ProfileName').html(last + " " + first).show();                    
+    //                //window.location.href = "/UserManagement/Profile";
+    //            }
+    //            else {
+    //                Notify(data, 'top-right', '3000', 'warning', 'fa-warning', true);
+    //            }
+    //        },
+    //        complete: function () {
+
+    //        },
+    //        error: function (jqXHR, exception) {
+    //            var msg = '';
+    //            if (jqXHR.status === 0) {
+    //                msg = 'Not connect.\n Verify Network.';
+    //            } else if (jqXHR.status == 404) {
+    //                msg = 'Requested page not found. [404]';
+    //            } else if (jqXHR.status == 500) {
+    //                msg = 'Internal Server Error [500].';
+    //            } else if (exception === 'parsererror') {
+    //                msg = 'Requested JSON parse failed.';
+    //            } else if (exception === 'timeout') {
+    //                msg = 'Time out error.';
+    //            } else if (exception === 'abort') {
+    //                msg = 'Ajax request aborted.';
+    //            } else {
+    //                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+    //            }
+    //            Notify(msg, 'top-right', '3000', 'warning', 'fa-warning', true);
+    //        }
+    //    });
+
+    //});
+
+
+</script>

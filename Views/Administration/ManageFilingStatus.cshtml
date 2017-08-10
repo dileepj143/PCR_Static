@@ -1,0 +1,378 @@
+﻿@{
+    ViewData["Title"] = "Super Admin";
+}
+ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Manage Filing Status</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Manage Filing Status
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12 manage-division" style="padding:0px;">
+        <div class="well">
+            <a href="/Administration/NewFilingStatus"><button type="button" class="btn btn-md btn-primary pull-right">Add Filing Status</button></a>
+            <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12 nopaddingleft nopaddingright">
+                <!-- <div class="header bg-default">
+                    Filling Statuses
+                </div> -->
+                <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="simpledatatable_info" id="simpledatatable">
+                    <thead class="">
+                        <tr role="row">
+                            <th>
+                                ID&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                            <th>
+                                Title
+                            </th>
+
+                            <th>
+                                Description
+                            </th>
+
+                            <th style="width:144px;">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                142
+                            </td>
+                            <td>
+                                VSI
+                            </td>
+
+                            <td>
+                                Completed
+                            </td>
+
+                            <td valign="middle" style="width:144px;">
+                                <a href="/Administration/EditFilingStatus" class="" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o editpopover"></i></a>
+                                <a href="#" class="bootbox-confirm" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o deletepopover"></i> </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                112
+                            </td>
+                            <td>
+                                State W4
+                            </td>
+
+                            <td>
+                                Completed
+                            </td>
+
+                            <td valign="middle" style="width:144px;">
+                                <a href="/Administration/EditFilingStatus" class="" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o editpopover"></i></a>
+                                <a href="#" class="bootbox-confirm" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o deletepopover"></i> </a>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <link href="~/assets/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            vertical-align: middle;
+            text-align:left !important;
+        }
+            .table > tbody > tr > td a {margin: 3px;}
+        .table > thead > tr > th {background-color: #c1c1c1;}
+        .form-horizontal .form-group {margin-bottom: 8px;}
+        .checkbox {text-align: center;}
+         .DTTT.btn-group{
+            position:absolute !important;
+            display: none !important;
+        }
+    </style>
+</environment>
+<environment>
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script src="~/assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="~/assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/js/datatable/datatables-init.js"></script>
+
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+    </script>
+    <script>
+        var ClientID = '@ViewBag.MasterClientID';
+        var oTable1 = $('#tblFilingStatus').dataTable({
+            "sDom": "Tflt<'row DTTTFooter'<'col-sm-6'i><'col-sm-6'p>>",
+            "aLengthMenu": [
+               [5, 10, 20, 50, 100, -1],
+               [5, 10, 20, 50, 100, "All"]
+            ],
+            "iDisplayLength": 10,
+            "oTableTools": {
+                "aButtons": [
+                    "copy", "csv", "xls", "pdf", "print"
+                ],
+                // "sSwfPath": "http://localhost:54505/assets/swf/copy_csv_xls_pdf.swf"//"assets/swf/copy_csv_xls_pdf.swf"
+            },
+            "language": {
+                "search": "",
+                "sLengthMenu": "_MENU_",
+                "oPaginate": {
+                    "sPrevious": "Prev",
+                    "sNext": "Next"
+                }
+            },
+            "aoColumns": [null, null, null, { "bSortable": false }],
+            "aaSorting": []
+        });
+
+        $(document).ready(function ()
+        {
+            $("#ddlMasterClient").prop("disabled", false);
+            LoadGrid();
+
+            $('.deletepopover').click(function () {
+                $('.page-sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+
+
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") { SuccessMessage('@TempData["Message"]'); }
+
+            if ('@TempData["ErrorMsg"]' != null && '@TempData["ErrorMsg"]' != "") {
+                NotifyMessage('@TempData["ErrorMsg"]', 'top-right', '1800', 'warning', 'fa-warning', true);
+            }
+            if ('@TempData["PageNo"]' != null && '@TempData["PageNo"]' != "") {
+                $('#tblFilingStatus_wrapper .dataTables_paginate li').removeClass('active');
+                $('#tblFilingStatus_wrapper .dataTables_paginate li a').each(function () {
+                    if ($(this).text() == '@TempData["PageNo"]') {
+                        $(this).parent().addClass('active').click();
+                    }
+                });
+            }
+
+            $('#ddlMasterClient').on('change', function () {
+                ClientID = $("#ddlMasterClient :selected").val();
+                var ClientName = $("#ddlMasterClient :selected").text();
+                $.ajax({
+                    type: 'POST',
+                    url: '/Login/ChangeClientDetails',
+                    data: { DatabaseId: ClientID, ClientName: ClientName },
+                    success: function (data) {
+                        LoadGrid();
+                    }
+                });
+            });
+        });
+
+        @*function LoadGrid() {
+            $.ajax({
+                type: 'GET',
+                url: '/Administration/GetAllFilingStatus',
+                async: false,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                callback: true,
+                crossDomain: true,
+                success: function (data)
+                {
+                    debugger;
+                    oTable1.fnClearTable();
+                    var count;
+                    if (data != null && data != "Content not found") {
+                        $.each(data, function (i, item)
+                        {
+                            var Edit = "<a href='#' onclick='EditStatus(" + item.FilingStatusID + ")' class='' data-toggle='modal' data-placement='top' data-original-title='Edit'><i class='fa fa-pencil-square-o editpopover'></i></a>";
+                            var Delete = "<a href='#' onclick='DeleteStatus(" + item.FilingStatusID + ",\"" + item.FilingStatusTitle + "\")' class='bootbox-confirm' data-toggle='modal' data-placement='top' data-original-title='Delete' ><i class='fa fa-trash-o deletepopover'></i> </a>";
+                            count = oTable1.fnAddData([item.FilingStatusID, item.FilingStatusTitle, (item.FilingStatusDescription == null || "" ? "" : item.FilingStatusDescription), Edit + "" + Delete]);
+                        });
+                    }
+                    else {
+                        if (ClientID == null || ClientID == "" || ClientID == "undefined") {
+                            Notify("Please select the client.", 'top-right', '1500', 'warning', 'fa-warning', true);
+                        }
+                      
+                        if ('@TempData["ErrorMsg"]' != null && '@TempData["ErrorMsg"]' != "") {
+                            NotifyMessage('@TempData["ErrorMsg"]', 'top-right', '1800', 'warning', 'fa-warning', true);
+                        }
+                    }
+                },
+                complete: function () {
+                    $('[data-toggle="modal"]').tooltip();
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                }
+            });
+        }*@
+
+        function DeleteStatus(FilingStatusID, FilingStatusTitle) {
+            $('.page-sidebar').css('z-index', '0');
+            $('.navbar').css('z-index', '200');
+            bootbox.confirm({
+                title: "Delete",
+                message: "Are you sure to delete the filing status '" + FilingStatusTitle + "'?",
+                buttons: {
+                    cancel: {
+                        label: '<i class="fa fa-times"></i> Cancel'
+                    },
+                    confirm: {
+                        label: '<i class="fa fa-check"></i> Confirm'
+                    }
+                }, callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            type: 'DELETE',
+                            url: '/Administration/DeleteFilingStatusByID',
+                            data: { FilingStatusID: FilingStatusID },
+                            dataType: 'json',
+                            success: function (data, statusText, resObject) {
+                                if (String(data) == "FilingStatus is deleted successfully") {
+                                    //NotifyMessage("Filing status '" + FilingStatusTitle + "' has been deleted successfully", 'top-right', '3000', 'success', 'fa-check', true);
+                                    SuccessMessage("Filing status '" + FilingStatusTitle + "' has been deleted successfully.");
+                                    LoadGrid();
+                                    $('#tblFilingStatus_wrapper .dataTables_paginate li').removeClass('active');
+                                    var lastPage = $('#tblFilingStatus_wrapper .dataTables_paginate li').length;
+                                    lastPage = parseInt(lastPage) - parseInt(2);
+                                    $('#tblFilingStatus_wrapper .dataTables_paginate li').eq(lastPage).addClass('active').click();
+                                }
+                                else {
+                                     Notify(String(data), 'top-right', '3000', 'warning', 'fa-warning', true);
+                                }
+                            },
+                            complete: function () {
+
+                            },
+                            error: function (jqXHR, exception) {
+                                var msg = '';
+                                if (jqXHR.status === 0) {
+                                    msg = 'Not connect.\n Verify Network.';
+                                } else if (jqXHR.status == 404) {
+                                    msg = 'Requested page not found. [404]';
+                                } else if (jqXHR.status == 500) {
+                                    msg = 'Internal Server Error [500].';
+                                } else if (exception === 'parsererror') {
+                                    msg = 'Requested JSON parse failed.';
+                                } else if (exception === 'timeout') {
+                                    msg = 'Time out error.';
+                                } else if (exception === 'abort') {
+                                    msg = 'Ajax request aborted.';
+                                } else {
+                                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                                }
+                                Notify(msg, 'top-right', '3000', 'warning', 'fa-warning', true);
+                            }
+                        });
+                    }
+                    else {
+                    }
+                }
+            });
+        }
+
+        function EditStatus(FilingStatusID)
+        {
+            var PageNo = $('#tblFilingStatus_wrapper .dataTables_paginate li.active').text();
+            window.location.href = "/Administration/EditFilingStatus?filingStatusID=" + FilingStatusID + "&PageNo=" + PageNo;
+        }
+
+        $('#AddFilingStatusView').on('click', function () {
+            var clientID = $('#ddlMasterClient :selected').val();
+            if (clientID != "" && clientID != null && clientID != "undefined") {
+                window.location.href = "/Administration/NewFilingStatus";
+            }
+            else {
+                var btn = $('#AddFilingStatusView');
+                btn.button('loading');
+                btn.css("cursor", "default").fadeTo(500, "none");
+                NotifyMessage("Please select the client", 'top-right', '1200', 'warning', 'fa-warning', true);
+                setTimeout(function () { btn.button('reset'); btn.css("cursor", "pointer") }, 1200);
+            }
+        });
+
+        function NotifyMessage(message, position, timeout, theme, icon, closable) {
+            toastr.options.positionClass = 'toast-' + position;
+            toastr.options.extendedTimeOut = 0; //1000;
+            toastr.options.timeOut = timeout;
+            toastr.options.closeButton = closable;
+            toastr.options.iconClass = icon + ' toast-' + theme;
+            toastr['custom'](message);
+        }
+
+
+    </script>
+</environment>

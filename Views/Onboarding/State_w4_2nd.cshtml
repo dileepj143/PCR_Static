@@ -1,0 +1,210 @@
+﻿@model I9Document
+@{
+    ViewData["Title"] = "State W-4";
+}
+  <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            <a href="#">Dashboard</a>
+        </li>
+
+        <li class="active">Fill W-4</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            State W-4 Form
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <form class="form-horizontal form-padding" role="form" id="hideform">
+
+                <!--MO W4 FORM-->
+                <h4 style="padding-left:30px;">Form Missouri Department of Revenue</h4>
+                <h5 class="themeprimary" style="padding-left:30px;"><strong>MO W-4 Employee's Withholding Allowence Certificate</strong></h5>
+                <hr class="i9section1-hr no-padding-left no-padding-right" style="width:94%;">
+                <p class="text-left" style="padding-left:30px;">This certificate is for income tax withholding and child support enforcement purposes only.</p>
+
+                <div class="form-group col-sm-6 col-lg-6 col-md-6">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">1. Allowance For Yourself :</label>
+                    <div class="col-sm-6 instruction-pop">
+                        <input type="text" class="form-control" id="inputEmail3">
+                        <div style="padding-top:5px;"><a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Enter 1 for yourself if your filing status is single, married, or head of household" data-original-title="" title="">?</a></div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-lg-6 col-md-6">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">2. Allowance For Your Spouse: Does your spouse work? </label>
+                    <div class="col-sm-6 instruction-pop">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="inverted">
+                                <span class="text">Yes</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" class="inverted">
+                                <span class="text">No</span>
+                            </label>
+                            <a href="javascript:void(0);" style="padding:3px 8px;" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="If yes, enter 0. If no, enter 1 for your spouse" data-original-title="" title="" style="float:right; margin-top:0px; margin-right:2px;">?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-lg-6 col-md-6">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">3. Allowance For Dependents :</label>
+                    <div class="col-sm-6 instruction-pop">
+                        <input type="text" class="form-control" id="inputEmail3">
+                        <div style="padding-top:5px;"><a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Enter the number of dependents you will claim on your tax return. Do not claim yourself or your spouse or dependents that your spouse has already claimed on his or her Form MO W-4" data-original-title="" title="">?</a></div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-lg-6 col-md-6">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">4. Additional Allowances :</label>
+                    <div class="col-sm-6 instruction-pop">
+                        <input type="text" class="form-control" id="inputEmail3">
+                        <div style="padding-top:5px;"><a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="You may claim additional allowances if you itemize your deductions or have other state tax deductions or credits that lower your tax. Enter the number of additional allowances you would like to claim." data-original-title="" title="">?</a></div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-lg-6 col-md-6">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">5. Total Number Of Allowances You Are Claiming :</label>
+                    <div class="col-sm-6 instruction-pop">
+                        <input type="text" class="form-control" id="inputEmail3">
+                        <div style="padding-top:5px;"><a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Add Lines 1 through 4 and enter total here" data-original-title="" title="">?</a></div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-lg-6 col-md-6" style="margin-bottom:17px;">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">6. Additional Withholding :</label>
+                    <div class="col-sm-6 instruction-pop">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="$">
+                        <div style="padding-top:5px;"> <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="If you expect to have a balance due (as a result of interest income, dividends, income from a part-time job, etc.) on your tax return, you may request your employer to withhold an additional amount of tax from each pay period. To calculate the amount needed, divide the amount of the expected balance due by the number of pay periods in a year. Enter the additional amount to be withheld each pay period here" data-original-title="" title="">?</a></div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-lg-6 col-md-6">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">7. Exempt Status :</label>
+                    <div class="col-sm-6 instruction-pop">
+                        <input type="text" class="form-control" id="inputEmail3">
+                        <div style="padding-top:5px;"><a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="If you had a right to a refund of all of your Missouri income tax withheld last year because you had no tax liability and this year you expect a refund of all Missouri income tax withheld because you expect to have no tax liability, write “Exempt” on Line 7. See information below" data-original-title="" title="">?</a></div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-lg-6 col-md-6">
+                    <label for="inputEmail3" class="col-sm-6 control-label no-padding-right" style="padding-top:0px;">8. If you meet the conditions set forth under the Servicemember Civil Relief Act :</label>
+                    <div class="col-sm-6 instruction-pop">
+                        <input type="text" class="form-control" id="inputEmail3">
+                        <div style="padding-top:5px;"><a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="as amended by the Military Spouses Residency Relief Act and have no Missouri tax liability, write “Exempt” on line 8. See information below" data-original-title="" title="">?</a></div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <p class="text-left">Under penalties of perjury, I certify that I am entitled to the number of withholding allowances claimed on this certificate, or I am entitled to claim exempt status.</p>
+                </div>
+                <div class="form-group col-sm-6" style="margin-bottom:13px;">
+                    <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">Employee’s Signature (Form is not valid unless you sign it) :</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="inputEmail3">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">Date (mm/dd/yyyy) :</label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar themeprimary"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href="state_w4.html"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href="state_w4-3rd.html"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+
+	.instruction-pop input{width:85%; float:left; margin-right:10px;}
+	
+	.popover {max-width:237px; left:742px;}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+            $(document).ready(function () {
+
+                $(document).ready(function () { @*onclick="SendURL('/SuperAdmin/ManageBranding')"*@
+                    $(document).ready(function () {
+                        $('[data-toggle="popover"]').popover();
+
+                        $(document).on('click', function (e) {
+                            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                                }
+
+                            });
+                        });
+                    });
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload",
+                    preview_box: "#image-preview",
+                    label_field: "#image-label",
+
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload2",
+                    preview_box: "#image-preview2",
+                    label_field: "#image-label2",
+
+                });
+            });
+
+            function NotifyMessage(message, position, timeout, theme, icon, closable) {
+                toastr.options.positionClass = 'toast-' + position;
+                toastr.options.extendedTimeOut = 0; //1000;
+                toastr.options.timeOut = timeout;
+                toastr.options.closeButton = closable;
+                toastr.options.iconClass = icon + ' toast-' + theme;
+                toastr['custom'](message);
+            }
+
+    </script>
+</environment>

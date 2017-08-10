@@ -1,0 +1,159 @@
+﻿@model FilingStatus
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li>
+            <a  href="@Url.Action("ManageFilingStatus","Administration")" >Filing Status</a>
+        </li>
+        <li class="active" id="LiActive">Add Filing Status</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary" id="PageHeadingDv">
+            Add Filing Status
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form margin-top-add">
+            <div class="col-lg-2 col-sm-12 col-xs-12"></div>
+            <form asp-controller="Administration" asp-action="NewFilingStatus" method="post" class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form">
+                <div class="form-group" hidden>
+                    <label for="inputEmail3" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label no-padding-right">ID :</label>
+                    <div class="col-sm-4">
+                        <input type="text" asp-for="FilingStatusID"  class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label no-padding-right">Title  :<sup class="asterisk">*</sup></label>
+                    <div class="col-sm-4">
+                        <input type="text" asp-for="FilingStatusTitle" class="form-control" >
+                        <span asp-validation-for="FilingStatusTitle" class="asterisk"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 col-sm-offset-2 col-md-2 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label no-padding-right">Description  :</label>
+                    <div class="col-sm-4">
+                        <textarea class="form-control" asp-for="FilingStatusDescription" rows="3" placeholder=""></textarea>
+                        <span asp-validation-for="FilingStatusDescription" class="asterisk"></span>
+                    </div>
+                </div>
+                <hr class="location-hr">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                    <a href="@Url.Action("ManageFilingStatus","Administration")"   <button type="submit" class="btn btn-primary btn-md btnSearch" id="btnSave">Save</button>
+                   </a> <a href="@Url.Action("ManageFilingStatus","Administration")" class="btn btn-warning btn-md btnSearch">Cancel</a>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-xs-12"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+    </style>
+</environment>
+
+<environment>
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            if ('@TempData["Message"]' != null && '@TempData["Message"]' != "") {
+                NotifyMessage('@TempData["Message"]', 'top-right', '1200', 'warning', 'fa-warning', true);
+            }
+            $("#ddlMasterClient").prop("disabled", true).css("cursor", "default").fadeTo(500, "none");
+            // Restrict special characters
+            // It will allow Underscore(_) symbol and characters only
+            $('#FilingStatusTitle').keypress(function (e) {
+                var regex = new RegExp("^[a-zA-Z_ ]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+                e.preventDefault();
+                return false;
+            });
+            // End Restrict special characters
+
+        });
+
+      function NotifyMessage(message, position, timeout, theme, icon, closable) {
+            toastr.options.positionClass = 'toast-' + position;
+            toastr.options.extendedTimeOut = 0; //1000;
+            toastr.options.timeOut = timeout;
+            toastr.options.closeButton = closable;
+            toastr.options.iconClass = icon + ' toast-' + theme;
+            toastr['custom'](message);
+        }
+    </script>
+
+
+</environment>

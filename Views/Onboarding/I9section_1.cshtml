@@ -1,0 +1,335 @@
+﻿
+@{
+    ViewData["Title"] = "I9 Section-1";
+}
+   <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">I9 Section-1</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            I9 Section-1: Employee Information
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form">
+            <form class="form-horizontal" role="form">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <h4 class="personal-details themeprimary"><strong>Personal Details</strong></h4>
+                    <hr class="forms-hr">
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Full Legal Last Name<br> (Family name or Surname) :</label>
+                        <div class="col-sm-6 instruction-pop">
+                            <input type="text" class="form-control" id="inputEmail3">
+                            <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="If you have two last names or hyphenated last name, include both names in the last name field" data-original-title="" title="">
+                                ?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">First Name (Given Name):</label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" id="inputEmail3" style="width:85%;">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Middle Initial :</label>
+                        <div class="col-sm-6 instruction-pop">
+                            <input type="text" class="form-control" id="inputEmail3">
+                            <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="First letter of your given second name or First letter of your middle name, if any." data-original-title="" title="">
+                                ?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Other Names Used :</label>
+                        <div class="col-sm-6 instruction-pop">
+                            <input type="text" class="form-control" id="inputEmail3">
+                            <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Provide all other names used (including maiden name). If you have had no other legal names, write 'N/A'." data-original-title="" title="">
+                                ?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">U.S. Social Security Number<br> (9 digit SSN)  :</label>
+                        <div class="col-sm-6 instruction-pop">
+                            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" class="form-control" id="inputEmail3">
+                            <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Providing your SSN is valuntary. If employer participates in E-Verify you must provide SSN" data-original-title="" title="">
+                                ?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Email Address (Optional)  :</label>
+                        <div class="col-sm-6 instruction-pop">
+                            <input type="text" class="form-control" id="inputEmail3">
+                            <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Department of Homeland Security (DHS) may contact you if DHS learns of a potential mismatch between the information provided and information in DHS or Social Security Administration (SSA) records.Not willing to give this information write 'N/A'." data-original-title="" title="">
+                                ?
+                            </a>
+                            @*<a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Department of Homeland Security (DHS) may contact you if DHS learns of a potential mismatch between the information provided and information in DHS or Social Security Administration (SSA) records.Not willing to give this information write 'N/A'." data-original-title="" title="">
+                                ?
+                            </a>*@
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12" style="margin-bottom:20px;">
+                        <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">Date of Birth (mm/dd/yyyy) :</label>
+                        <div class="col-sm-6">
+                            <div class="input-group" style="width:85%;">
+                                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="mm/dd/yyyy">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar themeprimary"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <h4 class="personal-details themeprimary"><strong>Present Address</strong></h4>
+                    <hr class="forms-hr">
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Street Number and Name :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Apartment Number (if applicable) :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">City or Town :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">State :</label>
+                        <div class="col-sm-6">
+                            <select class="form-select form-control">
+                                <option value="1">Alabama</option>
+                                <option value="2">Alaska</option>
+                                <option value="3">Arizona</option>
+                                <option value="4">California</option>
+                                <option value="5">Florida</option>
+                                <option value="6">Indiana</option>
+                                <option value="7">New Jersey</option>
+                                <option value="8">New York</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Zip Code :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-mask="99999" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Telephone Number<br> (Mobile/Land Line) :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-mask="(999) 999-9999" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick="location.href = '/Onboarding/I9categories'" class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick="location.href = '/Onboarding/I9section_1_Attestation'" class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .instruction-pop input {
+            width: 85%;
+            float: left;
+            margin-right: 5px;
+        }
+
+        .popover {
+            max-width: 237px;
+            left: 742px;
+        }
+
+        .page-sidebar .sidebar-menu li a {
+            height: 38px;
+        }
+
+            .page-sidebar .sidebar-menu li a p {
+                line-height: 5px;
+            }
+    </style>
+
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+      
+        var ClientID = '@ViewBag.MasterClientID';
+        //$('.date-picker').datepicker();
+        $(document).ready(function () {
+            //var firstName = $('#firstName').val();
+            //var middleName = $('#middleName').val();
+            //var lastName = $('#lastName').val();
+            //var fullName = firstName + ' ' + middleName + ' ' + lastName;
+            //$('#empSign').text(fullName);
+
+            //$('#lastName, #firstName,#middleName').keyup(function () {
+            //    var firstName = $('#firstName').val();
+            //    var middleName = $('#middleName').val();
+            //    var lastName = $('#lastName').val();
+
+            //    var fullName = firstName + ' ' + middleName + ' ' + lastName;
+            //    $('#empSign').text(fullName);
+            //});
+
+            $('[data-toggle="popover"]').popover();
+            $(document).on('click', function (e) {
+                $('[data-toggle="popover"],[data-original-title]').each(function () {
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                        (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                    }
+                });
+            });
+
+
+
+            $.uploadPreview({
+                input_field: "#image-upload",
+                preview_box: "#image-preview",
+                label_field: "#image-label",
+
+            });
+            $.uploadPreview({
+                input_field: "#image-upload2",
+                preview_box: "#image-preview2",
+                label_field: "#image-label2",
+
+            });
+        });
+
+        //$('#ddlMasterClient').on('change', function () {
+        //    ClientID = $("#ddlMasterClient :selected").val();
+        //    var ClientName = $("#ddlMasterClient :selected").text();
+        //    $.ajax({
+        //        type: 'POST',
+        //        url: '/Login/ChangeClientDetails',
+        //        data: { DatabaseId: ClientID, ClientName: ClientName },
+        //        success: function (data) {
+        //            $('#simpledatatable').dataTable().fnDestroy();
+        //            LoadGrid();
+        //            var zzz = [null, null, { "bSortable": false }, null, null, { "bSortable": false }, null, { "bSortable": false }]
+        //            PagingSortingFiltering(zzz);
+        //        }
+        //    });
+        //});
+
+
+    </script>
+  
+    <script>
+        $(window).bind("load", function () {
+            /*Sets Themed Colors Based on Themes*/
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            InitiateEasyPieChart.init();
+        });
+
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#WiredWizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'fa-check', true);
+            });
+        });
+    </script>
+
+    <script>
+	$("#hideform").hide();
+	$("#hideform2").hide();
+		$("#hideform-btn").click(function(){
+    $("#hideform").show();
+	$("#hideform3").hide();
+});
+
+$("#hideform-btn2").click(function(){
+    $("#hideform2").show();
+	$("#hideform").hide();
+	$("#hideform3").hide();
+});
+    </script>
+</environment>

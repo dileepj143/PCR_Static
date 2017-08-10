@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    @if (@ViewBag.RoleID == 1)
+    {
+    <title>Super Admin - PCR Onboarding</title>
+
+    }
+
+    else if (@ViewBag.RoleID == 2)
+    {
+    <title> Client Admin - PCR Onboarding </title>
+       
+    }
+    else if (@ViewBag.RoleID == 3)
+    {
+    <title> Manager - PCR Onboarding </title>
+    }
+    else if (@ViewBag.RoleID == 4)
+    {
+    <title> Employee - PCR Onboarding </title>
+        }
+       
+    <link rel="shortcut icon" href="about:blank" />
+    @*<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon">*@
+
+    <environment names="Development">
+        <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+        <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/assets/css/weather-icons.min.css" rel="stylesheet" />
+        <!--Fonts-->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <!--Beyond styles-->
+        <link href="~/assets/css/beyond.min.css" rel="stylesheet" />
+
+       
+        <!--Skins styles-->
+        <!--/Skins styles-->
+
+        <link href="~/assets/css/demo.min.css" rel="stylesheet" />
+        <link href="~/assets/css/typicons.min.css" rel="stylesheet" />
+        <link href="~/assets/css/animate.min.css" rel="stylesheet" />
+        <link href="~/assets/css/datatables.bootstrap.css" rel="stylesheet" />
+        <link href="~/css/custom.css" rel="stylesheet" />
+        <link href="~/assets/css/skins/azure.min.css" rel="stylesheet" />
+        <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+        <script src="~/assets/js/skins.min.js"></script>
+        <script src="~/assets/js/toastr/toastr.js"></script>
+
+        @*<link href="~/assets/css/SignaturePad/signature-pad1.css" rel="stylesheet" />*@
+        <link href="~/assets/css/SignaturePad/signature-pad.css" rel="stylesheet" />
+
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+        <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/assets/css/weather-icons.min.css" rel="stylesheet" />
+        <!--Fonts-->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <!--Beyond styles-->
+        <link href="~/assets/css/beyond.min.css" rel="stylesheet" />
+        <!--Skins styles-->
+        <!--/Skins styles-->
+
+        <link href="~/assets/css/demo.min.css" rel="stylesheet" />
+        <link href="~/assets/css/typicons.min.css" rel="stylesheet" />
+        <link href="~/assets/css/animate.min.css" rel="stylesheet" />
+        <link href="~/assets/css/datatables.bootstrap.css" rel="stylesheet" />
+        <link href="~/css/custom.css" rel="stylesheet" />
+        <link href="~/assets/css/skins/azure.min.css" rel="stylesheet" />
+        <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+        <script src="~/assets/js/skins.min.js"></script>
+        <script src="~/assets/js/toastr/toastr.js"></script>
+
+        @*<link href="~/assets/css/SignaturePad/signature-pad1.css" rel="stylesheet" />*@
+        <link href="~/assets/css/SignaturePad/signature-pad.css" rel="stylesheet" />
+
+    </environment>
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+</head>
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container" style="left: 230px;">
+        @*style="top: 130px;left: 230px;"*@
+        <div class="loader"></div>
+    </div>
+    <input type="hidden" id="refreshed" value="no">
+    @Html.Partial("_Navigation")
+
+    @*<div id="dvNavigation"></div>*@
+    <div class="main-container container-fluid">
+        <div class="page-container">
+
+            @Html.Partial("_SideBarManu")
+
+            <div class="page-content" id="dvpartial">
+
+                @RenderBody()
+
+            </div>
+        </div>
+
+        @Html.Partial("_Footer")
+
+    </div>
+
+</body>
+</html>
+
+<style>
+    .bootbox-confirm .modal-header {
+        border-bottom: 3px solid #ed4e2a !important;
+    }
+   .modal-open{
+       overflow:visible!important;
+   }
+</style>
+
+
+
+<environment names="Development">
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+
+        $(document).on('click', function (e) {
+            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                }
+
+            });
+        });
+    });
+    </script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/js/skins.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="~/assets/js/beyond.js"></script>
+
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/editors/summernote/summernote.js"></script>
+
+
+    @*<script src="~/assets/js/beyond.min.js"></script>*@
+    <!--Sparkline Charts Needed Scripts-->
+    <script src="~/assets/js/charts/sparkline/jquery.sparkline.js"></script>
+
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script src="~/assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="~/assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/js/datatable/datatables-init.js"></script>
+
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+
+    <script src="~/assets/js/charts/sparkline/sparkline-init.js"></script>
+    <!--Easy Pie Charts Needed Scripts-->
+    <script src="~/assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="~/assets/js/charts/easypiechart/easypiechart-init.js"></script>
+    <!--Flot Charts Needed Scripts-->
+    <script src="~/assets/js/charts/flot/jquery.flot.js"></script>
+    <script src="~/assets/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="~/assets/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="~/assets/js/charts/flot/jquery.flot.orderBars.js"></script>
+
+    
+    <script src="~/assets/js/fuelux/treeview/tree-custom.min.js"></script>
+    <script src="~/assets/js/fuelux/treeview/treeview-init.js"></script>
+    <script src="~/assets/js/datetime/bootstrap-datepicker.js"></script>
+    @*<script type="text/javascript" src="~/assets/js/jquery.uploadPreview.min.js"></script>*@
+    <script src="~/assets/js/jquery.uploadpreview.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+
+        $(document).on('click', function (e) {
+            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                }
+
+            });
+        });
+    });
+    </script>
+    <script>
+        $(document).ready(function ()
+        {
+            ActiveSideBar();
+        });
+    </script>
+   
+    <script>
+        function ActiveSideBar() {
+
+            var urlPath = window.location.pathname;
+            urlPath = urlPath.split('/');
+            if (urlPath[1] == "Onboarding" && urlPath[2] != "ManagePreOnboarding") {
+                $('#sidebar #All li').hide();
+                $('#sidebar #All #seventh').show();
+                $('#sidebar #All #seventh ul li').show();
+            }
+            else {
+                $('#sidebar #All li').show();
+                $('#sidebar #All #seventh').hide();
+            }
+
+            if ('@ViewBag.RoleID' == 4) {
+                if (urlPath[1] == "UserManagement" && urlPath[2] == "Profile") {
+                    $('#sidebar #All li').hide();
+                    $('#sidebar #All #seventh').show();
+                    $('#sidebar #All #seventh ul li').show();
+                }
+            }
+
+            $('#sidebar #All li').removeClass('active');
+            $("#sidebar #All a").each(function (e) {
+                var url = $(this).attr("href");
+                var urlId = $(this).attr("id");
+
+                if (url == window.location.pathname) {
+                    $(this).parent().addClass('active');
+                    $(this).parent().parent().parent().addClass('open');
+                    return false;
+                }
+                else if ((window.location.pathname).indexOf(urlId) != -1) {
+                    $(this).parent().addClass('active');
+                    $(this).parent().parent().parent().addClass('open');
+                    return false;
+                }
+            });
+        }
+        </script>
+        <script>
+       // Settings icont toggle
+        function GetLogin() {
+            var email = '@ViewBag.Email';
+            var User = '@ViewBag.UserName';
+            return email + ',' + User;
+        }
+        $('#btn-setting')
+    .on('click', function (e) {
+
+
+        $('.navbar-account')
+            .toggleClass('setting-open');
+    });
+        //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+
+    </script>
+    <script>
+        jQuery(document).ready(function () {
+            //if ($(".bootbox-confirm").hasClass("in")) {
+            //    $("body").css('padding-right', '0px !important');
+            //}
+            UITree.init();
+
+
+        });
+    </script>
+    <script>
+    $(document).ready(function () {
+        if ($("body").hasClass("modal-open")) {
+            $("body").addClass("PaddingRght");
+        }
+    });
+    </script>
+    @*<script src="~/assets/js/charts/morris/raphael-2.0.2.min.js"></script>
+        <script src="~/assets/js/charts/morris/morris.js"></script>
+        <script src="~/assets/js/charts/morris/morris-init.js"></script>*@
+    
+</environment>
+<environment names="Staging,Production">
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/editors/summernote/summernote.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script src="~/assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="~/assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/js/datatable/datatables-init.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+
+    <!--Sparkline Charts Needed Scripts-->
+    <script src="~/assets/js/charts/sparkline/jquery.sparkline.js"></script>
+    <script src="~/assets/js/charts/sparkline/sparkline-init.js"></script>
+    <!--Easy Pie Charts Needed Scripts-->
+    <script src="~/assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="~/assets/js/charts/easypiechart/easypiechart-init.js"></script>
+    <!--Flot Charts Needed Scripts-->
+    <script src="~/assets/js/charts/flot/jquery.flot.js"></script>
+    <script src="~/assets/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="~/assets/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="~/assets/js/charts/flot/jquery.flot.orderBars.js"></script>
+    <script src="~/assets/js/fuelux/treeview/tree-custom.min.js"></script>
+    <script src="~/assets/js/fuelux/treeview/treeview-init.js"></script>
+    <script src="~/assets/js/datetime/bootstrap-datepicker.js"></script>
+    @*<script type="text/javascript" src="~/assets/js/jquery.uploadPreview.min.js"></script>*@
+    <script src="~/assets/js/jquery.uploadpreview.min.js"></script>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.js"></script>
+    
+    <script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+
+        $(document).on('click', function (e) {
+            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                }
+
+            });
+        });
+    });
+    </script>
+    <script>
+        // Settings icont toggle
+        $('#btn-setting')
+    .on('click', function (e) {
+        $('.navbar-account')
+            .toggleClass('setting-open');
+    });
+        //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+    </script>
+
+
+    <script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>
+
+    <script src="~/assets/js/charts/morris/raphael-2.0.2.min.js"></script>
+    <script src="~/assets/js/charts/morris/morris.js"></script>
+    <script src="~/assets/js/charts/morris/morris-init.js"></script>
+    <script src="assets/js/bootbox/bootbox.js"></script>
+
+</environment>
+<!-- Showing url pattern -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+        asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.validator">
+</script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"
+        asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+</script>
+
+<script >
+    $('.profile #ProfileName').html('@ViewBag.UserName');
+    $('li.email #UserEmail').html('@ViewBag.Email');
+
+   
+    onload = function () {
+        var e = document.getElementById("refreshed");
+        if (e.value == "no") e.value = "yes";
+        else { e.value = "no"; location.reload(); }
+    }
+
+    $(document).ready(function () {
+        $('#sidebar #All_superadmin li').removeClass('active');
+        $("#sidebar #All_superadmin a").each(function (e) {
+            var url = $(this).attr("href");
+            if (url == window.location.pathname) {
+                $(this).parent().addClass('active');
+                $(this).parent().parent().parent().addClass('open');
+            }
+        });
+
+        GetAllMasterClients();
+
+        $("#ddlMasterClient option").each(function ()
+        {
+            if ($(this).val() == '@ViewBag.MasterClientID') {
+                $(this).attr('selected', 'selected');
+                
+                if ('@ViewBag.RoleID' != "1") {
+                    $("#ddlMasterClient").prop("disabled", true).css("cursor", "default").fadeTo(500, "none");
+                }
+            }
+        });
+        createCookie("", "assets/css/skins/azure.min.css", 10);              // For Employee I9Section ? mark background
+        $('.nav li a').click(function () {
+            $('.nav li').removeClass('active');
+            var $parent = $(this).parent();
+            if (!$parent.hasClass('active')) {
+                $parent.addClass('active');
+            }
+        });
+    });
+
+    function GetLogin() {
+        var email = '@ViewBag.Email';
+        var User = '@ViewBag.UserName';
+        return email + ',' + User;
+    }
+
+    @*function Layout() {
+        $.ajax
+            ({
+                url: '@Url.Action("LayOutData", "SuperAdmin")',
+                type: 'GET',
+                async:true,
+                contentType: 'application/html',
+                success: function (content) {
+                    //$('#dvpartial').empty();
+                    $('#dvNavigation').html(content).show();
+                },
+                error: function (e) { }
+            });
+    }*@
+   
+   
+    function SuccessMessage(msg) {
+        
+        $('.page-sidebar').css('z-index', '100');
+        $('.navbar').css('z-index', '200');
+        bootbox.dialog({
+            message: msg,
+            title: "Success",
+            className: "modal-darkorange",
+            buttons: {
+                success: {
+                    label: "Ok",
+                    className: "btn-blue pull-right",
+                    callback: function () {
+                   }
+                }
+            }
+        });
+    }
+    
+    
+
+
+        function GetAllMasterClients() {
+            $.ajax({
+                type: 'GET',
+                url: '/Administration/GetAllClients',
+                async: false,
+                dataType: 'json',
+                contentType: "application/json",
+                cache: false,
+                callback: true,
+                crossDomain: true,
+                success: function (data) {
+                    $('#ddlMasterClient').empty();
+                    var markup = "<option value=''>- Select Client -</option>";
+                    if (data != null && data != "Content not found") {
+                        $.each(data, function (i, item) {
+                            markup += "<option value=" + item.DatabaseId + ">" + item.ClientName + "</option>";
+                        });
+                    }
+                    @*else {
+                    if ('@TempData["errorMessage"]' != null && '@TempData["errorMessage"]' != "") {
+                        NotifyMessage('@TempData["errorMessage"]', 'top-right', '1800', 'warning', 'fa-warning', true);
+                    }
+                }*@
+                    $('#ddlMasterClient').html(markup).show();
+                }
+            });
+        }
+
+        function SessionClientID() {
+            var DatabaseId = $("#ddlMasterClient :selected").val();
+            var ClientName = $("#ddlMasterClient :selected").text();
+            $.ajax({
+                type: 'POST',
+                async: true,
+                url: '/Login/ChangeClientDetails',
+                data: { DatabaseId: DatabaseId, ClientName: ClientName },
+                success: function (data) {
+                }
+            });
+        }
+
+        function NotifyMessage(message, position, timeout, theme, icon, closable) {
+            toastr.options.positionClass = 'toast-' + position;
+            toastr.options.extendedTimeOut = 0; //1000;
+            toastr.options.timeOut = timeout;
+            toastr.options.closeButton = closable;
+            toastr.options.iconClass = icon + ' toast-' + theme;
+            toastr['custom'](message);
+        }
+
+
+</script>
+
+<script>
+	$(document).ready(function () {
+		$(".bootbox-confirm").on('click', function () {
+            bootbox.confirm("Are you sure want to delete ?", function (result) {
+                if (result) {
+                    //
+                }
+            });
+        });
+
+        });
+</script>
+<script>
+	$(document).ready(function ()
+        {
+            $('.deletepopover').click(function () {
+                $('#sidebar').css('z-index', '100');
+                $('.navbar').css('z-index', '200');
+            });
+
+			$('.deactivatepopover').click(function () {
+                $('#sidebar').css('z-index', '100');
+                $('.navbar').css('z-index', '200');
+			});
+
+			$('.deactivateimg').click(function () {
+			    $('#sidebar').css('z-index', '100');
+			    $('.navbar').css('z-index', '200');
+			});
+			
+
+			$('.deactivateimg1').click(function () {
+			    $('#sidebar').css('z-index', '100');
+			    $('.navbar').css('z-index', '200');
+			});
+			$('.bootbox-prompt').click(function () {
+			    $('#sidebar').css('z-index', '100');
+			    $('.navbar').css('z-index', '200');
+			});
+
+        });
+
+        //InitiateSimpleDataTable.init();
+        //InitiateEditableDataTable.init();
+        //InitiateExpandableDataTable.init();
+        //InitiateSearchableDataTable.init();
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+
+        $(document).on('click', function (e) {
+            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  // 
+                }
+
+            });
+        });
+    });
+</script>

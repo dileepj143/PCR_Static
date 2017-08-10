@@ -1,0 +1,464 @@
+﻿<!-- SuperAdmin Sidebar -->
+<div class="page-sidebar" id="sidebar">
+    <!-- Page Sidebar Header-->
+    <div class="sidebar-header-wrapper">
+
+        @if (ViewBag.RoleID == 1)
+        {
+            <div class="form-group" id="OnlyIndex">
+                <div class="">
+                    <select class="form-control" style="border-radius:0px;" id="ddlMasterClient">
+                        <option value="">Select Client...</option>
+                        <option value="">Staffing Recuriters</option>
+                        <option value="">Executive Recuriters</option>
+                    </select>
+                </div>
+            </div>
+        }
+        @if (ViewBag.RoleID != 1)
+        {
+            <div class="form-group" hidden>
+                <div class="">
+                    <select class="form-control" style="border-radius:0px;" id="ddlMasterClient">
+                        <option value="">Select Client...</option>
+                    </select>
+                </div>
+            </div>
+            <div style="display:none;" id="ExceptIndex">
+                <input type="text" class="searchinput" />
+                <i class="searchicon fa fa-search"></i>
+            </div>
+        }
+    </div>
+
+    <!-- /Page Sidebar Header -->
+    <!-- Sidebar Menu -->
+    <ul class="nav sidebar-menu" id="All">
+        <!--Dashboard-->
+        @if (ViewBag.RoleID == 1 || ViewBag.RoleID == 2 || ViewBag.RoleID == 3)
+        {
+            <li class="" id="first">
+                <a href="@Url.Action("Index", "Dashboard")">
+                    <i class="menu-icon glyphicon glyphicon-home" style="color:#2dc3e8"></i>
+                    <span class="menu-text"> Dashboard </span>
+                </a>
+            </li>
+        }
+        <!--Databoxes-->
+        @if (ViewBag.RoleID == 1 || ViewBag.RoleID == 2 || ViewBag.RoleID == 3)
+        {
+            <li id="second">
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-user" style="color:#53a93f;"></i>
+                    <span class="menu-text"> User Management </span>
+                    <i class="menu-expand"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="@Url.Action("ManageUsers", "UserManagement")" id="User">
+                            <span class="menu-text">Manage Users</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }
+        <!--Widgets-->
+        @if (ViewBag.RoleID != 4)
+        {
+            <li id="third">
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-file-text" style="color:#0072C6;"></i>
+                    <span class="menu-text"> Document Management </span>
+                    <i class="menu-expand"></i>
+                </a>
+                <ul class="submenu">
+                    @if (ViewBag.RoleID == 1)
+                {
+                        <li>
+                            <a href="@Url.Action("ManageFolders_Files", "Document")" class="menu-dropdown">
+                                <span class="menu-text">
+                                    My Documents
+                                </span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li id="ShareWtihME">
+                            <a href="@Url.Action("ShareWithMe", "Document")" class="menu-dropdown">
+                                <span class="menu-text">Shared With Me</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+        <!--UI Elements-->
+        @if (ViewBag.RoleID == 1)
+        {
+            <li id="fourth">
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-cogs" style="color:#FF8F32;"></i>
+                    <span class="menu-text"> System Administration </span>
+                    <i class="menu-expand"></i>
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="@Url.Action("ManageClients", "Administration")" id="Client">
+                            <span class="menu-text">Manage Clients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageStates", "Administration")" id="State">
+                            <span class="menu-text">Manage States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageRaces", "Administration")" id="Race">
+                            <span class="menu-text">Manage Races</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("ManageFilingStatus", "Administration")" id="Filing">
+                            <span class="menu-text">Filing Status</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageCitizenships", "Administration")" id="Citizenship">
+                            <span class="menu-text">Manage Citizenships</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageI9Documents", "Administration")" id="I9Document">
+                            <span class="menu-text">Manage I9 Documents</span>
+                        </a>
+                    </li>
+                    <li style="display:none">
+                        <a href="#">
+                            <span class="menu-text">Manage I9 Validations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageStages", "Administration")" id="Stage">
+                            <span class="menu-text">Manage Stages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Onboarding_Process", "Administration")">
+                            <span class="menu-text">Onboarding Process</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }
+        @if (ViewBag.RoleID == 1 || ViewBag.RoleID == 2)
+        {
+            <li id="fifth">
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-cogs" style="color:#FF8F32;"></i>
+                    <span class="menu-text"> Administration </span>
+                    <i class="menu-expand"></i>
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="@Url.Action("ManageDivisions", "Administration")" id="Division">
+                            <span class="menu-text">Manage Divisions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageDistricts", "Administration")" id="District">
+                            <span class="menu-text">
+                                Manage Districts
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageLocations", "Administration")" id="Location">
+                            <span class="menu-text">Manage Locations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManagePolicies", "Administration")" id="Policy">
+                            <span class="menu-text">Manage Policies/Forms</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageJobTitles", "Administration")" id="JobTitle">
+                            <span class="menu-text">Manage Jobtitles</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }
+
+        <!--Tables-->
+        @if (ViewBag.RoleID == 1 || ViewBag.RoleID == 3)
+        {
+            <li id="sixth">
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-exclamation-triangle" style="color:#AC193D;"></i>
+                    <span class="menu-text"> Notifications </span>
+                    <i class="menu-expand"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="@Url.Action("ManageNotifications", "Notification")">
+                            <span class="menu-text">Manage Notifications</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }
+
+        @if (ViewBag.RoleID != 4)
+        {
+            <li>
+                <a href="@Url.Action("ManagePreOnboarding", "Onboarding")" class="menu-dropdown">
+                    <i class="menu-icon fa fa-users" style="color:#53a93f;"></i>
+                    <span class="menu-text">Manage Pre-Onboarding </span>
+                </a>
+            </li>
+        }
+        @if (ViewBag.RoleID == 1 || ViewBag.RoleID == 4 || ViewBag.RoleID == 3 || ViewBag.RoleID == 2) //Remove
+        {
+            <li id="seventh">
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-cogs" style="color:#FF8F32;"></i>
+                    <span class="menu-text"> Onboarding </span>
+                    <i class="menu-expand"></i>
+                </a>
+                <ul class="submenu">
+                    @if (ViewBag.RoleID == 4)
+                    {
+                        <li>
+                            <a href="@Url.Action("I9categories", "Onboarding")">
+                                <i class="fa fa-list" style="color:#53a93f;"></i>
+
+
+                                @{
+                                    var i9CategoriesDueDate = "";
+                                    DateTime date = new DateTime();
+                                    if (ViewBag.EmployeeCreatedDate != null)
+                                    {
+                                        date = ViewBag.EmployeeCreatedDate;
+                                        i9CategoriesDueDate = date.AddDays(1).ToString("MM/dd/yyyy");
+                                    }
+                                }
+
+                                <span class="menu-text">I9 Categories</span><p style="font-size:10px;">(Due: @i9CategoriesDueDate)</p>
+                            </a>
+
+                            @*<a onclick="SendURL('/SuperAdmin/I9Categories')" href="#" class="menu-dropdown">
+                                    <i class="fa fa-list" style="color:#53a93f;"></i>
+                                    <span class="menu-text">I9 Categories</span>
+                                </a>*@
+                        </li>
+                        <li>
+                            <a href="@Url.Action("I9section_1", "Onboarding")" id="I9section_1">
+                                @{
+                                    var i9Section1DueDate = date.AddDays(3).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill I9 Section-1</span><p style="font-size:10px;">(Due: @i9Section1DueDate)</p>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Vsi1", "Onboarding")" id="Vsi">
+                                @{
+                                    var i9VsiDueDate = date.AddDays(4).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill VSI</span><p style="font-size:10px;">(Due: @i9VsiDueDate)</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("W4", "Onboarding")" id="W4">
+                                @{
+                                    var i9W4DueDate = date.AddDays(5).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill W-4</span><p style="font-size:10px;">(Due: @i9W4DueDate)</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Deposit", "Onboarding")">
+                                @{
+                                    var i9DepositDueDate = date.AddDays(6).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Pay Deposit Details</span><p style="font-size:10px;">(Due: @i9DepositDueDate)</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ReadPolicies", "Onboarding")" id="ReadPolic">
+                                @{
+                                    var i9PolicyDueDate = date.AddDays(7).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Read Policies</span><p style="font-size:10px;">(Due: @i9PolicyDueDate)</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("SelectDocuments", "Onboarding")">
+                                @{
+                                    var i9SelectDocumentsDueDate = date.AddDays(8).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Select Documents</span><p style="font-size:10px;">(Due: @i9SelectDocumentsDueDate)</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Upload_document", "Onboarding")">
+                                @{
+                                    var i9UploadDocsDueDate = date.AddDays(9).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Upload Documents</span><p style="font-size:10px;">(Due: @i9UploadDocsDueDate)</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Signin", "Onboarding")">
+                                @{
+                                    var i9SignDueDate = date.AddDays(10).ToString("MM/dd/yyyy");
+                                }
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Employee Sign</span><p style="font-size:10px;">(Due: @i9SignDueDate)</p>
+                            </a>
+                        </li>
+
+                                    }
+                                    else
+                                    {
+
+                                        <li class="li_Open">
+                                            <a href="@Url.Action("I9section_1_review", "Onboarding")">
+                                                @{
+                                                    DateTime? dateManager = ViewBag.EmployeeCreatedDateForManagerLogin;
+                                                    var i9Section1ReviewDueDate = String.Empty;
+                                                    if (dateManager != null)
+                                                    {
+                                                        i9Section1ReviewDueDate = "(Due:" + dateManager.Value.AddDays(3).ToString("MM/dd/yyyy") + ")";
+                                                    }
+                                                }
+                                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>I9section_1 review</span><p style="font-size:10px;">@i9Section1ReviewDueDate</p>
+
+                                            </a>
+                                        </li>
+                                        <li class="li_Open">
+                                            <a href="@Url.Action("VsiReview", "Onboarding")">
+                                                @{
+                                                    var i9VsiReviewDueDate = String.Empty;
+                                                    if (dateManager != null)
+                                                    {
+                                                        i9VsiReviewDueDate = "(Due:" + dateManager.Value.AddDays(4).ToString("MM/dd/yyyy") + ")";
+                                                    }
+                                                }
+                                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>VSI review</span><p style="font-size:10px;">@i9VsiReviewDueDate </p>
+
+                                            </a>
+                                        </li>
+                                        <li class="li_Open">
+                                            <a href="@Url.Action("W4_Review", "Onboarding")">
+                                                @{
+                                                    var i9W4ReviewDueDate = String.Empty;
+                                                    if (dateManager != null)
+                                                    {
+                                                        i9W4ReviewDueDate = "(Due:" + dateManager.Value.AddDays(5).ToString("MM/dd/yyyy") + ")";
+                                                    }
+                                                    // var i9CategoriesDueDate = dateManager.AddDays(3).ToString("MM/dd/yyyy");
+                                                }
+                                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>W4 review</span><p style="font-size:10px;">@i9W4ReviewDueDate </p>
+
+                                            </a>
+                                        </li>
+                                        <li class="li_Open">
+                                            <a href="@Url.Action("Deposit", "Onboarding")">
+                                                @{
+                                                    var i9DepositReviewDueDate = String.Empty;
+                                                    if (dateManager != null)
+                                                    {
+                                                        i9DepositReviewDueDate = "(Due:" + dateManager.Value.AddDays(6).ToString("MM/dd/yyyy") + ")";
+                                                    }
+                                                }
+                                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Deposit Review</span><p style="font-size:10px;">@i9DepositReviewDueDate </p>
+                                            </a>
+                                        </li>
+                                        <li class="li_Open">
+                                            <a href="@Url.Action("ReadPolicies", "Onboarding")">
+                                                @{
+                                                    var i9PolicyReviewDueDate = String.Empty;
+                                                    if (dateManager != null)
+                                                    {
+                                                        i9PolicyReviewDueDate = "(Due:" + dateManager.Value.AddDays(7).ToString("MM/dd/yyyy") + ")";
+                                                    }
+                                                }
+                                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Read Policies Review</span><p style="font-size:10px;">@i9PolicyReviewDueDate</p>
+                                            </a>
+                                        </li>
+                                        <li class="li_Open">
+                                            <a href="@Url.Action("Upload_Document_Views", "Onboarding")" id="View">
+                                                @{
+                                                    var i9UploadReviewDueDate = String.Empty;
+                                                    if (dateManager != null)
+                                                    {
+                                                        i9UploadReviewDueDate = "(Due:" + dateManager.Value.AddDays(8).ToString("MM/dd/yyyy") + ")";
+                                                    }
+                                                }
+                                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Upload Documents</span><p style="font-size:10px;">@i9UploadReviewDueDate</p>
+
+                                            </a>
+                                        </li>
+                                        <li class="li_Open">
+                                            <a href="@Url.Action("Managerlogin", "Onboarding")" id="I9section_">
+                                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Manager Approval</span>
+                                            </a>
+                                        </li>
+                                                    }
+                </ul>
+            </li>
+                                                    }
+
+        @if (ViewBag.RoleID == 1 || ViewBag.RoleID == 2)
+        {
+            <li id="eighth">
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-newspaper-o" style="color:#03B3B2;"></i>
+                    <span class="menu-text"> Reports </span>
+                    <i class="menu-expand"></i>
+                </a>
+
+                <ul class="submenu">
+                    @*<li>
+                        <a href="@Url.Action("EmployeeOnboardedReport", "Reports")">
+                            <span class="menu-text">Onboarded Employees</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Pre_OnboardingEmployees", "Reports")">
+                            <span class="menu-text">Pre_Onboarding Employees</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("ClientsReport", "Reports")">
+                            <span class="menu-text">Clients</span>
+                        </a>
+                    </li>*@
+                    <li>
+                        <a href="@Url.Action("Report", "Reports")">
+                            <span class="menu-text">Report</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </li>
+        }
+    </ul>
+    <!-- /Sidebar Menu -->
+</div>
+<script>
+    $(document).ready(function () {
+        $('#seventh').slideDown();
+
+    })
+</script>
+

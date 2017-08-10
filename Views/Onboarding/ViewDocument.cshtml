@@ -1,0 +1,87 @@
+﻿@model I9UploadDocuments
+@{
+    ViewData["Title"] = "View Document";
+    var imageUpload = ViewData["Image"];
+    if (imageUpload != null)
+    {
+        imageUpload = String.Format("data:image/jpg;base64,{0}", ViewData["Image"]);
+    }
+}
+
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+        <li class="active">View Document</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Upload Document
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form margin-top-edit">
+            <div class="row">
+
+            </div>
+            <form asp-controller="Onboarding" asp-action="ViewDocument" method="get" enctype="multipart/form-data" class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form" id="form1">
+                        <hr class="upload-hr">
+                        <div class="upload-body-scroll">
+                            <div class="row" style="margin-top:15px">
+                                <div class="col-md-2 col-md-offset-1 col-lg-offset-1">  
+                                    @*<div id="image-preview" style="background-image:url('');background-repeat:no-repeat; background-position:100% 100%;">*@
+                                        <img src="@imageUpload" style="width: 355px;height: 283px;" />                                        
+                                   </div>                                  
+                                </div>
+                                <div class="col-sm-1">
+                                </div>
+                        </div>
+                        <hr class="location-hr">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                            <a href="@Url.Action("Upload_document", "Onboarding")" class="btn btn-primary btn-md btnSearch">Close</a>                            
+                        </div>
+                    </form>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->

@@ -1,0 +1,248 @@
+﻿@{
+    ViewData["Title"] = "Employee";
+}
+
+
+  <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">I9 Categories</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            I9 Categories
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 division-form">
+            <form class="form-horizontal col-lg-10 col-lg-offset-1 col-sm-12 col-xs-12" role="form">
+                <h5 class="themeprimary"><strong>Please tick the category you belong to and read the instructions.</strong></h5>
+                <hr class="location-hr" />
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form 1-9 by the employee</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="<p>1. Enter your full legal name and other names that you have used in the past or present (e g , maiden name) if any</p>
+<li>If you have two last names (family names), include both in the Last Name field. If you hyphenate your last name, include the hyphen (-) between the names.</li>
+<li>If you have two first names (given names), include both in the First Name field. If you hyphenate your first name, include the hyphen (-) between the names.</li>
+<li>If you have only one name, enter that name in the Last Name field. You may enter either the word “Unknown” or “N/A” in the First Name field. If your employer is an E-Verify participant, entering “Unknown” is preferable. You may not leave this field blank.</li>
+
+<li>Enter your middle initial in the Middle Initial field, if applicable. Enter N/A if you have no middle initial.</li>
+<li>Enter your maiden name or any other legal name you may have used in the Other Names Used field. Enter N/A if you have not used other names.</li>
+
+<p>2. Enter your home Address, Apt Number, City or Town, State and Zip Code Enter N/A if you have no Apt Number. You may not enter a P.O. Box in this field. If you have no street address, enter a description of the location of your residence, such as “9 miles south of I-81, to the left of the water tower ”.</p>
+
+<p>3. Enter your Date of Birth, Social Security Number, E-mail Address and Telephone Number Entering the Social Security number is optional unless your employer confirms employment authorization using E-Verify. Entering your e-mail address or telephone number is voluntary If you choose not to enter your e-mail address or telephone number, enter N/A in these fields.</p>
+
+<p>4. Read the warning and attest to your citizenship or immigration status by checking the appropriate box If you attest to ‘Alien authorized to work,’ you may provide EITHER your Alien Registration number OR your Form I-94 Admission Number If you choose to provide an Alien Registration Number, you do not have to enter your Foreign Passport and Country of Issuance information.</p>
+
+<p>5. Sign and date the form.</p>" data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completeing Section 1 of Form I-9 with the help of  preparer/translator</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="<p>If you use a preparer or translator to fill out the form, that person must certify that he or she assisted you by completing the Preparer and/or Translator Certification Block. If you require multiple preparers and/or translators, subsequent preparers and/or translators must complete the Preparer/Translator Certification of a second Form I-9 and attach that page to your form.</p>" data-original-title="" title="">
+                                    ?
+                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for Employees with Disabilities (Special Placement)</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="<p>Representative of a nonprofit organization, parent, or legal guardian of an individual with a disability completes Section 1 and enters, “Special Placement” in the signature of employee field and dates the form.</p>
+<p>Representative, parent or legal guardian completes the Preparer and/or Translator Certification Block.</p>" data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for Minors without List B Documents</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="<p>Parent or legal guardian of a minor employee completes Section 1 and enter, “Individual under age 18” in signature block.</p>
+<p>Parent or legal guardian completes the Preparer and/or Translator Certification Block.</p>" data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for F-1 Nonimmigrant Students with OPT</strong>&nbsp;&nbsp;&nbsp;
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="<p>F-1 nonimmigrant student completes Section 1.</p>
+<p>Student signs and dates the form.</p>" data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="radio instruction-pop">
+                        <label>
+                            <input name="form-field-radio" type="radio" class="main-color">
+                            <span class="text main-color">
+                                <strong>Completing Section 1 of Form I-9 for Students in Curricular Practical Training</strong>
+                                <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover" data-placement="top" data-title="Instructions" data-content="<p>Student completes Section 1 and enters his or her 11-digit Form I-94/Form I-94A number.</p>
+
+<p>Student signs and dates the form.</p>" data-original-title="" title="">
+                                                    ?
+                                                </a>
+                            </span>
+
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                @*<button onclick="location.href='i9categories.html'" class="btn btn-primary btn-md btnSearch">Cancel</button>*@
+                <button onclick="location.href='/Onboarding/I9section_1'" class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <style>
+        ::-webkit-input-placeholder {
+            color: #888 !important;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #888 !important;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #888 !important;
+        }
+
+        :-ms-input-placeholder {
+            color: #888;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .form-btns {
+            margin-top: 20px;
+        }
+
+        .instruction-pop label input[type=radio] ~ .text {
+            float: left;
+        }
+
+        .instruction-pop a {
+            float: right;
+            padding: 0px 7px;
+            border-radius: 20px;
+            margin-top: 0px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        .popover {
+            max-width: 370px;
+            height: 150px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .popover-content {
+            width: 340px;
+            height: 180px;
+        }
+    </style>
+</environment>
+<environment>
+    @*<script src="~/assets/js/beyond.min.js"></script>*@
+    <script>
+$(document).ready(function(){
+$('[data-toggle="popover"]').popover();
+
+$(document).on('click', function (e) {
+    $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            (($(this).popover('hide').data('bs.popover')||{}).inState||{}).click = false  //
+        }
+
+    });
+});
+});
+    </script>
+
+</environment>

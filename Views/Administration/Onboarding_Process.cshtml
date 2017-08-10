@@ -1,0 +1,701 @@
+﻿@{
+    ViewData["Title"] = "SuperAdmin";
+}
+ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Onboardin Process</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            Onboarding Process
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+   
+    <div class="col-lg-12 col-sm-12 col-xs-12 manage-division" style="padding:0px;">
+        <div class="well">
+            <div class="">
+                <a href="#" class="btn btn-primary btn-md btnSearch pull-right" id="btnSave">Save</a>
+                <a href="#" class="btn btn-primary btn-md btnSearch pull-right MarginRight">Reset</a>
+            </div>
+            <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding-left no-padding-right">
+                <!-- <div class="header bg-default">
+                    Companies Data
+                </div> -->
+                <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="simpledatatable_info">
+                    <thead>
+                        <tr role="row">
+                            <th>
+                                Onboarding&nbsp;Stage&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Days&nbsp;to&nbsp;Complete&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                            <th style="width:150px;">
+                                Due&nbsp;Date&nbsp;&nbsp;
+                            </th>
+                            <th style="width:150px;">
+                                Select&nbsp;Stage&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                            <th style="width:160px;">
+                                Sequence No.&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                VSI
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" >
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                I9 Section-1
+                            </td>
+                            <td>
+                                Newly hired employees must complete and sign Section-1 of form I-9 no later than the first day of employement
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                I9 Section-2
+                            </td>
+                            <td>
+                                Employer or their authorized respresentative must complete and sign Section-2 within 3 business days of the employee's first day of employment
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-9-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                I9 Section-3
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                W4
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Pay Deposit Details
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Read Policies
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Review Details
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Employee Sign
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-11-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Manage Approval
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <style>
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            vertical-align: middle;
+        }
+
+            .table > tbody > tr > td a {
+                margin: 3px;
+            }
+
+        .table > thead > tr > th {
+            background-color: #c1c1c1;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .checkbox {
+            text-align: center;
+        }
+        .manage-division .btn-primary{
+            margin:17px 0px 17px 0px;
+        }
+        .table input[type=checkbox] ~ .text, .table input[type=radio] ~ .text {
+            margin-right: 0px;
+        }
+
+        .checkbox, .radio {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .table input[type=checkbox] ~ .text:before, .table input[type=radio] ~ .text:before {
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+</environment>
+<environment>
+    <!--Page Related Scripts-->
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script src="~/assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="~/assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/js/datatable/datatables-init.js"></script>
+
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+
+    <script src="~/assets/js/select2/select2.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+
+    <script>
+        var s = 0;
+        var p = 0;
+        var boolReset = true;
+        $(document).ready(function () {
+            $('#ddlMasterClient').on('change', function () {
+
+
+                //var tblCheck = !$.fn.DataTable.isDataTable('#tblDocuments');
+                //if (!$.fn.DataTable.isDataTable('#tblDocuments') == false) {
+                //    $("#tblDocuments").dataTable().fnDestroy();
+                //}
+                //SendURL('/SuperAdmin/ManageFolders_Files');
+                var ClientID = $("#ddlMasterClient :selected").val();
+                var ClientName = $("#ddlMasterClient :selected").text();
+                $.ajax({
+                    type: 'POST',
+                    url: '/Login/ChangeClientDetails',
+                    data: { ClientID: ClientID, ClientName: ClientName },
+                    beforeSend: function () {
+                        $('.loading-container').show();
+                        $('.loader').show();
+                    },
+                    success: function (data) {
+                        LoadGrid();
+                    },
+                    complete: function () {
+                        $('.loading-container').hide();
+                        $('.loader').hide();
+                    }
+                });
+            });
+
+            $('.deletepopover').click(function () {
+                $('.page-sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+            LoadGrid();
+        });
+
+        $("[data-toggle=tooltip]").tooltip();
+
+        InitiateSimpleDataTable.init();
+
+        //function LoadGrid() {
+        //    $.ajax({
+        //        type: 'GET',
+        //        url: '/Administration/GetAllOnBoardingStages',
+        //        async: false,
+        //        dataType: 'json',
+        //        contentType: "application/json; charset=utf-8",
+        //        cache: false,
+        //        callback: true,
+        //        crossDomain: true,
+        //        success: function (data) {
+
+        //            $('#tblProcess').empty();
+        //            var markup = "";
+        //            markup += "<thead><tr role='row'><th style='text-align:left; width:160px !important;'>Onboarding Stage</th><th  style='text-align:left; width:600px !important;'>Description</th><th  style='text-align:left; width:165px !important;'>Days to Complete</th><th style=' width:120px !important;'>Due Date</th><th style='width:115px;'>Select stage</th><th style='width:160px;'>Sequence No.</th></tr></thead><tbody>";
+        //            if (data != null && data != "Content not found") {
+        //                $.each(data, function (i, item) {
+        //                    s = item.StageSequence;
+        //                    if (parseInt(s) > parseInt(p))
+        //                        p = item.StageSequence;
+        //                    var check = "";
+        //                    // var chk = "";
+
+        //                    if (item.StageSequence != null && item.StageSequence != "") {
+        //                        check = "checked='checked'";
+        //                        //  var chk="<input type='checkbox' name='checkbox'  class='inverted' " + check + ">";
+        //                    }
+        //                    // Due Date format in mm-dd-yyyy. 
+        //                    var DueDateFinal;
+        //                    if (item.DueDate != null) {
+        //                       var DueDate = new Date(item.DueDate);
+        //                        var dueMonth = (DueDate.getMonth() + 1);
+        //                        var dueMonthFinal = (dueMonth < 9 ? '0' + dueMonth : dueMonth);
+        //                        var dueDate = DueDate.getDate();
+        //                        var dueDateFinal = (dueDate < 10 ? '0' + dueDate : dueDate);
+        //                         DueDateFinal = (dueMonthFinal + '-' + dueDateFinal + '-' + DueDate.getFullYear());
+        //                    }
+        //                    else {
+        //                        DueDateFinal = null;
+        //                    }                          
+
+        //                    // Days to Complete in two digits format.
+        //                    var days = item.DaysToComplete;
+        //                    var daysToComplete = "";
+        //                    if (days != null && days.length < 2) {
+        //                        daysToComplete = ('0' + days);
+
+        //                    }
+        //                    else {
+        //                        daysToComplete = days;
+        //                    }
+
+        //                    markup += "<tr><td style='text-align:left'>" + item.StageTitle + "<input type='hidden' value=" + item.StageID + " /></td><td style='text-align:left'>" + (item.StageDescription == null || "" ? "" : item.StageDescription) + "</td><td>" + (daysToComplete == null || "" ? "" : daysToComplete) + "</td><td>" + (DueDateFinal == null || "" ? "" : DueDateFinal) + "</td><td><div class='checkbox'><label><input type='checkbox'  name='checkbox'  class='inverted' " + check + "><span class='text'></span></label></div></td><td><input type='text' value='" + (item.StageSequence == null || "" ? "" : item.StageSequence) + "'  class='form-control' ></td></tr>";  //<input type='checkbox' name='checkbox' class='inverted' " + check + ">
+        //                });
+
+
+        //                markup += "</tbody>";
+
+        //                $('#tblProcess').html(markup).show();
+        //            }
+        //            else {
+        //                markup += "<td colspan=6 text-align:center'><b>No content available</b></td></tbody>";
+        //                $('#tblProcess').html(markup).show();
+        //            }
+        //        },
+        //        complete: function () {
+        //            $('#tblProcess tr').each(function (index, it) {
+        //                $(this).find('td input:text').attr('disabled', true);
+        //            });
+        //            //$('[data-toggle="modal"]').tooltip();
+        //            Enabledisable();
+        //            //$('#tblProcess tbody tr td input:checkbox[name=checkbox]').on('change', function () {
+
+        //            // });
+
+        //        },
+        //        error: function (jqXHR, exception) {
+        //            var msg = '';
+        //            if (jqXHR.status === 0) {
+        //                msg = 'Not connect.\n Verify Network.';
+        //            } else if (jqXHR.status == 404) {
+        //                msg = 'Requested page not found. [404]';
+        //            } else if (jqXHR.status == 500) {
+        //                msg = 'Internal Server Error [500].';
+        //            } else if (exception === 'parsererror') {
+        //                msg = 'Requested JSON parse failed.';
+        //            } else if (exception === 'timeout') {
+        //                msg = 'Time out error.';
+        //            } else if (exception === 'abort') {
+        //                msg = 'Ajax request aborted.';
+        //            } else {
+        //                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+        //            }
+        //            Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+        //        }
+        //    });
+        //}
+
+        function Reset() {
+            $('#tblProcess tr').each(function () {
+                $(this).find('td input:text').val('');
+                $(this).find('td input:checkbox').attr('checked', false);
+                $(this).find('td input:text').css('background-color', '#e6e6e5');
+                $(this).find('td input:text').prop('disabled', true)
+                p = 0;
+            })
+            boolReset = false;
+            //SaveProcess();
+        }
+
+        function Enabledisable() {
+
+            $('#tblProcess tr').each(function () {
+
+                var chk = $(this).find('td input:checkbox');
+                var txt = $(this).find('td input:text');
+                if (chk.is(':checked') == false) {
+                    txt.css('background-color', '#e6e6e5');
+                    txt.prop('disabled', true)
+                    txt.val('')
+
+                }
+
+                $(this).find('td input:checkbox').change(function () {
+                    if ($(this).is(':checked') == false) {
+                        var id = $(this).find('td input:text');
+                        p = txt.val();
+                        $('#tblProcess tr').each(function (index, it) {
+                            var txt1 = $(this).find('td input:text');
+
+                            if (parseInt(txt1.val()) > parseInt(txt.val())) {
+                                $(this).find('td input:checkbox').attr('checked', false);
+                                txt1.css('background-color', '#e6e6e5');
+                                txt1.prop('disabled', true)
+                                txt1.val('');
+
+                            }
+                        });
+                        txt.css('background-color', '#e6e6e5');
+                        txt.prop('disabled', true)
+                        txt.val('')
+                        if (p > 0)
+                            p = p - 1;
+                    }
+                    else {
+                        p = p + 1;
+                        txt.css('background-color', 'white');
+                        txt.attr('readonly', true);
+                        txt.val(p);
+                    }
+                })
+
+            })
+        }
+
+        function SaveProcess() {
+            
+            if (boolReset == true) {
+                var btn = $("#btnSave");
+                btn.button('loading');
+            }
+            var data2 = {};
+            var list = new Array();
+            var newList = new Array();
+            var count = 0;
+            var ret;
+            //if ($('#tblProcess tbody tr td input:checkbox[name=checkbox]:checked').length != 0) data2 = {};
+            $('#tblProcess tr').each(function (index, it) {
+
+                $(this).find('td input:text').prop('disabled', true);
+                if (index > 0) {
+                    if ($(this).find('td input:checkbox[name=checkbox]').is(":checked")) {
+                        var sequeance = $(this).find('td input:text').val();
+                        var Stageid = $(this).find('td').eq(0).find('input:hidden').val();
+                        if (sequeance != null || sequeance != '')
+                            list.push(sequeance);
+
+                        // alert(Stageid + " , " + sequeance);
+                        data2["installDictionary[" + count + "].Key"] = index;
+                        data2["installDictionary[" + count + "].Value"] = Stageid + " , " + sequeance;
+                        count = count + 1;
+                        if (sequeance == null || sequeance == '') {
+                            Notify("Sequence number is empty for StageTitle = " + Stageid, 'top-right', '5000', 'warning', 'fa-warning', true);
+                            ret = false;
+                        }
+                    }
+                }
+                else {
+
+                    $(this).find('td input:text').prop('disabled', true)
+                    data2["installDictionary[" + count + "].Key"] = index;
+                    data2["installDictionary[" + count + "].Value"] = true;
+                    count = count + 1;
+                }
+            });
+            if (ret == false)
+                return false;
+            var recipientsArray = list.sort();
+            for (var i = 0; i < recipientsArray.length - 1; i++) {
+                if (recipientsArray[i + 1] == recipientsArray[i]) {
+                    newList.push(recipientsArray[i]);
+                }
+            }
+            if (newList.length > 0) {
+                Notify("Please verify and enter correct Sequence number.", 'top-right', '5000', 'warning', 'fa-warning', true);
+                return false;
+            }
+
+            if (data2 != null) {
+                $.ajax({
+                    url: '/Administration/AddOnBoardingSequence',
+                    datatype: 'json',
+                    type: 'POST',
+                    data: data2,
+                    success: function (result) {
+                         
+                        var msg = result;
+                        if (result == "true") {
+                            msg = "Onboarding sequences are added successfully."
+                            //Notify(msg, '5000', 'success', 'fa-success', true);
+                            if (boolReset == true)
+                                SuccessMessage(msg);
+
+                            LoadGrid();
+                            boolReset = true;
+                            // SendURL('/SuperAdmin/Onboarding_Process');
+                        }
+                        else {
+                            //NotifyMessage(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                            btn.button('reset');
+                        }
+                    },
+                    complete: function () {
+                        btn.button('reset');
+                    },
+                    error: function (jqXHR, exception) {
+                        var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                        Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                        btn.button('reset');
+                    }
+                });
+            }
+        }
+
+        function NotifyMessage(message, position, timeout, theme, icon, closable) {
+            toastr.options.positionClass = 'toast-' + position;
+            toastr.options.extendedTimeOut = 0; //1000;
+            toastr.options.timeOut = timeout;
+            toastr.options.closeButton = closable;
+            toastr.options.iconClass = icon + ' toast-' + theme;
+            toastr['custom'](message);
+        }
+
+    </script>
+</environment>

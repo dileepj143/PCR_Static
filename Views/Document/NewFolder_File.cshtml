@@ -1,0 +1,813 @@
+﻿@{
+    ViewData["Title"] = "Super Admin";
+}
+<!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">Add Folder/Document</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+           Add Folder/Document
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">    
+    <div class="col-lg-12 col-sm-12 col-xs-12 manage-division" style="padding:0px;">
+        <div class="well">
+           
+                            <form class="form-horizontal col-lg-12 col-sm-12 col-xs-12" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-6 col-md-3 col-sm-offset-1 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-1 control-label no-padding-right">Select File/Folder :</label>
+                                    <div class="col-sm-5 col-xs-12">
+                                        <select class="form-select form-control" id="optFile" style="margin-bottom:8px;">
+                                            <option value="0" selected>Folder</option>
+                                            <option value="1">File</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-6 col-md-3 col-sm-offset-1 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-1 control-label no-padding-right">Enter Title :<sup style="color:red">*</sup></label>
+                                    <div class="col-sm-5 col-xs-12">
+                                        <input type="text" class="form-select form-control" id="txtName" style=" margin-bottom:8px;">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" hidden>
+                                    <label for="inputEmail3" class="col-sm-6 col-md-3 col-sm-offset-1 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-1 control-label employee-inputcol">Upload File :</label>
+                                    <div class="col-sm-5" style="margin-left:15px;">
+                                        <div class="form-group custom-inputgroup">
+                                            <input type="file" class="file" id="flpUpload">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-file file-color"></i></span>
+                                                <input type="text" class="form-control input-sm" disabled placeholder="Upload File" id="txtUploadPath">
+                                                <span class="input-group-btn">
+                                                    <button class="browse btn btn-primary input-sm" id="btnbrowse" type="button"><i class="fa fa-upload"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group custom-inputgroup">
+                                    <label for="inputEmail3" class="col-sm-6 col-md-3 col-sm-offset-1 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-1 control-label employee-inputcol">Description :</label>
+                                    <div class="col-sm-5 col-xs-12">
+                                        <textarea class="form-control" id="txtDescription"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group" hidden id="divValidity">
+                                    <label for="inputEmail3" class="col-sm-6 col-md-3 col-lg-3 col-xs-12 col-md-offset-2 col-lg-offset-1 control-label employee-inputcol">Validity :</label>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox" id="validity-date" style="margin-bottom:15px;">
+                                            <label style="float:left;">
+                                                <input type="checkbox" value="validitycheck" class="inverted" name="chkvaliditycheck">
+                                                <span class="text"></span>
+                                            </label>
+                                        </div>
+                                        <div class="validitycheck" hidden>
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-6 col-md-3 col-lg-3 control-label no-padding-right" style="padding-left:0px;">Valid From :</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <input class="form-control date-picker" id="id-date-picker-1-txtValidFrom" type="text" style="cursor:default" readonly data-date-format="mm-dd-yyyy">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-calendar themeprimary"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-6 col-md-3 col-lg-3 control-label no-padding-right" style="padding-left:0px;">Valid Upto :</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <input class="form-control date-picker" id="id-date-picker-1-txtValidUpto" type="text" style="cursor:default" readonly data-date-format="mm-dd-yyyy">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-calendar themeprimary"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                            @*<hr class="folders-hr" />*@
+                            @*<div class="col-md-6 col-md-offset-5 col-lg-offset-5 col-lg-6 col-sm-12 col-xs-12 form-btns">
+                                <a href="#" class="cancel-btn"><button type="button" class="btn btn-md btn-primary" id="btnSubmit">Create/Upload</button></a>
+                                <a href="#" class="cancel-btn"><button type="button" class="btn btn-md btn-danger" data-dismiss="modal" id="btnCancelAdd">Cancel</button></a>
+                            </div>*@
+            <hr class="location-hr" />
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button class="btn btn-primary btn-md btnSearch" style="margin-top:0px">Save</button>
+                <button onclick="SendURL('/SuperAdmin/ManageFolders_Files')" class="btn btn-danger btn-md btnSearch">Cancel</button>
+            </div>
+            </div>            
+        </div>
+    </div>
+<!-- /Page Body -->
+
+<environment>
+    <link href="~/assets/css/upload_policy.css" rel="stylesheet" />
+    <link href="~/assets/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <style>
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            vertical-align: middle;
+        }
+
+            .table > tbody > tr > td a {
+                margin: 3px;
+            }
+
+        .table > thead > tr > th {
+            background-color: #c1c1c1;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 8px;
+        }
+
+        .checkbox {
+            text-align: center;
+        }
+
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .table input[type=checkbox] ~ .text, .table input[type=radio] ~ .text {
+            margin-right: 0px;
+        }
+
+        .checkbox, .radio {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+            border-color: transparent;
+        }
+
+        .modal-body {
+            overflow: hidden;
+        }
+
+        .ajax-upload-dragdrop {
+            padding-top: 0px;
+        }
+
+        .file {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        .asterisk {
+            color: #ff0000;
+            margin-top: -29px;
+            margin-left: 292px;
+        }
+
+        .float-left {
+            width: 87%;
+            margin-bottom: 8px;
+            float: left;
+        }
+
+        .custom-inputgroup .input-group {
+            width: 92%;
+        }
+    </style>
+</environment>
+<environment>
+
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script>
+        //$(document).on('click', '.browse', function () {
+        //    var file = $(this).parent().parent().parent().find('.file');
+        //    file.trigger('click');
+        //});btnbrowse
+        $('#btnbrowse').on('click', function () {
+            var file = $(this).parent().parent().parent().find('.file');
+            file.trigger('click');
+        });
+        $(document).on('change', '.file', function () {
+            $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+        });
+    </script>
+    <script>
+
+        function Sharedocument() {
+            var documentId = $('#hdnDocumentId').val();
+            // var shareTo = $('#txtShareTo').val();
+
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+
+            var emailaddressVal = $("#txtShareTo").val();
+            if (emailaddressVal == '') {
+                Notify("Please enter your email address.", 'top-right', '5000', 'warning', 'fa-warning', true);
+                return false;
+            }
+            else if (!emailReg.test(emailaddressVal)) {
+                Notify("Enter a valid email address.", 'top-right', '5000', 'warning', 'fa-warning', true);
+                return false;
+            }
+            var shareDescription = $('#txtShareDesc').val();
+            var shareTo = $('#txtShareTo').val();
+            var shareFrom = null;
+            var loginDetails = GetLogin();
+            if (loginDetails != null && loginDetails != '')
+                shareFrom = loginDetails.split(',')[0];
+            var data1 = {
+                "DocumentID": documentId,
+                "ShareFrom": shareFrom,
+                "ShareTo": shareTo,
+                //"ShareDate"
+                "Description": shareDescription
+            }
+            $.ajax({
+                url: '/Manager/ShareDocument',
+                type: 'Post',
+                data: { documentShare: data1 },
+                success: function (data) {
+                    if (data == "Document has been shared successfully") {
+                        Notify(data, 'top-right', '5000', 'success', 'fa-check', true);
+                        $('.modal-backdrop').css({ position: 'initial' });
+                        $('#shareFolder').hide();
+                    }
+                    else {
+                        Notify(data, 'top-right', '5000', 'warning', 'fa-warning', true);
+                    }
+                }
+            })
+        }
+
+        //function EditDocument(documentId, isFolder) {
+
+        //    $('.modal-body').find('.form-group').eq(2).show();
+        //    $('.modal-body').find('.form-group').eq(5).show();
+
+        //    if (isFolder)
+        //        $("#divValidityEdit").show();
+        //    else
+        //        $("#divValidityEdit").hide();
+        //    $('.page-sidebar').css('z-index', '0');
+        //    $('.navbar').css('z-index', '200');
+        //    $.ajax({
+        //        url: '/Manager/GetDocumentById',
+        //        data: { documentId: documentId },
+        //        datatype: 'json',
+        //        contentType: 'application/json',
+        //        async: false,
+        //        processdata: true,
+        //        success: function (data) {
+        //            var documentId = JSON.parse(data).DocumentID;
+        //            var documentTitle = JSON.parse(data).DocumentTitle;
+        //            var documentDesc = JSON.parse(data).Description;
+        //            var createdDate = JSON.parse(data).CreatedDate;
+        //            var createdBy = JSON.parse(data).CreatedBy;
+        //            var modifiedDate = JSON.parse(data).ModifiedDate == null ? 'NULL' : JSON.parse(data).ModifiedDate;
+        //            modifiedDate = modifiedDate.split('T')[0];
+        //            var modifiedBy = JSON.parse(data).ModifiedBy == null ? 'NULL' : JSON.parse(data).ModifiedBy;
+        //            $('#hdnDocumentId').val(documentId);
+        //            $('#txtFolderName').val(documentTitle);
+        //            $('#txtDesEdit').val(documentDesc);
+        //            $('#lblModifiedDate').text(modifiedDate);
+        //            $('#lblModifieBy').text(modifiedBy);
+        //        }
+        //    })
+        //}
+
+        function EditDocument(documentId, isFolder) {
+            $('.modal-body').find('.form-group').eq(2).val('').show();
+            $('.modal-body').find('.form-group').eq(5).val('').show();
+            
+            if (isFolder)
+                $("#divValidityEdit").show();
+            else
+                $("#divValidityEdit").hide();
+            $('.page-sidebar').css('z-index', '0');
+            $('.navbar').css('z-index', '200');
+            //$('#txtFolderName').val('hello');
+            //$('#txtDesEdit').val('desc');
+            $.ajax({
+                url: '/Manager/GetDocumentById',
+                data: { documentId: documentId },
+                datatype: 'json',
+                contentType: 'application/json',
+                async: false,
+                processdata: true,
+                success: function (data) {
+                    var documentId = JSON.parse(data).DocumentID;
+                    var documentTitle = JSON.parse(data).DocumentTitle;
+                    var documentDesc = JSON.parse(data).Description;
+
+                    var credate = new Date(JSON.parse(data).CreatedDate);
+                    var createdDate = ((credate.getMonth() + 1) + '-' + credate.getDate() + '-' + credate.getFullYear());
+                    //var createdDate = JSON.parse(data).CreatedDate;
+
+                    var createdBy = JSON.parse(data).CreatedBy;
+
+                    var modifydate = new Date(JSON.parse(data).ModifiedDate);
+                    var modifieddate = ((modifydate.getMonth() + 1) + '-' + modifydate.getDate() + '-' + modifydate.getFullYear());
+
+                    var modifiedDate = JSON.parse(data).ModifiedDate == null ? createdDate : modifieddate;     //JSON.parse(data).ModifiedDate
+                    modifiedDate = modifiedDate.split('T')[0];
+                    var modifiedBy = JSON.parse(data).ModifiedBy == null ? createdBy : JSON.parse(data).ModifiedBy;
+                    $('#hdnDocumentId').val(documentId);
+                    $('#txtFolderName').val(documentTitle);
+                    $('#txtDesEdit').val(documentDesc);
+                    $('#lblModifiedDate').text(modifiedDate);
+                    $('#lblModifieBy').text(modifiedBy);
+                    if (JSON.parse(data).ValidFrom != null && JSON.parse(data).ValidFrom != "") {
+                        var ediefromdate = new Date(JSON.parse(data).ValidFrom);
+                        var edieTodate = new Date(JSON.parse(data).ValidUpto);
+                        $('#id-date-picker-1-txtValidFromEdit').val((ediefromdate.getMonth() + 1) + '-' + ediefromdate.getDate() + '-' + ediefromdate.getFullYear());
+                        $('#id-date-picker-1-txtValidUptoEdit').val((edieTodate.getMonth() + 1) + '-' + edieTodate.getDate() + '-' + edieTodate.getFullYear());
+                        $("input:checkbox[name=chkvaliditycheckEdit]").prop('checked', true).change();
+                    }
+                }
+            })
+        }
+        function UpdatedocumentDetails(url) {
+            if ($("input:checkbox[name=chkvaliditycheckEdit]").is(':checked')) {
+                var dateFrom = $('#id-date-picker-1-txtValidFromEdit').val();
+                var dateTo = $('#id-date-picker-1-txtValidUptoEdit').val();
+
+                if (dateFrom == null || dateFrom == "") {
+                    Notify('Please select ValidFrom date.', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return;
+                }
+
+                if (dateTo == null || dateTo == "") {
+                    Notify('Please select ValidUpto date', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return;
+                }
+
+                if (Date.parse(dateFrom) > Date.parse(dateTo)) {
+                    $('#id-date-picker-1-txtValidUptoEdit').val('');
+                    Notify('Valid Upto date should not be less than Valid From date.', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return;
+                }
+            }
+            var loginDetails = GetLogin();
+            var email = loginDetails.split(',')[0];
+            var user = loginDetails.split(',')[1];
+
+            var getData = {
+                "DocumentTitle": $('#txtFolderName').val(),
+                "Description": $('#txtDesEdit').val(),
+                "ModifiedBy": user,
+                "Isvalid": $("input:checkbox[name=chkvaliditycheckEdit]").is(':checked') == 1 ? true : false,
+                "ValidFrom": $("#id-date-picker-1-txtValidFromEdit").val(),
+                "ValidUpto": $("#id-date-picker-1-txtValidUptoEdit").val()
+            }
+            $.ajax({
+                type: 'Put',
+                url: url,
+                data: { documentId: $('#hdnDocumentId').val(), document: getData },
+                success: function (data) {
+                    $('.modal-backdrop').css({ position: 'initial' });
+                    $('.EditFolder').hide();
+                    if (data == "Document has been updated successfully.") {
+                        Notify(data, 'top-right', '5000', 'success', 'fa-check', true);
+                        SendURL('/SuperAdmin/ManageFolders_Files');
+                    }
+                    else
+                        Notify(data, 'top-right', '5000', 'warning', 'fa-warning', true);
+                }
+            })
+        }
+
+        function DeleteDocument(documentId, IsFolder) {
+
+            $('#formConfirm').show();
+
+            $('#formConfirm #frm_submit').on('click', function () {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/Manager/DeleteDocument',
+                    data: { documentId: documentId },
+                    dataType: 'json',
+                    success: function (data, statusText, resObject) {
+                        $('.modal-backdrop').css({ position: 'initial' });
+                        $('#formConfirm').hide();
+                        if (data == "Document is deleted successfully") {
+                            
+                            if (IsFolder == true)
+                                Notify("The file is deleted successfully", 'top-right', '5000', 'success', 'fa-check', true);
+                            if (IsFolder == false)
+                                Notify("The folder is deleted successfully", 'top-right', '5000', 'success', 'fa-check', true);
+                            SendURL('/SuperAdmin/ManageFolders_Files');
+                        }
+                        else {
+                            Notify(data, 'top-right', '5000', 'warning', 'fa-warning', true);
+                        }
+                    },
+                    complete: function () {
+
+                    },
+                    error: function (jqXHR, exception) {
+                        var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                        Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
+                    }
+                });
+            });
+        }
+
+        function LoadDocuments(url) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function (data) {
+                    var data1 = JSON.parse(data);
+                    var appendData = "";
+                    if (data1 != null && data1 != "Content not found") {
+                        
+                        appendData += "<thead><tr role='row'><th>Document ID</th><th style='text-align:left'>Document/Folder Name</th><th style='text-align:left'>Description</th><th style='text-align:left'>Created By</th><th style='text-align:left'>Created Date</th><th style='width:144px;'>Actions</th></tr></thead><tbody>";
+                        $.each(data1, function (i, item) {
+                            var Folder = 'class="fa fa-folder-open folder-color"';
+                            var File = 'class="fa fa-file-text-o file-color"';
+                            var image = item.IsFolder == false ? Folder : File;
+                            $('#hdnDocumentId').val(item.DocumentID);
+                            var Edit = "<a href='javascript:void(0);' onclick='EditDocument(" + item.DocumentID + ',' + item.IsFolder + ")' class='' data-toggle='modal' data-target='.EditFolder'  data-placement='top' data-original-title='Edit' ><i class='fa fa-pencil-square-o editpopover'></i></a>";
+                            var Share = "<a href='javascript:void(0);' onclick='ClearShare()'  class='' data-toggle='modal' data-target='.ShareFolder' data-placement='top'  data-placement='top' data-original-title='Share'><i class='fa fa-share-square-o sharepopover'></i></a>";
+                            var Delete = "<a href='#' onclick='DeleteDocument(" + item.DocumentID + ',' + item.IsFolder + ")' class='' data-toggle='modal' data-target='#formConfirm' data-title='Delete' data-message='Are you sure you want to delete this document ?'><i class='fa fa-trash-o deletepopover'></i> </a>";
+                            appendData += "<tr><td>" + item.DocumentID + "</td><td style='text-align:left'> <i " + image + " ></i> " + item.DocumentTitle + " </td><td  style='text-align:left' >" + item.Description + "</td><td  style='text-align:left'>" + item.CreatedBy + "</td><td>" + item.CreatedDate.split('T')[0] + "</td>";
+                            appendData += "<td valign='middle' style='width:144px;'>" + Edit + "" + Delete + "" + Share + "</td></tr>";
+                        });
+                        appendData += "</tbody>";
+                        $('#simpledatatable_info').html(appendData).show();
+                        //$('#simpledatatable_info').append(appendData);
+                    }
+                },
+                complete: function () {
+                    $('[data-toggle="modal"]').tooltip();
+                }
+            })
+        }
+
+        function AddDocument(url) {
+            //  
+
+            var loginDetails = GetLogin();
+            var email = loginDetails.split(',')[0];
+            var user = loginDetails.split(',')[1];
+            var returnBool = $("input:checkbox[name=chkvaliditycheck]").is(':checked');
+            if (returnBool) {
+                var ret;
+                if ($('#id-date-picker-1-txtValidFrom').val() == '') {
+                    Notify('ValidFrom is required as you have selected isValid true', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return false;
+                }
+                if ($('#id-date-picker-1-txtValidUpto').val() == '') {
+                    Notify('ValidUpto is required as you have selected isValid true', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return false;
+                }
+            }
+            var formData = new FormData();
+            var totalFiles = document.getElementById("flpUpload").files.length;
+
+
+            for (var i = 0; i < totalFiles; i++) {
+                var file = document.getElementById("flpUpload").files[i];
+                var ext = $('#flpUpload').val().split('.').pop().toLowerCase();
+                if ($.inArray(ext, ['xlsx', 'csv', 'docx', 'pdf']) == -1) {
+                    Notify('invalid extension!', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return false;
+                }
+                formData.append("file", file);
+            }
+
+            formData.append("DocumentTitle", $("#txtName").val());
+            formData.append("Description", $("#txtDescription").val());
+            formData.append("IsFolder", $("#optFile :selected").val() == 1 ? true : false);
+            formData.append("OwnerId", email);
+            formData.append("Isvalid", $("input:checkbox[name=chkvaliditycheck]").is(':checked'));
+            formData.append("ValidFrom", $("#id-date-picker-1-txtValidFrom").val());
+            formData.append("ValidUpto", $("#id-date-picker-1-txtValidUpto").val());
+            formData.append("CreatedBy", user);
+
+            $.ajax({
+                type: 'POST',
+                url: '/Manager/AddDocument',
+                data: formData,
+                dataType: 'json',
+                crossDomain: true,
+                contentType: false,
+                processData: false,
+                success: function (data, statusText, resObject) {
+
+                    if (data == 'Document has been created successfully') {
+                        $('.modal-backdrop').css({ position: 'initial' });
+                        $('.AddFolder').hide();
+
+                        var returnBool = $("#optFile :selected").val() == 1 ? true : false;
+                        if (returnBool)
+                            Notify('File has been created successfully', 'top-right', '5000', 'success', 'fa-check', true);
+                        else if (returnBool == false)
+                            Notify('Folder has been created successfully', 'top-right', '5000', 'success', 'fa-check', true);
+
+                        SendURL('/SuperAdmin/ManageFolders_Files');
+                    }
+                    else {
+                        Notify(data, 'top-right', '5000', 'warning', 'fa-warning', true);
+                    }
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    Notify(msg, 'top-right', '5000', 'success', 'fa-check', true);
+                }
+            })
+        }
+
+        $(document).ready(function () {
+
+            //GetDocumentsFromApi
+            LoadDocuments('/Manager/GetDocumentsData');
+            //
+            //$("#btnSubmit").on('click', function ()
+            //{
+            //    AddDocument('/Manager/AddDocument')
+            //    //AddDocumentMultiform('/Manager/AddDocumentMultiForm');
+            //});
+
+            //$(".true").hide();
+            //$('input[type="checkbox"]').click(function () {
+            //    if ($(this).attr("value") == "true") {
+            //        $(".true").toggle();
+            //    }
+            //});
+            $("#btnSubmit").on('click', function () {
+                
+                var dateFrom = $('#id-date-picker-1-txtValidFrom').val();
+                var dateTo = $('#id-date-picker-1-txtValidUpto').val();
+
+                if (Date.parse(dateFrom) > Date.parse(dateTo)) {
+                    Notify('Valid Upto date should not be less than Valid From date.', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return false;
+                }
+
+                if ($("#txtName").val() == undefined || $("#txtName").val() == "") {
+                    Notify('Please enter folder/document name', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    $("#txtName").focus();
+                    return false;
+                }
+                else if ($('#optFile').val() == 1 && $('#txtUploadPath').val() == "") {
+                    Notify('Please select a file', 'top-right', '5000', 'warning', 'fa-warning', true);
+                    return;
+                }
+                AddDocument('/Manager/AddDocument')
+                //AddDocumentMultiform('/Manager/AddDocumentMultiForm');
+            });
+            $(".validitycheck").hide();
+            $('input[type="checkbox"]').click(function () {
+                if ($(this).attr("value") == "validitycheck") {
+                    $(".validitycheck").toggle();
+                }
+            });
+        });
+    </script>
+    <script>
+        //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+        $('.date-picker').on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //$('#optFile').change(function () {
+            //    if ($('#optFile').val() == 1) {
+            //        $('.modal-body').find('.form-group').eq(2).show();
+            //        $('.modal-body').find('.form-group').eq(5).show();
+            //        $("#divValidity").show();
+            //    }
+            //    else {
+            //        $('.modal-body').find('.form-group').eq(2).hide();
+            //        $('.modal-body').find('.form-group').eq(5).hide();
+            //        $("#divValidity").hide();
+            //    }
+            //});
+
+            //$('#btnCancel').click(function () {
+            //    $('.modal-body input').val('');
+            //    $('.modal-body #txtDescription').val('');
+            //    $("input[name='chkvaliditycheck']").prop('checked', false).change();
+            //    $("#divValidity").hide();
+            //    $('#optFile option[value=0]').prop("selected", true).change();
+
+            //});
+
+            //$("input[name='chkvaliditycheck']").change(function () {
+            //    $(".true").hide();
+            //    //$("#divValidity").hide();
+            //    if ($(this).is(":checked")) {
+            //        $(".true").show();
+            //        //  $("#divValidity").show();
+            //    }
+            //});
+
+            //$("[data-toggle=tooltip]").tooltip();
+            //$(".upload").hide();
+            //$('input[type="radio"]').click(function () {
+            //    if ($(this).attr("value") == "createnew") {
+            //        $(".box").not(".createnew").hide();
+            //        $(".createnew").show();
+            //    }
+            //    if ($(this).attr("value") == "upload") {
+            //        $(".box").not(".upload").hide();
+            //        $(".upload").show();
+            //    }
+            //});
+            //$('#btnAddFileorFolder').click(function () {
+            //    $('.page-sidebar').css('z-index', '0');
+            //    $('.navbar').css('z-index', '200');
+            //});
+            //$('.editpopover').click(function () {
+            //    $('.page-sidebar').css('z-index', '0');
+            //    $('.navbar').css('z-index', '200');
+            //});
+            //$('.deletepopover').click(function () {
+            //    $('.page-sidebar').css('z-index', '0');
+            //    $('.navbar').css('z-index', '200');
+            //});
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.page-sidebar').css('z-index', '0');
+            $('.navbar').css('z-index', '200');
+            $('#optFile').change(function () {
+                if ($('#optFile').val() == 1) {
+                    $('.modal-body').find('.form-group').eq(2).show();
+                    $('.modal-body').find('.form-group').eq(5).show();
+                    $("#divValidity").show();
+                }
+                else {
+                    $('.modal-body').find('.form-group').eq(2).hide();
+                    $('.modal-body').find('.form-group').eq(5).hide();
+                    $("#divValidity").hide();
+                }
+            });
+
+            $('#btnCancelShare').click(function () {
+                $("#txtShareTo").val('');
+                $("#txtShareDesc").val('');
+            });
+
+            $('#btnCancelAdd').click(function () {
+                $('.modal-body input').val('');
+                $('#txtDescription').val('');
+                $("input[name='chkvaliditycheck']").prop('checked', false).change();
+                $("#divValidity").hide();
+                $('#optFile option[value=0]').prop("selected", true).change();
+            });
+            $("input[name='chkvaliditycheckEdit']").change(function () {
+                $(".validitycheck").hide();
+                var chk = $(this).is(':checked');
+                if (chk) {
+                    $(".validitycheck").show();
+                }
+                else//if (chk==false)
+                {
+                    $('#id-date-picker-1-txtValidFromEdit').val('')
+                    $('#id-date-picker-1-txtValidUptoEdit').val('')
+                }
+            });
+
+
+            $("input[name='chkvaliditycheck']").change(function () {
+                $(".validitycheck").hide();
+                var chk = $(this).is(':checked');
+                if (chk) {
+                    $(".validitycheck").show();
+                }
+                else//if (chk==false)
+                {
+                    $('#id-date-picker-1-txtValidFrom').val('')
+                    $('#id-date-picker-1-txtValidUpto').val('')
+                }
+            });
+
+            $("[data-toggle=tooltip]").tooltip();
+            $(".upload").hide();
+            $('input[type="radio"]').click(function () {
+                if ($(this).attr("value") == "createnew") {
+                    $(".box").not(".createnew").hide();
+                    $(".createnew").show();
+                }
+                if ($(this).attr("value") == "upload") {
+                    $(".box").not(".upload").hide();
+                    $(".upload").show();
+                }
+            });
+            $('#btnAddFileorFolder').click(function () {
+                $('#txtName,.form-control#txtDescription,#id-date-picker-1-txtValidFrom,#id-date-picker-1-txtValidUpto,#txtUploadPath').val('');
+                $('input:checkbox[name=chkvaliditycheck]').attr('checked', false);
+                $('#optFile option[value=0]').prop("selected", true).change();
+
+                $(".validitycheck").hide();
+                $('.page-sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+            $('.editpopover').click(function () {
+                $('.page-sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+            $('.deletepopover').click(function () {
+                $('.page-sidebar').css('z-index', '0');
+                $('.navbar').css('z-index', '200');
+            });
+        });
+
+        function ClearAdd() {
+            $('.modal-body input').val('');
+            $('#txtDescription').val('');
+            $("input[name='chkvaliditycheck']").prop('checked', false).change();
+            $("#divValidity").hide();
+            $('#optFile option[value=0]').prop("selected", true).change();
+
+        }
+
+        function ClearShare() {
+
+            $("#txtShareTo").val('');
+            $("#txtShareDesc").val('');
+        }
+
+    </script>
+</environment>
+

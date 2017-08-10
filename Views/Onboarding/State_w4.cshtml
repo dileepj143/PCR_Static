@@ -1,0 +1,187 @@
+﻿@model I9Document
+@{
+    ViewData["Title"] = "State W-4";
+}
+   <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            <a href="#">Dashboard</a>
+        </li>
+
+        <li class="active">Fill W-4</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            State W-4 Form
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
+                <h4 style="padding-left:30px; margin-bottom:0px;" class="col-md-12 col-lg-12">Form Missouri Department of Revenue</h4>
+            </div>
+            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
+                <h5 class="themeprimary col-md-12 col-lg-12" style="padding-left:30px;"><strong>MO W-4 Employee's Withholding Allowence Certificate</strong></h5>
+            </div>
+            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
+                <p class="text-left col-md-12 col-lg-12" style="padding-left:30px;">This certificate is for income tax withholding and child support enforcement purposes only.</p>
+            </div>
+            <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
+
+                <form class="form-horizontal form-padding" role="form" id="hideform">
+
+                    <div class="form-group col-sm-12 no-padding-left">
+                        <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">Full Name :</label>
+                        <div class="col-sm-6 no-padding-right">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 no-padding-left">
+                        <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">Social Security Number :</label>
+                        <div class="col-sm-6 no-padding-right">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 no-padding-left">
+                        <label for="inputEmail3" class="col-sm-3 col-md-3 col-lg-3 control-label no-padding-right">Filing Status :</label>
+                        <div class="col-sm-9">
+                            <div class="control-group no-padding-right">
+                                <div class="radio" style="padding-left:8px;">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color">
+                                        <span class="text main-color" style="margin-right:22px; float:left;">Single</span>
+                                    </label>
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color">
+                                        <span class="text main-color" style="margin-right:22px; float:left;">Married</span>
+                                    </label>
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color">
+                                        <span class="text main-color" style="margin-right:0px; float:left;">Head of Household</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 no-padding-left">
+                        <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">Home Address (Number and Street or Rural Route)</label>
+                        <div class="col-sm-6 no-padding-right">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 no-padding-left">
+                        <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">City or Town :</label>
+                        <div class="col-sm-6 no-padding-right">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 no-padding-left">
+                        <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">State :</label>
+                        <div class="col-sm-6 no-padding-right">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 no-padding-left" style="margin-bottom:16px;">
+                        <label for="inputEmail3" class="col-sm-6 col-md-6 col-lg-6 control-label no-padding-right">Zip Code :</label>
+                        <div class="col-sm-6 no-padding-right">
+                            <input type="text" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr class="location-hr">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                <button onclick='location.href="vsi-review.html"' class="btn btn-primary btn-md btnSearch">Previous</button>
+                <button onclick='location.href="state_w4-2nd.html"' class="btn btn-primary btn-md btnSearch">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<environment>
+    <style>
+        	.wizard.wizard-wired ul li {width:7.6%;}
+	.form-group p {margin-top:5px;}
+	.form-horizontal .control-label {text-align:left;}
+	.help-block {font-size:9px; line-height:16px;}
+	
+	input[type=checkbox]~.text, input[type=radio]~.text {margin-right:30px;}
+	.form-horizontal .form-group {margin-left:0px; margin-right:0px;}
+
+	.instruction-pop input{width:85%; float:left; margin-right:10px;}
+	
+	.popover {max-width:237px; left:742px;}
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+            $('.date-picker').datepicker();
+            $(document).ready(function () {
+
+                $(document).ready(function () { @*onclick="SendURL('/SuperAdmin/ManageBranding')"*@
+                    $(document).ready(function () {
+                        $('[data-toggle="popover"]').popover();
+
+                        $(document).on('click', function (e) {
+                            $('[data-toggle="popover"],[data-original-title]').each(function () {
+
+                                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                                    (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false  //
+                                }
+
+                            });
+                        });
+                    });
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload",
+                    preview_box: "#image-preview",
+                    label_field: "#image-label",
+
+                });
+                $.uploadPreview({
+                    input_field: "#image-upload2",
+                    preview_box: "#image-preview2",
+                    label_field: "#image-label2",
+
+                });
+            });
+
+            function NotifyMessage(message, position, timeout, theme, icon, closable) {
+                toastr.options.positionClass = 'toast-' + position;
+                toastr.options.extendedTimeOut = 0; //1000;
+                toastr.options.timeOut = timeout;
+                toastr.options.closeButton = closable;
+                toastr.options.iconClass = icon + ' toast-' + theme;
+                toastr['custom'](message);
+            }
+
+    </script>
+</environment>

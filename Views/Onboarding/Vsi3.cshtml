@@ -1,0 +1,225 @@
+﻿ <!-- Page Breadcrumb -->
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="fa fa-home themeprimary"></i>
+            @if (ViewBag.RoleID == 1)
+            {
+                <a href="/SuperAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 2)
+            {
+                <a href="/ClientAdmin/Index">Dashboard</a>
+            }
+            else if (ViewBag.RoleID == 3)
+            {
+                <a href="/Manager/Index">Dashboard</a>
+            }
+            else
+            {
+                <a href="/Employee/I9categories">Dashboard</a>
+            }
+        </li>
+
+        <li class="active">VSI</li>
+    </ul>
+</div>
+<!-- /Page Breadcrumb -->
+<!-- Page Header -->
+<div class="page-header position-relative">
+    <div class="header-title">
+        <h1 class="themeprimary">
+            VSI
+        </h1>
+    </div>
+    <!--Header Buttons-->
+    <div class="header-buttons">
+        <a class="sidebar-toggler" href="#">
+            <i class="fa fa-arrows-h"></i>
+        </a>
+        <a class="refresh" id="refresh-toggler" href="">
+            <i class="glyphicon glyphicon-refresh"></i>
+        </a>
+        <a class="fullscreen" id="fullscreen-toggler" href="#">
+            <i class="glyphicon glyphicon-fullscreen"></i>
+        </a>
+    </div>
+    <!--Header Buttons End-->
+</div>
+<!-- /Page Header -->
+<!-- Page Body -->
+<div class="page-body">
+    <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <!-- <h5 class="row-title before-maincolor widget-caption">Add New Division</h5> -->
+        <div class="division-form">
+            <div class="col-md-12">
+
+                <form class="form-horizontal" role="form">
+                    <p class="main-color vsipara-top"><strong>Equal Employement Opportunity Data</strong></p>
+                    <p class="main-color">This client is an Equal Opportunity Employer. As requested by law, we must record certain to be made a part of our Affirmative Action Program. Applicants for employment are also invited to participate in the Affirmative Action Program by reporting their status as disabled, disabled veteran, veteran of the Vietnam era or other minority. In extending this invitation you are also advised that: (a) workers (applicants) are under no obligation to respond, but may do so in the future if they choose; (b) responses will remain confidential within the Human resource Department; (c) responses will be used only for the necessary information to include in our Affirmative Action Program. We are a company that values diversity. We actively encourage woman and minorities to apply. refusal to provide the information will have no bearing on your application and will not subject you to any adverse treatment. Please complete the information requested below. Thank you for your cooperation. </p>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label no-padding-right employee-inputcol vsi-align-left">Gender :</label>
+                        <div class="col-sm-3">
+                            <select class="form-select form-control">
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="control-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="inverted">
+                                        <span class="text main-color"><strong>I do not wish to Self Identify</strong></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label no-padding-right employee-inputcol vsi-align-left">Are you Hispanic or Latino ?</label>
+                        <div class="col-sm-3">
+                            <div class="control-group">
+                                <div class="radio">
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color">
+                                        <span class="text main-color">Yes</span>
+                                    </label>
+                                    <label>
+                                        <input name="form-field-radio" type="radio" class="main-color">
+                                        <span class="text main-color">No</span>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group hr-btm15">
+                        <label for="inputEmail3" class="col-sm-3 control-label no-padding-right employee-inputcol vsi-align-left">Race/Ethnicity :</label>
+                        <div class="col-sm-3">
+                            <select class="form-select form-control">
+                                <option value="1">American Indian or Alaska Native</option>
+                                <option value="2">Other</option>
+                            </select>
+                        </div>
+                    </div>*@
+                @*</form>*@
+                <hr class="location-hr">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
+                    <a href="@Url.Action("Vsi2","Onboarding")" class="btn btn-primary btn-md btnSearch">Previous</a>
+                    <a href="@Url.Action("Vsi4","Onboarding")" class="btn btn-primary btn-md btnSearch">Next</a>
+                    @*<input type="submit" value="Next" class="btn btn-primary btn-md btnSearch" />*@
+
+                </div>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->
+<environment>
+    <style>
+        .wizard.wizard-wired ul li {
+            width: 7.6%;
+        }
+
+        .form-group p {
+            margin-top: 5px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .help-block {
+            font-size: 9px;
+            line-height: 16px;
+        }
+
+        input[type=checkbox] ~ .text, input[type=radio] ~ .text {
+            margin-right: 30px;
+        }
+
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .page-sidebar .sidebar-menu li a {
+            height: 38px;
+        }
+
+            .page-sidebar .sidebar-menu li a p {
+                line-height: 5px;
+            }
+
+        .footer {
+            position: fixed;
+            height: 40px;
+            bottom: 0;
+            width: 100%;
+            z-index: 99999;
+        }
+    </style>
+</environment>
+<environment>
+    <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
+    <script src="~/assets/js/validation/bootstrapValidator.js"></script>
+    <script src="~/assets/js/bootbox/bootbox.js"></script>
+    <script src="~/assets/js/toastr/toastr.js"></script>
+    <script type="text/javascript">
+        $('.date-picker').datepicker();
+
+        $(window).bind("load", function () {
+            /*Sets Themed Colors Based on Themes*/
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            InitiateEasyPieChart.init();
+        });
+
+
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#WiredWizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'fa-check', true);
+            });
+        });
+
+        $("#hideform").hide();
+        $("#hideform2").hide();
+        $("#hideform-btn").click(function () {
+            $("#hideform").show();
+            $("#hideform3").hide();
+        });
+
+        $("#hideform-btn2").click(function () {
+            $("#hideform2").show();
+            $("#hideform").hide();
+            $("#hideform3").hide();
+        });
+
+        $("#bootbox-options").on('click', function () {
+            bootbox.dialog({
+                message: $("#myModal").html(),
+                title: "Add Account Details",
+                className: "modal-darkorange",
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-primary",
+                        callback: function () { }
+                    },
+                    "Cancel": {
+                        className: "btn-primary",
+                        callback: function () { }
+                    }
+                }
+            });
+        });
+    </script>
+</environment>
