@@ -91,7 +91,7 @@
 
                         <tr>
                             <td>
-                                VSI
+                                I9Section-1 Review
                             </td>
                             <td></td>
                             <td>
@@ -103,7 +103,7 @@
                             <td>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" >
+                                        <input type="checkbox" checked="checked" >
                                         <span class="text"></span>
                                     </label>
                                 </div>
@@ -115,10 +115,10 @@
 
                         <tr>
                             <td>
-                                I9 Section-1
+                                Vsi Review
                             </td>
                             <td>
-                                Newly hired employees must complete and sign Section-1 of form I-9 no later than the first day of employement
+                                
                             </td>
                             <td>
                                 1
@@ -140,10 +140,10 @@
                         </tr>
                         <tr>
                             <td>
-                                I9 Section-2
+                                W4 Review
                             </td>
                             <td>
-                                Employer or their authorized respresentative must complete and sign Section-2 within 3 business days of the employee's first day of employment
+                                
                             </td>
                             <td>
                                 1
@@ -165,7 +165,7 @@
                         </tr>
                         <tr>
                             <td>
-                                I9 Section-3
+                                Deposit Details
                             </td>
                             <td></td>
                             <td>
@@ -188,7 +188,7 @@
                         </tr>
                         <tr>
                             <td>
-                                W4
+                                Read Policies Review
                             </td>
                             <td></td>
                             <td>
@@ -211,7 +211,53 @@
                         </tr>
                         <tr>
                             <td>
-                                Pay Deposit Details
+                                Upload Document Views
+                            </td>
+                            <td>Uploaded the selected Identity and authorized Documents</td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                I9section-2 EmployerSign
+                            </td>
+                            <td> Employee Signature</td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                I9Section-3 Review Details
                             </td>
                             <td></td>
                             <td>
@@ -234,53 +280,7 @@
                         </tr>
                         <tr>
                             <td>
-                                Read Policies
-                            </td>
-                            <td></td>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                16-10-2017
-                            </td>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"checked="checked">
-                                        <span class="text"></span>
-                                    </label>
-                                </div>
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="inputEmail3">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Review Details
-                            </td>
-                            <td></td>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                16-10-2017
-                            </td>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"checked="checked">
-                                        <span class="text"></span>
-                                    </label>
-                                </div>
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" id="inputEmail3">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Employee Sign
+                                Manager Approval
                             </td>
                             <td></td>
                             <td>
@@ -303,7 +303,53 @@
                         </tr>
                         <tr>
                             <td>
-                                Manage Approval
+                                Success
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                UnSuccess
+                            </td>
+                            <td></td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                16-10-2017
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked">
+                                        <span class="text"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputEmail3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Everify
                             </td>
                             <td></td>
                             <td>
@@ -428,106 +474,7 @@
         $("[data-toggle=tooltip]").tooltip();
 
         InitiateSimpleDataTable.init();
-
-        //function LoadGrid() {
-        //    $.ajax({
-        //        type: 'GET',
-        //        url: '/Administration/GetAllOnBoardingStages',
-        //        async: false,
-        //        dataType: 'json',
-        //        contentType: "application/json; charset=utf-8",
-        //        cache: false,
-        //        callback: true,
-        //        crossDomain: true,
-        //        success: function (data) {
-
-        //            $('#tblProcess').empty();
-        //            var markup = "";
-        //            markup += "<thead><tr role='row'><th style='text-align:left; width:160px !important;'>Onboarding Stage</th><th  style='text-align:left; width:600px !important;'>Description</th><th  style='text-align:left; width:165px !important;'>Days to Complete</th><th style=' width:120px !important;'>Due Date</th><th style='width:115px;'>Select stage</th><th style='width:160px;'>Sequence No.</th></tr></thead><tbody>";
-        //            if (data != null && data != "Content not found") {
-        //                $.each(data, function (i, item) {
-        //                    s = item.StageSequence;
-        //                    if (parseInt(s) > parseInt(p))
-        //                        p = item.StageSequence;
-        //                    var check = "";
-        //                    // var chk = "";
-
-        //                    if (item.StageSequence != null && item.StageSequence != "") {
-        //                        check = "checked='checked'";
-        //                        //  var chk="<input type='checkbox' name='checkbox'  class='inverted' " + check + ">";
-        //                    }
-        //                    // Due Date format in mm-dd-yyyy. 
-        //                    var DueDateFinal;
-        //                    if (item.DueDate != null) {
-        //                       var DueDate = new Date(item.DueDate);
-        //                        var dueMonth = (DueDate.getMonth() + 1);
-        //                        var dueMonthFinal = (dueMonth < 9 ? '0' + dueMonth : dueMonth);
-        //                        var dueDate = DueDate.getDate();
-        //                        var dueDateFinal = (dueDate < 10 ? '0' + dueDate : dueDate);
-        //                         DueDateFinal = (dueMonthFinal + '-' + dueDateFinal + '-' + DueDate.getFullYear());
-        //                    }
-        //                    else {
-        //                        DueDateFinal = null;
-        //                    }                          
-
-        //                    // Days to Complete in two digits format.
-        //                    var days = item.DaysToComplete;
-        //                    var daysToComplete = "";
-        //                    if (days != null && days.length < 2) {
-        //                        daysToComplete = ('0' + days);
-
-        //                    }
-        //                    else {
-        //                        daysToComplete = days;
-        //                    }
-
-        //                    markup += "<tr><td style='text-align:left'>" + item.StageTitle + "<input type='hidden' value=" + item.StageID + " /></td><td style='text-align:left'>" + (item.StageDescription == null || "" ? "" : item.StageDescription) + "</td><td>" + (daysToComplete == null || "" ? "" : daysToComplete) + "</td><td>" + (DueDateFinal == null || "" ? "" : DueDateFinal) + "</td><td><div class='checkbox'><label><input type='checkbox'  name='checkbox'  class='inverted' " + check + "><span class='text'></span></label></div></td><td><input type='text' value='" + (item.StageSequence == null || "" ? "" : item.StageSequence) + "'  class='form-control' ></td></tr>";  //<input type='checkbox' name='checkbox' class='inverted' " + check + ">
-        //                });
-
-
-        //                markup += "</tbody>";
-
-        //                $('#tblProcess').html(markup).show();
-        //            }
-        //            else {
-        //                markup += "<td colspan=6 text-align:center'><b>No content available</b></td></tbody>";
-        //                $('#tblProcess').html(markup).show();
-        //            }
-        //        },
-        //        complete: function () {
-        //            $('#tblProcess tr').each(function (index, it) {
-        //                $(this).find('td input:text').attr('disabled', true);
-        //            });
-        //            //$('[data-toggle="modal"]').tooltip();
-        //            Enabledisable();
-        //            //$('#tblProcess tbody tr td input:checkbox[name=checkbox]').on('change', function () {
-
-        //            // });
-
-        //        },
-        //        error: function (jqXHR, exception) {
-        //            var msg = '';
-        //            if (jqXHR.status === 0) {
-        //                msg = 'Not connect.\n Verify Network.';
-        //            } else if (jqXHR.status == 404) {
-        //                msg = 'Requested page not found. [404]';
-        //            } else if (jqXHR.status == 500) {
-        //                msg = 'Internal Server Error [500].';
-        //            } else if (exception === 'parsererror') {
-        //                msg = 'Requested JSON parse failed.';
-        //            } else if (exception === 'timeout') {
-        //                msg = 'Time out error.';
-        //            } else if (exception === 'abort') {
-        //                msg = 'Ajax request aborted.';
-        //            } else {
-        //                msg = 'Uncaught Error.\n' + jqXHR.responseText;
-        //            }
-        //            Notify(msg, 'top-right', '5000', 'warning', 'fa-warning', true);
-        //        }
-        //    });
-        //}
-
-        function Reset() {
+          function Reset() {
             $('#tblProcess tr').each(function () {
                 $(this).find('td input:text').val('');
                 $(this).find('td input:checkbox').attr('checked', false);
