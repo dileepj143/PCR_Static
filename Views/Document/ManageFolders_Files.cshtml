@@ -70,7 +70,7 @@
         </div>
         <div class="form-group col-md-4 col-lg-4 col-sm-3 col-xs-12">
             <label for="inputEmail3" class="control-label">Shared Users :</label>
-            <div class="gray-bg divborder" id="divShareToNames"></div>
+            <div class="gray-bg divborder" id="divShareToNames">lweis@gmail.com<a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Delete" id="bootbox-confirm" class="bootbox-confirm"><i class="fa fa-trash-o deletepopover"></i> </a></div>
         </div>
         <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-12">
             <label for="inputEmail3" class="control-label">Share Description :</label>
@@ -531,6 +531,32 @@
  $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+    </script>
+    <script type="text/javascript">
+
+        $('#btnSave').click(function () {
+        SuccessMessage1234("Document have been shared to 'lweis@gmail.com' Successfully");
+    });
+    function SuccessMessage1234(msg) {
+
+        $('.page-sidebar').css('z-index', '100');
+        $('.navbar').css('z-index', '200');
+        bootbox.dialog({
+            message: msg,
+            title: "Success",
+            className: "modal-darkorange",
+            buttons: {
+                success: {
+                    label: "Ok",
+                    className: "btn-blue pull-right",
+                    callback: function () {
+                       
+                    }
+                }
+            }
+        });
+    }
+
     </script>
     @*<script>
  $(function () {
