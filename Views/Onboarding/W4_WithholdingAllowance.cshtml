@@ -125,7 +125,7 @@
                                     <td style="width:800px;">Total number of allowances you are claiming (from line H above or from the applicable worksheet on page 2)</td>
                                     <td style="width:50px;"><strong>5</strong></td>
                                     <td style="width:300px;">
-                                        <input asp-for="TotalAllowance" type="text"  class="form-control">
+                                        <input asp-for="TotalAllowance" type="text"  class="form-control w4-contr-width">
                                         <span asp-validation-for="TotalAllowance" class="asterisk" style="word-spacing:-1px;"></span>
                                     </td>
                                 </tr>
@@ -133,7 +133,7 @@
                                     <td style="width:50px;"><strong>6</strong></td>
                                     <td style="width:800px;">Additional amount, if any, you want withheld from each paycheck ..............</td>
                                     <td style="width:50px;"><strong>6</strong></td>
-                                    <td style="width:300px;"><input asp-for="AdditionalAmount" type="text" class="form-control"></td>
+                                    <td style="width:300px;"><input asp-for="AdditionalAmount" type="text" class="form-control w4-contr-width"></td>
                                 </tr>
                                 <tr>
                                     <td style="width:50px;"><strong>7</strong></td>
@@ -146,7 +146,7 @@
                                         If you meet both conditions, write “Exempt” here ...............
                                     </td>
                                     <td style="width:50px;"><strong>7</strong></td>
-                                    <td style="width:300px;"><input asp-for="ExemptStatus" type="text" class="form-control"></td>
+                                    <td style="width:300px;"><input asp-for="ExemptStatus" type="text" class="form-control w4-contr-width"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -169,7 +169,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-12 col-md-6 col-lg-6 col-xs-12 nopaddingleft">
-                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right"><strong>8</strong>&nbsp;&nbsp;&nbsp;Employer’s name and address (Employer: Complete lines 8 and 10 only if sending to the IRS.) <sup class="asterisk"><b>*</b></sup>:</label>
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right"><strong>8</strong>&nbsp;&nbsp;&nbsp;Employer’s name and address &nbsp;(Employer: Complete lines 8 and 10 only if sending to the IRS.)&nbsp; <sup class="asterisk"><b>*</b></sup>:</label>
                             <div class="col-sm-6">
                                 <input asp-for="EmployerDetails" type="text" class="form-control">
                                 <span asp-validation-for="EmployerDetails" class="asterisk" style="word-spacing:-1px;"></span>

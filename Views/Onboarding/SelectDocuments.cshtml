@@ -30,29 +30,25 @@
 </div>
 
 <!-- Page Header -->
-<div class="page-header position-relative">
-    <div class="header-title">
-        <h1 class="themeprimary">
-            I9 Section-1 : Select Documents
-        </h1>
-    </div>
-    <!--Header Buttons-->
-    <div class="header-buttons">
-        <a class="sidebar-toggler" href="#">
-            <i class="fa fa-arrows-h"></i>
-        </a>
-        <a class="refresh" id="refresh-toggler" href="">
-            <i class="glyphicon glyphicon-refresh"></i>
-        </a>
-        <a class="fullscreen" id="fullscreen-toggler" href="#">
-            <i class="glyphicon glyphicon-fullscreen"></i>
-        </a>
-    </div>
-    <!--Header Buttons End-->
-</div>
+
 <!-- /Page Header -->
 <!-- Page Body -->
-<div class="page-body">
+<div class="row">
+    <div class="col-md-12">
+        <div class="pnhead">
+            <h4>
+                <strong class="themeprimary">LISTS OF ACCEPTABLE  DOCUMENTS (All documents must be UNEXPIRED)</strong>
+            </h4>
+
+            <h5 class="pdn-top"><b>Employees may present one selection from List A or a combination of one selection from List B and one selection from List C.</b></h5>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="page-body pagebody">
+
     <div id="cust-tbl" class="panel panel-default cust-panel" style="overflow:hidden">
         <div class="panel-heading pheight pnhead2 hidden-xs">
             <div class="col-md-4 col-sm-4">
@@ -104,7 +100,7 @@
                 <tbody>
                     <tr class="hidden-lg hidden-md hidden-sm">
                         <td class="bdr-right">
-                            <h4><strong>LIST A</strong></h4>
+                            <h4><strong>LIST A</h4></strong>
                             <h4>
                                 <strong>Documents that Establish Both Identity and Employment Authorization</strong>
                             </h4>
@@ -233,14 +229,14 @@
                                     <div class="td-txt">
                                         The same name as the passport; and
                                     </div>
-                                    <div class="eight2">
+                                    <div class="eightstand">
                                         <div class="checkbox">
                                             <label>
                                                 <span class="text main-color">&nbsp;(2)</span>
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="td-txt">
+                                    <div class="td-txt2 cust-padding-left">
                                         An endorsement of the alien's nonimmigrant status as long as that period of endorsement has not yet expired and the
                                         proposed employment is not in conflict with any restrictions or
                                     </div>
@@ -569,7 +565,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="td-txt">
+                                    <div class="td-txt1">
                                         NOT VALID FOR EMPLOYMENT
                                     </div>
 
@@ -580,7 +576,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="td-txt">
+                                    <div class="td-txt1">
                                         VALID FOR WORK ONLY WITH INS AUTHORIZATION
                                     </div>
 
@@ -591,7 +587,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="td-txt">
+                                    <div class="td-txt1">
                                         VALID FOR WORK ONLY WITH DHS AUTHORIZATION
                                     </div>
                                 </div>
@@ -719,11 +715,56 @@
         <div class="bdr-top"><div class="pnfooter2"><h4><strong>Refer to the instructions for more information about acceptable receipts.</strong></h4></div></div> -->
     </div>
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
-        <button onclick='location.href ="/Onboarding/ReadPolicies"' class="btn btn-primary btn-md btnSearch">Previous</button>
+        <button onclick='location.href = "/Onboarding/ReadPolicies"' class="btn btn-primary btn-md btnSearch">Previous</button>
         <button onclick='location.href = "/Onboarding/Upload_document"' class="btn btn-primary btn-md btnSearch">Next</button>
-        
     </div>
-    </div>
+</div>
     <!-- /Page Content -->
+<style>
+    /*@@media (min-width: 1024px) {
+       .number5 .td-check {padding-left:10px;}
+    }*/
+    .eightstand {
+    width: 8% !important;
+    float: left;
+    height: 94px;
+    margin-left: -34px !important;
+}
+    .eightleft {
+    width: 8%;
+    float: left;
+}
+@@media only screen and (max-width: 1030px) and (min-width: 780px){
+    .td-txt {
+    padding: 2px 17px 2px 72px !important;
+}
+    .td-txt1 {padding:2px 17px 2px 95px !important}
+     .td-txt2 {padding:2px 17px 2px 127px !important}
+    .eightstand {
+    width: 10% !important;
+    float: left;
+    height: 94px;
+    margin-left: 30px !important;
+}
+}
+@@media only screen and (max-width: 779px) and (min-width: 550px){
+    .td-txt {
+    padding: 2px 17px 2px 72px !important;
+}
+    .td-txt1 {padding:2px 17px 2px 95px !important}
+      .td-txt2 {padding:2px 17px 2px 122px !important}
+    .eightstand {
+    width: 10% !important;
+    float: left;
+    height: 94px;
+    margin-left: 28px !important;
+}
+}
+    @@media only screen and (max-width: 425px) and (min-width: 320px) {
+        .eightstand {
+    width: 2.3% !important;
+}
+    }
 
+</style>
     

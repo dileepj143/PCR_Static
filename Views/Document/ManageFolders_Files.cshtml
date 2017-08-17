@@ -68,18 +68,18 @@
                 <option>john@gmail.com</option>
             </select>
         </div>
-        <div class="form-group col-md-4 col-lg-4 col-sm-3 col-xs-12">
+        <div class="form-group col-md-3 col-lg-4 col-sm-3 col-xs-12">
             <label for="inputEmail3" class="control-label">Shared Users :</label>
-            <div class="gray-bg divborder" id="divShareToNames">lweis@gmail.com<a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Delete" id="bootbox-confirm" class="bootbox-confirm"><i class="fa fa-trash-o deletepopover"></i> </a></div>
+            <div class="gray-bg divborder" id="divShareToNames">lweis@gmail.com&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Delete" id="bootbox-confirm" class="bootbox-confirm"><i class="fa fa-trash-o deletepopover"></i> </a></div>
         </div>
-        <div class="form-group col-md-3 col-lg-3 col-sm-4 col-xs-12">
+        <div class="form-group col-md-3 col-lg-3 col-sm-3 col-xs-12">
             <label for="inputEmail3" class="control-label">Share Description :</label>
             <div class="">
-                <textarea class="form-select form-control" id="txtShareDesc" style="padding: 5px 12px 13px;background-color: #fbfbfb;" placeholder="Description"></textarea>
+                <textarea class="form-select form-control fixed-textarea" id="txtShareDesc" style="padding: 5px 12px 13px;background-color: #fbfbfb;" placeholder="Description"></textarea>
             </div>
 
         </div>
-        <div class="form-group col-md-2 col-lg-2 col-sm-3 col-xs-12 no-padding-right" style="padding:25px 5px;">
+        <div class="form-group col-md-3 col-lg-2 col-sm-3 col-xs-12 no-padding-right" style="padding:25px 5px;">
             <label for="inputEmail3" class="control-label" style="float:left;">Can Edit?:</label>
             <div class="">
                 <label style="float:left; margin-left:5px; ">
@@ -301,9 +301,8 @@
                             <input type="text" class="form-select form-control" id="txtFolderName" style="margin-bottom:8px;" placeholder="Folder/File Name">
                             <span id="MsgEditTitle" class="asterisk" style="margin:0px;" hidden>Please enter title.</span>
                         </div>
-
                     </div>
-                    <div class="form-group" id="divEditFileType" hidden>
+                    <div class="form-group" id="divEditFileType">
                         <label for="inputEmail3" class="col-sm-5 col-md-2 col-sm-offset-1 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label employee-inputcol">Document Type :</label>
                         <div class="col-sm-4">
                             <select class="form-select form-control" id="categoryTypeEdit" style="margin-bottom:8px;">
@@ -315,7 +314,7 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-5 col-md-2 col-sm-offset-1 col-lg-2 col-xs-12 col-md-offset-3 col-lg-offset-3 control-label employee-inputcol">Description :</label>
                         <div class="col-sm-4">
-                            <textarea class="form-control" id="txtDesEdit"></textarea>
+                            <textarea class="form-control fixed-textarea" id="txtDesEdit"></textarea>
                             <span id="MsgEditDesc" class="asterisk" style="margin:0px;" hidden>Description should be less than 500 characters.</span>
                         </div>
                     </div>
@@ -325,11 +324,11 @@
                         <div class="col-sm-6">
                             <div class="checkbox" id="validity-dateEdit" style="margin-bottom:15px;">
                                 <label style="float:left;">
-                                    <input type="checkbox" class="inverted" value="validitycheck" id="chkvaliditycheckEdit" name="chkvaliditycheckEdit" checked>
+                                    <input type="checkbox" class="inverted" value="validitycheck" name="chkvaliditycheckEdit">
                                     <span class="text"></span>
                                 </label>
                             </div>
-                            <div class="validitycheck" id="divEditValidFromAndTo">
+                            <div class="validitycheck" hidden>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-6 col-md-3 col-lg-3 control-label no-padding-right" style="padding-left:0px;">Valid From :</label>
                                     <div class="col-sm-6">
@@ -339,7 +338,7 @@
                                                 <i class="fa fa-calendar themeprimary"></i>
                                             </span>
                                         </div>
-                                        
+                                        <span id="MsgEditValidFrom" class="asterisk" style="margin:0px;" hidden>Valid from date is required.</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -351,7 +350,7 @@
                                                 <i class="fa fa-calendar themeprimary"></i>
                                             </span>
                                         </div>
-                                        
+                                        <span id="MsgEditValidUpto" class="asterisk" style="margin:0px;" hidden>Valid upto date is required.</span>
                                     </div>
                                 </div>
                             </div>
@@ -359,10 +358,10 @@
                     </div>
                 </form>
                 <hr class="location-hr" />
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
-                    <a href="/Document/ManageFolders_Files"> <button class="btn btn-primary btn-md btnSearch" id="btnSave">Save</button></a>
-                    <a href="/Document/ManageFolders_Files"> <button class="btn btn-warning btn-md btnSearch" data-dismiss="modal" id="btnCancel">Cancel</button></a>
-</div>
+                <div class="col-md-6 col-md-offset-5 col-lg-offset-5 col-lg-6 col-sm-5 col-sm-offseView Folder/Documentt-4 col-xs-10 col-xs-offset-2 form-btns">
+                    <a href="/Document/ManageFolders_Files" class="cancel-btn"><button type="button" class="btn btn-md btn-primary" id="btnSave">Save</button></a>
+                    <a href="/Document/ManageFolders_Files" class="cancel-btn"><button type="button" class="btn btn-md btn-warning" data-dismiss="modal" id="btnCancel">Cancel</button></a>
+                </div>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -555,6 +554,98 @@
                 }
             }
         });
+    }
+    function EditDocument(documentId, isFolder) {
+
+        $('#MsgEditTitle').hide();
+        $('#MsgEditDesc').hide();
+        $('#MsgEditValidFrom').hide();
+        $('#MsgEditValidUpto').hide();
+
+        var ClientID = $('#ddlMasterClient :selected').val();
+        $('#ShareFiles').hide();
+        $('.modal-body').find('.form-group').eq(2).val('').show();
+        $('.modal-body').find('.form-group').eq(5).val('').show();
+
+        if (isFolder) {
+            $('#divEditFileType').hide();
+            $("#divValidityEdit").hide();
+        }
+        else {
+            $('#divEditFileType').show();
+            $("#divValidityEdit").show();
+        }
+
+        $('.page-sidebar').css('z-index', '0');
+        $('.navbar').css('z-index', '200');
+
+        $.ajax({
+            url: '/Document/GetDocumentById',
+            data: { documentId: documentId, clientID: ClientID },
+            datatype: 'json',
+            contentType: 'application/json',
+            async: false,
+            processdata: true,
+            success: function (data) {
+
+                var documentId = JSON.parse(data).DocumentID;
+                var documentTitle = JSON.parse(data).DocumentTitle;
+                var documentDesc = JSON.parse(data).Description;
+                var documentCategoryType = JSON.parse(data).Category;
+                var credate = new Date(JSON.parse(data).CreatedDate);
+
+                var createdMonth = (credate.getMonth() + 1);
+                var createdMonthFinal = (createdMonth < 9 ? '0' + createdMonth : createdMonth);
+                var createdDate = credate.getDate();
+                var creatededDateFinal = (createdDate < 10 ? '0' + createdDate : createdDate);
+                var credate = new Date(JSON.parse(data).CreatedDate);
+
+                var createdMonth = (credate.getMonth() + 1);
+                var createdMonthFinal = (createdMonth < 9 ? '0' + createdMonth : createdMonth);
+                var createdDate = credate.getDate();
+                var creatededDateFinal = (createdDate < 10 ? '0' + createdDate : createdDate);
+                var createddate = (createdMonthFinal + '-' + creatededDateFinal + '-' + credate.getFullYear());
+
+                var createdBy = JSON.parse(data).CreatedBy;
+
+                var modifydate = new Date(JSON.parse(data).ModifiedDate);
+
+
+                var ModifiedMonth = (modifydate.getMonth() + 1);
+                if (ModifiedMonth != '')
+                    var ModifiedMonthFinal = (ModifiedMonth < 9 ? '0' + ModifiedMonth : ModifiedMonth);
+                var ModifiedDate = (modifydate.getDate());
+                if (ModifiedDate != '')
+                    var ModifiedDateFinal = (ModifiedDate < 10 ? '0' + ModifiedDate : ModifiedDate);
+                var modifieddate = (ModifiedMonthFinal + '-' + ModifiedDateFinal + '-' + modifydate.getFullYear());
+
+                var modifiedDate = JSON.parse(data).ModifiedDate == null ? '' : modifieddate;     //JSON.parse(data).ModifiedDate
+                var modifiedBy = JSON.parse(data).ModifiedBy;
+
+                $('#hdnDocumentId').val(documentId);
+                $('#txtFolderName').val(documentTitle);
+                $('#txtDesEdit').val(documentDesc);
+                $('#lblCreatedDate').text(createddate);
+                $('#lblCreatedBy').text(createdBy);
+                $('#lblModifiedDate').text(modifiedDate);
+                $('#lblModifieBy').text(modifiedBy);
+
+                if (documentCategoryType != null)
+                    $('#categoryTypeEdit').val(documentCategoryType);
+                else
+                    $('#categoryTypeEdit').val('Select');
+
+                if (JSON.parse(data).ValidFrom != null && JSON.parse(data).ValidFrom != "") {
+
+                    var ediefromdate = new Date(JSON.parse(data).ValidFrom);
+                    var edieTodate = new Date(JSON.parse(data).ValidUpto);
+
+                    $('#id-date-picker-1-txtValidFromEdit').val((ediefromdate.getMonth() + 1) + '-' + ediefromdate.getDate() + '-' + ediefromdate.getFullYear());
+                    $('#id-date-picker-1-txtValidUptoEdit').val((edieTodate.getMonth() + 1) + '-' + edieTodate.getDate() + '-' + edieTodate.getFullYear());
+                    $("input:checkbox[name=chkvaliditycheckEdit]").prop('checked', true).change();
+                }
+            }
+        })
     }
 
     </script>
@@ -843,7 +934,7 @@
                 }
             })
         }
-
+        
         function SharePopup(id, documentTitle) {
 
             if ($('#OpenFolderTable').is(':visible') == true)

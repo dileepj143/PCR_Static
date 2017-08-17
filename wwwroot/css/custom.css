@@ -1454,7 +1454,9 @@ input[type=number]::-webkit-outer-spin-button {
  width:34%;border-left: 3px solid #ddd !important;padding:0px !important;text-align: left !important;
 }
 .td-lft-body {margin-top:5px;margin-bottom:5px}
-.td-txt {padding:2px 17px !important}
+.td-txt {padding:2px 17px 2px 82px !important}
+.td-txt1 {padding:2px 17px 2px 82px !important}
+.td-txt2 {padding:2px 17px 2px 82px !important}
 .td-check {width:20%;float:left;padding-left:25px}
 .td-height-57 {height:57px}
 .td-height-170 {height:170px}
@@ -1669,7 +1671,7 @@ margin-top: 40px; z-index:190; }
  .manage-division .toggle {margin-top:2px !important;}
  
 .mrg-left-4 {
-	 margin-left:4px;
+	 margin-left:0px;
  }
  .nopaddingleft{
 	 padding-left:0px;
@@ -2063,11 +2065,11 @@ input[type=checkbox]~.text, input[type=radio]~.text {
     width: 2% !important;
     float: left;
 }
-.eight2 {
+.eightstand {
     width: 2% !important;
     float: left;
     height: 94px;
-    margin-left: -30px;
+    margin-left: -38px !important;
 }
 .td-txt {
     padding: 2px 65px !important;
@@ -2079,15 +2081,34 @@ input[type=checkbox]~.text, input[type=radio]~.text {
 }
 
 
-.eightleft {
-    width: 8%;
-    float: left;
-}
-.eight2 {
-    width: 8%;
+
+
+@media only screen and (max-width: 1030px) and (min-width: 780px){
+	.eightstand {
+    width: 11% !important;
     float: left;
     height: 94px;
-    margin-left: -30px;
+    margin-left: 26px !important;
+}
+.cust-padding-left{
+    padding-left: 127px !important;
+
+}
+.td-txt {
+    padding: 2px 17px 2px 72px !important;
+}
+}
+@media only screen and (max-width: 779px) and (min-width: 450px){
+	.eightstand {
+    width: 11% !important;
+    float: left;
+    height: 94px;
+    margin-left: 26px !important;
+}
+.cust-padding-left{
+    padding-left: 121px !important;
+
+}
 }
 .upload .table>tbody>tr>th {border-top:none !important;border-bottom:1px solid #e5e5e5 !important;}
 
@@ -2284,3 +2305,27 @@ overflow:hidden;
    
   }
 }
+.fixed-textarea {
+    resize: vertical;
+}
+@media (max-width: 1024px) and (min-width: 320px) {
+    .rep-paddingleft15 {
+        padding-left:15px !important;
+    }
+    .w4-contr-width {
+        width:181px !important;
+    }
+}
+@media (max-width: 1030px) and (min-width: 930px) {
+    .btnUplolad{
+       
+        margin-top:7px!important;
+    }
+}
+/*17-8-2017*/
+@media only screen and (max-width: 425px) and (min-width: 320px){
+    .pform{
+        margin-bottom:10px;
+    }
+}
+

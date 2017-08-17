@@ -1,10 +1,8 @@
 ﻿@model Client
 @{
     ViewData["Title"] = "Super Admin";
-    //var base64 = Convert.ToBase64String(Model.ClientLogo);
     var ClientLogo = string.Empty;
     var ClientWelcomeLogo= string.Empty;
-    //var ClientId = "";
     if (!string.IsNullOrEmpty(ViewBag.ClientLogo)) {
         ClientLogo = String.Format("data:image/jpg;base64,{0}", ViewBag.ClientLogo);
     }
@@ -12,11 +10,7 @@
     {
         ClientWelcomeLogo = String.Format("data:image/jpg;base64,{0}", ViewBag.ClientWelcomeLogo);
     }
-    //if (!string.IsNullOrEmpty(ViewBag.ClientID))
-    //{
-    //    ClientId = ViewBag.ClientID;
-    //}
-
+   
 
 }
   <!-- Page Breadcrumb -->
@@ -75,13 +69,13 @@
                 <div class="form-group col-sm-6">
                     <label for="inputEmail3" class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 col-xs-12 control-label no-padding-right">Client Caption </label>
                     <div class="col-sm-12 col-lg-11 col-md-11 col-xs-12 col-md-offset-1 col-lg-offset-1" style="margin-top:10px;">
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control fixed-textarea" rows="2"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="inputEmail3" class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 control-label no-padding-right">Client Welcome Message </label>
                     <div class="col-sm-12 col-lg-11 col-md-offset-1 col-lg-offset-1 col-md-11 col-xs-12" style="margin-top:10px;">
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control fixed-textarea" rows="2"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
