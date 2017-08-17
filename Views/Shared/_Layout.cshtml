@@ -51,8 +51,7 @@
         <script src="~/assets/js/skins.min.js"></script>
         <script src="~/assets/js/toastr/toastr.js"></script>
        <link href="~/assets/css/SignaturePad/signature-pad.css" rel="stylesheet" />
-        <link href="~/js/css/bootstrap-datepicker.css" rel="stylesheet" />
-        <link href="~/js/css/bootstrap-datepicker3.css" rel="stylesheet" />
+        
 
     </environment>
     <environment names="Staging,Production">
@@ -77,8 +76,7 @@
         <script src="~/assets/js/skins.min.js"></script>
         <script src="~/assets/js/toastr/toastr.js"></script>
         <link href="~/assets/css/SignaturePad/signature-pad.css" rel="stylesheet" />
-        <link href="~/js/css/bootstrap-datepicker.css" rel="stylesheet" />
-        <link href="~/js/css/bootstrap-datepicker3.css" rel="stylesheet" />
+        
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
@@ -130,7 +128,8 @@
     <script src="~/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="~/assets/js/skins.min.js"></script>
     <!--Beyond Scripts-->
-    <script src="~/assets/js/beyond.js"></script>
+    @*<script src="~/assets/js/beyond.js"></script>*@
+    
 
     <script src="~/assets/js/validation/bootstrapValidator.js"></script>
     <script src="~/assets/js/inputmask/jasny-bootstrap.min.js"></script>
@@ -164,7 +163,7 @@
     <script src="~/assets/js/datetime/bootstrap-datepicker.js"></script>
     @*<script type="text/javascript" src="~/assets/js/jquery.uploadPreview.min.js"></script>*@
     <script src="~/assets/js/jquery.uploadpreview.min.js"></script>
-    <script src="~/js/bootstrap-datepicker.js"></script>
+    
     <script>
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover();
@@ -278,7 +277,7 @@
     
     <script src="~/assets/js/jquery.uploadpreview.min.js"></script>
     <script src="~/assets/js/inputmask/jasny-bootstrap.js"></script>
-    <script src="~/js/bootstrap-datepicker.js"></script>
+    
        <script>
         
         $('#btn-setting')

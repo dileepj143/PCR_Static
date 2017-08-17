@@ -136,11 +136,6 @@
                             <span class="menu-text">Manage I9 Documents</span>
                         </a>
                     </li>
-                    <li style="display:none">
-                        <a href="#">
-                            <span class="menu-text">Manage I9 Validations</span>
-                        </a>
-                    </li>
                     <li>
                         <a href="@Url.Action("ManageStages", "Administration")" id="Stage">
                             <span class="menu-text">Manage Stages</span>
@@ -249,7 +244,7 @@
                                     }
                                 }
 
-                                <span class="menu-text">I9 Categories</span><p style="font-size:10px;">(Due: 17/8/2017)</p>
+                                <span class="menu-text">I9 Categories</span><p style="font-size:10px;">(Due:08/08/2017)</p>
                             </a>
 
                             @*<a onclick="SendURL('/SuperAdmin/I9Categories')" href="#" class="menu-dropdown">
@@ -262,7 +257,7 @@
                                 @{
                                     var i9Section1DueDate = date.AddDays(3).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill I9 Section-1</span><p style="font-size:10px;">(Due: @i9Section1DueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill I9 Section-1</span><p style="font-size:10px;">(Due:08/09/2017)</p>
 
                             </a>
                         </li>
@@ -271,7 +266,7 @@
                                 @{
                                     var i9VsiDueDate = date.AddDays(4).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill VSI</span><p style="font-size:10px;">(Due: @i9VsiDueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill VSI</span><p style="font-size:10px;">(Due: 08/11/2017)</p>
                             </a>
                         </li>
                         <li>
@@ -279,7 +274,7 @@
                                 @{
                                     var i9W4DueDate = date.AddDays(5).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill W-4</span><p style="font-size:10px;">(Due: @i9W4DueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Fill W-4</span><p style="font-size:10px;">(Due: 08/12/2017)</p>
                             </a>
                         </li>
                         <li>
@@ -287,7 +282,7 @@
                                 @{
                                     var i9DepositDueDate = date.AddDays(6).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Pay Deposit Details</span><p style="font-size:10px;">(Due: @i9DepositDueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Pay Deposit Details</span><p style="font-size:10px;">(Due:08/12/2017)</p>
                             </a>
                         </li>
                         <li>
@@ -295,7 +290,7 @@
                                 @{
                                     var i9PolicyDueDate = date.AddDays(7).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Read Policies</span><p style="font-size:10px;">(Due: @i9PolicyDueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Read Policies</span><p style="font-size:10px;">(Due: 08/13/2017)</p>
                             </a>
                         </li>
                         <li>
@@ -303,7 +298,7 @@
                                 @{
                                     var i9SelectDocumentsDueDate = date.AddDays(8).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Select Documents</span><p style="font-size:10px;">(Due: @i9SelectDocumentsDueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Select Documents</span><p style="font-size:10px;">(Due:08/14/2017)</p>
                             </a>
                         </li>
                         <li>
@@ -311,7 +306,7 @@
                                 @{
                                     var i9UploadDocsDueDate = date.AddDays(9).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Upload Documents</span><p style="font-size:10px;">(Due: @i9UploadDocsDueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Upload Documents</span><p style="font-size:10px;">(Due:08/15/2017)</p>
                             </a>
                         </li>
                         <li>
@@ -319,7 +314,7 @@
                                 @{
                                     var i9SignDueDate = date.AddDays(10).ToString("MM/dd/yyyy");
                                 }
-                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Employee Sign</span><p style="font-size:10px;">(Due: @i9SignDueDate)</p>
+                                <span class="menu-text"><i class="fa fa-file-text-o" style="margin-right:10px;"></i>Employee Sign</span><p style="font-size:10px;">(Due:08/16/2017)</p>
                             </a>
                         </li>
 
@@ -455,6 +450,7 @@
     </ul>
     <!-- /Sidebar Menu -->
 </div>
+
 <script>
     $(document).ready(function () {
         $('#seventh').slideDown();
