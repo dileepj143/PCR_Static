@@ -65,7 +65,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form">
             <form class="form-horizontal" role="form">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <h5 class="personal-details"><strong>Personal Details</strong></h5>
                         
                         <div class="form-group col-sm-12">
@@ -113,7 +113,7 @@
                          <div class="form-group col-sm-12">
                             <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Email Address (Optional)&nbsp;:</label>
                             <div class="col-sm-6 instruction-pop">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="stjohncarter@gmail.com" >
+                                <input type="text" class="form-control instruction-pop1" id="inputEmail3" placeholder="stjohncarter@gmail.com" >
                                 <a href="javascript:void(0);" data-container="body" data-class="" data-toggle="popover-hover" data-placement="top" data-title="Instructions" data-content="Department of Homeland Security (DHS) may contact you if DHS learns of a potential mismatch between the information provided and information in DHS or Social Security Administration (SSA) records.Not willing to give this information write 'N/A'." data-original-title="" title="">
                                     ?
                                 </a>
@@ -129,10 +129,10 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <h5 class="personal-details"><strong>Present Address</strong></h5>
                         <div class="form-group col-sm-12">
-                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Street Number and Name :</label>
+                            <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Street Number&nbsp; and Name  :</label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="inputEmail3" placeholder="634 St Avenue">
                             </div>
@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <h5 class="personal-details"><strong>Attestation</strong></h5>
                         <div class="form-group col-sm-12">
                             <label for="inputEmail3" class="col-sm-6 control-label no-padding-right">Citizenship :</label>
@@ -265,7 +265,14 @@
 .i9section-text-width {
     width: 85% !important;
 }
-                
+               @@media only screen and (max-width: 1200px) and (min-width: 1020px) {
+    .instruction-pop input{
+         width: 90% !important;
+    }
+    .i9section-text-width {
+    width: 90% !important;
+}
+} 
         </style>
     </environment>
     <environment>

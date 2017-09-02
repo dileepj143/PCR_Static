@@ -56,8 +56,10 @@
 
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 division-form">
         <form class="form-horizontal form-padding" role="form">
-            <p class="themeprimary"><strong>I am aware that federal law provides for imprisonment and/or fines for false statements or use of false documents in connection with the completion of this form.</strong></p>
-            <p class="themeprimary"><strong>I attest, under penalty of perjury, that i am (check one of the following boxes):</strong></p>
+            <div class="col-md-12">
+                <p class="themeprimary"><strong>I am aware that federal law provides for imprisonment and/or fines for false statements or use of false documents in connection with the completion of this form.</strong></p>
+                <p class="themeprimary"><strong>I attest, under penalty of perjury, that i am (check one of the following boxes):</strong></p>
+            </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="radio">
                     <label>
@@ -86,10 +88,10 @@
                 <div class="radio col-sm-7" style="padding-left:0px">
                     <label>
                         <input name="form-field-radio" type="radio" class="main-color">
-                        <span class="text main-color">A lawful permanent resident &nbsp;&nbsp;&nbsp;(Alien registration number or USCIS number)</span>
+                        <span class="text main-color">A lawful permanent resident &nbsp;(Alien registration number or USCIS number)</span>
                     </label>
                 </div>
-                <div class="col-sm-4 form-group" style="padding-left:0px; margin-top:8px;">
+                <div class="col-sm-4 form-group" style="padding-left:0px;">
                     <div class="col-sm-6 no-padding-left no-padding-right">
                         <select class="form-select form-control">
                             <option value="0">A</option>
@@ -107,7 +109,7 @@
                 <div class="radio col-sm-7" style="padding-left:0px">
                     <label>
                         <input name="form-field-radio" type="radio" class="main-color">
-                        <span class="text main-color">An alien authorized to work until &nbsp;&nbsp;&nbsp;(Expiration date if applicable)<p style="padding-left:20px;">Some aliens may write "N/A" in the expiration field.</p></span>
+                        <span class="text main-color">An alien authorized to work until &nbsp;(Expiration date if applicable)<p style="padding-left:24px;">Some aliens may write "N/A" in the expiration field.</p></span>
                     </label>
                 </div>
                 <div class="col-sm-4 form-group" style="padding-left:0px; margin-top:10px;">
@@ -119,7 +121,7 @@
                 <p class="themeprimary"><strong>Aliens authorized to work must provide only one of the document numbers to complete form 1-9:</strong></p>
                 <p class="themeprimary"><strong> An Alien Registration Number/USCIS Number OR Form 1-94 Admission Number OR Foriegn Passport Number.</strong></p>
 
-                <div class="form-group col-sm-10 hide-show text-center" style="padding-left:5px">
+                <div class="form-group col-sm-10 hide-show" style="padding-left:0px">
                     <label for="inputEmail3" class="col-sm-4 control-label  no-padding-lef no-padding-right">1. Alien Registration Number <p style="margin-left:12px">(A-Number/USCIS Number)</p></label>
                     <div class="col-sm-4">
                         <input type="email" class="form-control" id="inputEmail3">
@@ -133,8 +135,8 @@
             </div>
 
 
-            <div class="form-group col-sm-10 hide-show text-center">
-                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right">2. Form I-94 adminssion Number</label>
+            <div class="form-group col-sm-10 hide-show">
+                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right">2. Form I-94 admission Number</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputEmail3">
                 </div>
@@ -145,17 +147,22 @@
             <div class="form-group col-sm-8">
                 <h4 class="text-center"><strong>or</strong></h4>
             </div>
-
-
-
-            <div class="form-group col-sm-10 hide-show text-center">
-                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right ">3. Foreign Passport Number</label>
+            <div class="form-group col-sm-10 hide-show">
+                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right">3. Foreign Passport Number</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputEmail3">
                 </div>
             </div>
 
-            <div class="form-group col-sm-10 hide-show text-center">
+
+            @*<div class="form-group col-sm-10 hide-show text-center">
+                <label for="inputEmail3" class="col-sm-4 control-label no-padding-right ">3. Foreign Passport Number</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputEmail3">
+                </div>
+            </div>*@
+
+            <div class="form-group col-sm-10 hide-show">
                 <label for="inputEmail3" class="col-sm-4 control-label no-padding-right">Country of Issuance</label>
                 <div class="col-sm-4">
                     <select class="form-select form-control">
@@ -173,6 +180,7 @@
     <hr class="location-hr">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center center-block">
         <a href="/Onboarding/I9section_1" class="btn btn-primary btn-md btnSearch">Previous</a>
+
         <a href="/Onboarding/I9section_1_review" class="btn btn-primary btn-md btnSearch">Next</a>
     </div>
 
